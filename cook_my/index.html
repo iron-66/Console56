@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Повар: личный кабинет</title>
         <link rel="stylesheet" href="Повар_Личный_кабинет_стили.css">
+        <script src="script.js"></script>
     </head>
     <body>
         <!-- Шапка -->
@@ -38,10 +39,12 @@
             <div class="outer-buttons">
                 <button class="change-password-btn">Сменить пароль</button>
             </div>
-            <div class="deep-dark-popup">
+
+            <!-- Попа(п) -->
+            <div id="popup" class="deep-dark-popup" hidden>
                 <div class="change-password-popup">
                     <div class="popup-header">
-                        <button class="back-to-page-btn"></button>
+                        <button id="back_btn" class="back-to-page-btn"></button>
                         <p class="change-password-title">Сменить пароль</p>
                     </div>
                     <div class="change-pass-info">
