@@ -214,7 +214,7 @@ main {
     background-color: rgba(0,0,0,0.5);
     overflow: hidden;
     position: fixed;
-    top: 2%;
+    top: 0px;
 }
 
 .change-password-popup {
@@ -232,7 +232,7 @@ main {
     color: #5C434D;
     border: 5px solid #43AA72;
     background-color: #FFFFFF;
-    margin: 8% 0 0 33%;
+    margin: 5% 0 0 33%;
 }
 
 input {
