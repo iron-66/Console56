@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="RU-ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Менеджер: актуальные заказы</title>
+        <link rel="stylesheet" href="Менеджер_Актуальные_заказы_стили.css">
+    </head>
+    <body>
+        <!-- Шапка -->
+        <header class="page-header">
+            <nav class="header-nav">
+                <ul class="header-nav-arr">
+                    <li class="header-nav-arr-item">
+                        <img class="logo" src="Logo.png" alt="Пять Шестых">
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="actual-orders-button">Актуальные заказы</button>
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="accepted-orders-button">Новый заказ</button>
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="orders-archive-button">Архив заказов</button>
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="LK-button">
+                            <p>Менеджер</p>
+                            <img src="Avatar.png" alt="icon">
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Основной контент(база) -->
+        <main class="main-inner">
+            <ul class="actual-orders">
+                <li class="actual-orders-item">
+                    <div class="about-order">
+                        <div class="order-item-number">
+                            <p><b>№ заказа:</b></p>
+                            <p class="order-number">228</p>
+                        </div>
+                        <div class="order-item-date-and-time">
+                            <p><b>Дата и время:</b></p>
+                            <p class="order-date-and-time">29.10.2001 19:15</p>
+                        </div>
+                        <div class="order-item-status">
+                            <p><b>Статус заказа:</b></p>
+                            <p class="order-status">Передано в производство</p>
+                        </div>
+                    </div>
+                    <div class="about-customer">
+                        <div class="order-item-customer">
+                            <p>Заказчик:</p>
+                            <p class="order-customer">Мохаммед али Аллах Саил Самуил Джан Де - польто</p>
+                        </div>
+                        <div class="order-item-address">
+                            <p>Адрес:</p>
+                            <p class="order-address">г. Екатеринбург, ул. Баумана, дом 3А, кв. 34</p>
+                        </div>
+                        <div class="order-item-phone-number">
+                            <p>Телефон:</p>
+                            <p class="order-phone-number">88005553535</p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="more-info-btn"></button>
+                        <button class="cancel-btn"></button>
+                        <button class="edit-btn"></button>
+                    </div>
+                    <div class="order-content">
+                        <div class="order-content-header">
+                            <p class="order-content-header-cntnt">Содержимое заказа:</p>
+                            <p class="order-content-header-amount">Кол-во:</p>
+                            <p class="order-content-header-cost">Стоимость:</p>
+                        </div>
+                        <ul class="order-content-list">
+                            <li class="order-content-list-item">
+                                <p class="order-content-item-name">Пицца "Сечире рыра"</p>
+                                <p class="order-content-item-amount">10 шт.</p>
+                                <p class="order-content-item-cost">5000 руб.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </main>
+
+        <!-- Подвал(А это вообще надо?) -->
+        <!-- <footer class="page-footer">
+            
+        </footer> -->
+    </body>
+</html>
