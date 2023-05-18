@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const back_btn = document.getElementById('back_btn');
     if (back_btn) {
         back_btn.addEventListener('click', () => {
+            console.log('btn_pressed');
             document.getElementById('popup').hidden = true;
         });
     }
