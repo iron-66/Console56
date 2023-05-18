@@ -1,0 +1,115 @@
+body {
+    background-image: url("../source/Background.png");
+    background-attachment: fixed;
+}
+
+/* Правило для шапки */
+.header-container {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    margin-top: 40px;
+}
+
+.header-text {
+    height: 68px;
+    width: 244px;
+}
+
+.logo {
+    height: 116px;
+    width: 116px;
+}
+
+.five-sixth {
+    margin-bottom: 16px;
+    margin-top: 25px;
+}
+
+.online-pizza {
+    margin-left: 25px;
+}
+
+.header-text {
+    margin-left: 24px;
+}
+
+/* Правило для окна авторизации */
+@font-face {
+    font-family: Inter;
+    font-style: regular;
+    src: local("Inter"), url("../fonts/Inter-Regular.woff2") format("woff2")
+}
+
+.main-page {
+    display: flex;
+    justify-content: center;
+}
+
+.authorization-popup {
+    height: 670px;
+    width: 656px;
+    margin-top: 30px;
+    border: 5px solid #43AA72;
+    border-radius: 20px;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
+    color: #5C434D;
+    background-color: #FFFFFF;
+}
+
+input {
+    width: 536px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #000;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
+    color: #5C434D;
+}
+
+.auth-title {
+    margin-left: 225px;
+}
+
+.icon {
+    margin-left: 286.5px;
+}
+
+.login, 
+.password,
+.login-input,
+.password-input {
+    margin-left: 55px;
+}
+
+.enter-button {
+    height: 90px;
+    width: 260px;
+    border-radius: 76px;
+    border-radius: 58px;
+    border: 0px;
+    background-color: #43AA72;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
+    color: #FFFFFF;
+    margin-top: 71px;
+    margin-left: 198px;
+}
+
+.enter-button:hover {
+    background-color: #298653;
+}
+

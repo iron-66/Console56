@@ -1,0 +1,251 @@
+body {
+    background-image: url("../source/Background.png");
+    background-attachment: fixed;
+}
+
+/* Правила для шапки */
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.header-nav-arr{
+    list-style: none;
+    display: inline-flex;
+    padding: 0;
+}
+
+.header-nav-arr li {
+    margin-right: 19px;
+}
+
+@font-face {
+    font-family: Inter;
+    font-style: regular;
+    src: local("Inter"), url("/fonts/Inter-Regular.woff2") format("woff2")
+}
+
+header button {
+    border-width: 5px;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
+    text-align: Center;
+    vertical-align: Top;
+    color: #43AA72;
+    border-color: #43AA72;
+    background-color: #FFFFFF;
+}
+
+header button:hover {
+    background-color: #DBEDE3;
+}
+
+.logo {
+    background-color: #FAC664;
+    border-radius: 50%;
+}
+
+.actual-orders-button,
+.accepted-orders-button,
+.orders-archive-button {
+    height: 103px;
+    width: 285px;
+    left: 368px;
+    top: 58px;
+    border-radius: 46px;
+}
+
+.LK-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 103px;
+    width: 405px;
+    border-radius: 1271px;
+}
+
+.LK-button p {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 50px;
+    margin-right: 30px;
+    width: 190px;
+}
+
+.LK-button img {
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #43AA72;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+/* Конец правил для шапки */
+
+/* Правила для списка заказов */
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.actual-orders {
+    padding: 0;
+}
+
+.actual-orders-item {
+    list-style: none;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    padding: 0;
+    /* height: 765px; */
+    width: 1430px;
+    border-radius: 55px;
+    color: #5C434D;
+    border: 5px solid #43AA72;
+    background-color: #FFFFFF;
+}
+
+.about-order,
+.about-customer,
+.order-content {
+    font-family: Ubuntu;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 37px;
+    line-height: 100%;
+    text-align: Left;
+    vertical-align: Top;
+    margin-left: 60px;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-style: regular;
+    src: local("Ubuntu"), url("../fonts/ubuntu.woff2") format("woff2")
+}
+
+.about-customer,
+.buttons {
+    display: inline-block;
+}
+
+.buttons button {
+    padding: 0;
+}
+
+.order-item-number,
+.order-item-date-and-time,
+.order-item-status {
+    display: inline-block;
+}
+
+.order-item-number {
+    margin-right: 40px;
+}
+
+.order-item-date-and-time,
+.order-item-status {
+    margin-left: 180px;
+}
+
+.about-order {
+    margin-bottom: 35px;
+}
+
+.about-customer {
+    width: 836px;
+    margin-top: -40px;
+}
+
+.order-customer,
+.order-address,
+.order-phone-number {
+    margin-top: -10px;
+    margin-left: 36px;
+}
+
+.buttons {
+    display: inline-block;
+    text-align: center;
+    width: 378px;
+    margin-left: 100px;
+}
+
+.buttons button {
+    border: none;
+    border-radius: 30px;
+}
+
+.more-info-btn,
+.cancel-btn,
+.edit-btn {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.more-info-btn {
+    margin-top: 5px;
+    width: 378px;
+    height: 138px;
+    background-color: #BDB4B4;
+    background-image: url("../source/corner_mark.png");
+}
+
+.cancel-btn,
+.edit-btn {
+    width: 179px;
+    height: 138px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    margin-right: 15px;
+}
+
+.cancel-btn {
+    background-color: #FA9292;
+    background-image: url("../source/canceled.png");
+}
+
+.edit-btn {
+    background-color: #72878F;
+    background-image: url("../source/edit_icon.png");
+}
+
+/* Содержимое заказа */
+
+.order-content {
+    width: 1245px;
+    margin-left: 60px;
+}
+
+.order-content-header p,
+.order-content-list-item p {
+    display: inline-block;
+}
+
+.order-content-header-amount,
+.order-content-header-cost {
+    margin-left: 300px;
+}
+
+.order-content-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-content-list-item {
+    margin-top: -50px;
+    margin-left: 36px;
+}
+
+.order-content-item-amount {
+    margin-left: 260px;
+}
+
+.order-content-item-cost {
+    margin-left: 330px;
+}

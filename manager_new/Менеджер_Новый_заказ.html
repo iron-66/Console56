@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="RU-ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Менеджер: новый заказ</title>
+        <link rel="stylesheet" href="Менеджер_Новый_заказ_стили.css">
+    </head>
+    <body>
+        <!-- Шапка -->
+        <header class="page-header">
+            <nav class="header-nav">
+                <ul class="header-nav-arr">
+                    <li class="header-nav-arr-item">
+                        <img class="logo" src="../source/Logo.png" alt="Пять Шестых">
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="actual-orders-button">Актуальные заказы</button>
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="accepted-orders-button">Новый заказ</button>
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="orders-archive-button">Архив заказов</button>
+                    </li>
+                    <li class="header-nav-arr-item">
+                        <button class="LK-button">
+                            <p>Менеджер</p>
+                            <img src="../source/Avatar.png" alt="icon">
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Основной контент(база) -->
+        <main class="main-inner">
+            <div class="deep-dark-popup">
+                <div class="pick-dish-popup">
+                    <div class="popup-header">
+                        <button class="back-to-page-btn"></button>
+                        <p class="pick-dish-title">Блюда</p>
+                    </div>
+                    <div class="pick-dish-info">
+                        <input class="search-input" placeholder="Введите название блюда">
+                    </div>
+                    <ul class="dishes-list">
+                        <li><button class="dish">Пицца "Ветчина и грибы"</button></li>
+                        <li><button class="dish">Пицца "Карбонара"</button></li>
+                        <li><button class="dish">Пицца "Пепперони Фреш"</button></li>
+                        <li><button class="dish">Пицца "Сырная"</button></li> 
+                        <li><button class="dish">Пицца "Четыре сезона"</button></li>
+                    </ul>
+                    <div class="amount-info">
+                        <p>Количество:</p>
+                        <input type="number" class="amount-input" placeholder="1">
+                    </div>
+                    <button class="add-btn">Добавить</button>
+                </div>
+            </div>
+            <div class="new-order">
+                <div class="about-customer">
+                    <div class="order-item-customer">
+                        <p>Имя заказчика:</p>
+                        <input type="text" class="order-customer" placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div class="order-item-address">
+                        <p>Адрес:</p>
+                        <input type="text" class="order-address" placeholder="ул. Пушкина, дом 35, кв. 120">
+                    </div>
+                    <div class="order-item-phone-number">
+                        <p>Телефон:</p>
+                        <input type="tel" class="order-phone-number" placeholder="+7(ХХХ)-ХХХ-ХХ-ХХ" minlength="12" maxlength="12">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="ok-btn"></button>
+                </div>
+                <div class="order-content">
+                    <div class="order-content-header">
+                        <p class="order-content-header-cntnt">Содержимое заказа:</p>
+                        <p class="order-content-header-amount">Кол-во:</p>
+                        <p class="order-content-header-cost">Стоимость:</p>
+                    </div>
+                    <ul class="order-content-list">
+                        <!-- <li class="order-content-list-item">
+                            <p class="order-content-item-name">Пицца "Сечире рыра"</p>
+                            <p class="order-content-item-amount">10 шт.</p>
+                            <p class="order-content-item-cost">5000 руб.</p>
+                        </li> -->
+                    </ul>
+                    <button class="order-content-add-btn"></button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Подвал(А это вообще надо?) -->
+        <!-- <footer class="page-footer">
+            
+        </footer> -->
+    </body>
+</html>
