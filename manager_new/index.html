@@ -14,19 +14,21 @@
                         <img class="logo" src="../source/Logo.png" alt="Пять Шестых">
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="actual-orders-button">Актуальные заказы</button>
+                        <form action="https://iron-66.github.io/Console56/manager_active"><button class="actual-orders-button">Актуальные заказы</button></form>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="accepted-orders-button">Новый заказ</button>
+                        <button class="accepted-orders-button" disabled="true">Новый заказ</button>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="orders-archive-button">Архив заказов</button>
+                        <form action="https://iron-66.github.io/Console56/manager_archive"><button class="orders-archive-button">Архив заказов</button></form>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="LK-button">
-                            <p>Менеджер</p>
-                            <img src="../source/Avatar.png" alt="icon">
-                        </button>
+                        <form action="https://iron-66.github.io/Console56/manager_my">
+                            <button class="LK-button">
+                                <p>Менеджер</p>
+                                <img src="../source/Avatar.png" alt="icon">
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -34,7 +36,7 @@
 
         <!-- Основной контент(база) -->
         <main class="main-inner">
-            <div class="deep-dark-popup">
+            <div class="deep-dark-popup" hidden="true">
                 <div class="pick-dish-popup">
                     <div class="popup-header">
                         <button class="back-to-page-btn"></button>
