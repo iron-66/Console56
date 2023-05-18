@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Курьер: личный кабинет</title>
         <link rel="stylesheet" href="Курьер_Личный_кабинет_стили.css">
+        <script src="script.js"></script>
     </head>
     <body>
         <!-- Шапка -->
@@ -41,9 +42,11 @@
         <!-- Основной контент(база) -->
         <main class="main-inner">
             <div class="outer-buttons">
-                <button class="change-password-btn">Сменить пароль</button>
+                <button id="change-password-btn" class="change-password-btn">Сменить пароль</button>
             </div>
-            <div class="deep-dark-popup">
+            
+            <!-- Попа(п) -->
+            <div class="deep-dark-popup" hidden="true">
                 <div class="change-password-popup">
                     <div class="popup-header">
                         <button class="back-to-page-btn"></button>
@@ -60,6 +63,7 @@
                     <button class="change-btn">Сменить</button>
                 </div>
             </div>
+
             <ul class="receipts">
                 <li class="receipts-item">
                     <div class="about-receipt">
