@@ -1,10 +1,15 @@
-document.getElementById('popup').hidden = true;
-
 window.addEventListener("DOMContentLoaded", (event) => {
-    const bttn = document.getElementById('change-password-btn');
-    if (bttn) {
-        bttn.addEventListener('click', () => {
+    const add_btn = document.getElementById('change-password-btn');
+    if (add_btn) {
+        add_btn.addEventListener('click', () => {
             document.getElementById('popup').hidden = false;
+        });
+    }
+
+    const back_btn = document.getElementById('back_btn');
+    if (back_btn) {
+        back_btn.addEventListener('click', () => {
+            document.getElementById('popup').hidden = true;
         });
     }
 });
