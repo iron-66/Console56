@@ -22,7 +22,7 @@ header {
 @font-face {
     font-family: Inter;
     font-style: regular;
-    src: local("Inter"), url("/fonts/Inter-Regular.woff2") format("woff2")
+    src: local("Inter"), url("../fonts/Inter-Regular.woff2") format("woff2")
 }
 
 header button {
