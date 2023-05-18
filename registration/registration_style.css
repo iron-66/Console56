@@ -36,6 +36,11 @@ header {
     margin-left: 24px;
 }
 
+form {
+    width: 53px;
+    height: 53px;
+}
+
 /* Правило для окна регистрации */
 @font-face {
     font-family: Inter;
