@@ -37,9 +37,9 @@ function sendLoginAndPassword(login, password) {
       alert("Некорректные данные для входа");
     }
   })
+  // Обработка ошибки при отправке запроса
   .catch((error) => {
     console.log(error);
-    // Обработка ошибки при отправке запроса
     alert("Произошла ошибка при отправке данных");
   });
 }
