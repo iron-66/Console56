@@ -4,14 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const enterButton = document.getElementById("enter-button");
 
   enterButton.addEventListener("click", () => {
-    const loginInput = document.querySelector(".login-input");
-    const passwordInput = document.querySelector(".password-input");
+
+    const loginInput = document.getElementById('login-input');
+    const passwordInput = document.getElementById('password-input');
 
     const login = loginInput.value;
     const password = passwordInput.value;
 
-    // Отправка данных на локальный компьютер
-    sendLoginAndPassword(login, password);
+    if (loginInput.value === '' || passwordInput.value === '') {
+      alert('Заполните все поля');
+    }
+    else {
+      // Отправка данных на локальный компьютер
+      sendLoginAndPassword(login, password);
+    }
   });
 });
 
