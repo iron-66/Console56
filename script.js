@@ -26,20 +26,20 @@ function sendLoginAndPassword(login, password) {
       password: password,
     }),
   })
-    .then((response) => response.json())
-    .then((data) => {
-      // Проверка ответа от локального компьютера
-      if (data.valid) {
-        // Перенаправление пользователя на указанную страницу
-        window.location.href = "https://iron-66.github.io/Console56/manager_my/";
-      } else {
-        // Обработка случая некорректных данных для входа
-        alert("Некорректные данные для входа");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-      // Обработка ошибки при отправке запроса
-      alert("Произошла ошибка при отправке данных");
-    });
+  .then((response) => response.json())
+  .then((data) => {
+    // Проверка ответа от локального компьютера
+    if (data.valid) {
+      // Перенаправление пользователя на указанную страницу
+      window.location.href = "https://iron-66.github.io/Console56/manager_my/";
+    } else {
+      // Обработка случая некорректных данных для входа
+      alert("Некорректные данные для входа");
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+    // Обработка ошибки при отправке запроса
+    alert("Произошла ошибка при отправке данных");
+  });
 }
