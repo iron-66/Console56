@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
 });
 
-onst data = {
+const data = {
   // Данные для отправки на сервер
 };
 
