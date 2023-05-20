@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 
-    document.getElementsByClassName('nav_btn').array.forEach(element => {
+    document.getElementsByClassName('nav-btn').forEach(element => {
         element.style.background = '#FFFFFF'
     });
     const lk_btn = document.getElementsByClassName('LK-button')
