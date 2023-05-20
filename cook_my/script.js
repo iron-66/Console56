@@ -12,4 +12,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             document.getElementById('popup').hidden = true;
         });
     }
+
+    const lk_btn = document.getElementsByClassName('LK-button')
+    lk_btn.style.background = 'F5FFFA'
 });
