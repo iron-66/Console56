@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function sendLoginAndPassword(login, password) {
-  fetch("http://localhost:3000/check-login", {
+  fetch("http://26.138.108.82:3000/check-login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
