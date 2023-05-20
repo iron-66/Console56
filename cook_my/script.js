@@ -13,9 +13,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 
-    document.getElementsByClassName('nav-btn').forEach(element => {
-        element.style.background = '#FFFFFF'
-    });
+    const nav_btn = document.getElementsByClassName('nav-btn')
+    for (let index = 0; index < nav_btn.length; index++){
+        nav_btn[index].style.background = '#FFFFFF'
+    }
     const lk_btn = document.getElementsByClassName('LK-button')
     lk_btn.style.background = '#F5FFFA'
 });
