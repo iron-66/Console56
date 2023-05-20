@@ -17,7 +17,7 @@ app.post('/check-login', (req, res) => {
   // Проверка логина и пароля на сервере
 
   if (login === '1' && password === '1') {
-    res.json({ valid: true, id: 1, type: 'manager' });
+    res.json({ valid: true, id: true, type: 'manager' });
   }
   else {
     res.json({ valid: false });
