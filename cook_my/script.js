@@ -13,6 +13,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 
+    document.getElementsByClassName('nav_btn').array.forEach(element => {
+        element.style.background = '#FFFFFF'
+    });
     const lk_btn = document.getElementsByClassName('LK-button')
-    lk_btn.style.background = 'F5FFFA'
+    lk_btn.style.background = '#F5FFFA'
 });
