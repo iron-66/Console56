@@ -1,5 +1,3 @@
-{/* <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> */}
-
 document.addEventListener("DOMContentLoaded", () => {
   const enterButton = document.getElementById("enter-button");
 
@@ -22,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function sendLoginAndPassword(login, password) {
-  fetch("http://26.138.108.82:3000/check-login", {
+  fetch("http://localhost:3000/check-login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
