@@ -35,7 +35,8 @@ function sendLoginAndPassword(login, password) {
     // Проверка ответа от локального компьютера
     if (data.valid) {
       // Перенаправление пользователя на указанную страницу
-      window.location.href = `https://iron-66.github.io/Console56/${data.type}_my/`;
+      const redirectUrl = `https://iron-66.github.io/Console56/${data.type}_my/?id=${data.id}`;
+      window.location.href = redirectUrl;
     } else {
       // Обработка случая некорректных данных для входа
       alert('Некорректные данные для входа');
