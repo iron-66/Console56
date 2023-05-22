@@ -68,7 +68,6 @@ a {
 }
 
 .registration-popup {
-    height: 774px;
     width: 656px;
     margin-top: 30px;
     border: 5px solid #43AA72;
@@ -169,6 +168,12 @@ input {
     text-align: left;
     border: none;
     background-color: #FFFFFF;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
+    color: #5C434D;
 }
 
 .job:hover {
@@ -188,7 +193,8 @@ input {
     line-height: 39px;
     line-height: 100%;
     color: #FFFFFF;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: 198px;
 }
 
