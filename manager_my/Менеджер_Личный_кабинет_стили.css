@@ -235,7 +235,8 @@ main {
     color: #5C434D;
     border: 5px solid #43AA72;
     background-color: #FFFFFF;
-    margin: 8% 0 0 33%;
+    margin: auto;
+    /* margin: 8% 0 0 33%; */
 }
 
 input {
