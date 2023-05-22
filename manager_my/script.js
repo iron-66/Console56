@@ -10,7 +10,7 @@ fetch('http://localhost:3000/receipt-for-manger', {
     body: JSON.stringify({
       id: id
     }),
-  })
+})
 // Проверить в базе, какие счета есть для текущего id
 
 console.log(id);
