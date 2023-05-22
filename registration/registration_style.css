@@ -157,6 +157,13 @@ input {
     border-top: none;
 }
 
+.job-list li,
+.job {
+    padding: 0;
+    height: 50px;
+    width: 498px;
+}
+
 .job {
     padding-left: 10px;
     text-align: left;
