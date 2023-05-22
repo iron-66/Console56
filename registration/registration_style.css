@@ -151,6 +151,7 @@ input {
     padding: 0;
     margin-left: 70px;
     margin-top: 5px;
+    margin-bottom: 0;
     border: 3px solid #5C434D;
     border-radius: 0 0 15px 20px;
     border-top: none;
