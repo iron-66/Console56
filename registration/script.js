@@ -33,15 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then((response) => response.json())
     .then((data) => {
-      // Проверка ответа от локального компьютера
-      if (data.valid) {
-        // Перенаправление пользователя на указанную страницу
-        const redirectUrl = `https://iron-66.github.io/Console56/${data.type}_my/?id=${data.id}`;
-        window.location.href = redirectUrl;
-      } else {
-        // Обработка случая некорректных данных для входа
-        alert('Некорректные данные для входа');
-      }
+        alert('Пользователь успешно зарегистрирован');
     })
     // Обработка ошибки при отправке запроса
     .catch((error) => {
