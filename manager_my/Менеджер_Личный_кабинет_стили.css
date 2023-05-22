@@ -223,6 +223,8 @@ main {
 .change-password-popup {
     display: inline-block;
     position: absolute;
+    left: 0;
+    top: 0;
     height: 774px;
     width: 656px;
     border-width: 5px;
@@ -235,7 +237,7 @@ main {
     color: #5C434D;
     border: 5px solid #43AA72;
     background-color: #FFFFFF;
-    margin: auto;
+    margin: 50%;
     /* margin: 8% 0 0 33%; */
 }
 
