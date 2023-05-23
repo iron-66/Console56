@@ -2,6 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+// Проверить в базе, какие счета есть для текущего id
 fetch('http://localhost:3000/receipt-for-manger', {
     method: 'POST',
     headers: {
@@ -11,18 +12,17 @@ fetch('http://localhost:3000/receipt-for-manger', {
       id: id
     }),
 })
-// Проверить в базе, какие счета есть для текущего id
 
 window.addEventListener("DOMContentLoaded", (event) => {
     // Открытие попапа смены пароля
-    const add_btn = document.getElementById('change-password-btn');
-    add_btn.addEventListener('click', () => {
+    const addBtn = document.getElementById('change-password-btn');
+    addBtn.addEventListener('click', () => {
         document.getElementById('popup').hidden = false;
     });
 
     // Выход из попапа смены пароля
-    const back_btn = document.getElementById('back_btn');
-    back_btn.addEventListener('click', () => {
+    const backBtn = document.getElementById('back_btn');
+    backBtn.addEventListener('click', () => {
         document.getElementById('popup').hidden = true;
     });
 
@@ -64,5 +64,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         .catch(error => {
         console.error('Ошибка при выполнении запроса:', error);
         });
+    });
+
+    // Переход в окно добавления нового сотрудника
+    const newEmp = document.getElementById('new-employee');
+    newEmp.addEventListener('click', () => {
+        const redirectUrl = `https://iron-66.github.io/Console56/registration/?id=${id}`;
+        window.location.href = redirectUrl;
     });
 });
