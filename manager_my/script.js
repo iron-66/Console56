@@ -1,7 +1,6 @@
 // Получение значения параметра id из URL
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
-console.log(id);
 
 fetch('http://localhost:3000/receipt-for-manger', {
     method: 'POST',
@@ -13,8 +12,6 @@ fetch('http://localhost:3000/receipt-for-manger', {
     }),
 })
 // Проверить в базе, какие счета есть для текущего id
-
-console.log(id);
 
 window.addEventListener("DOMContentLoaded", (event) => {
     // Открытие попапа смены пароля
