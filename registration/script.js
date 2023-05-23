@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((data) => {
         alert('Пользователь успешно зарегистрирован');
     })
-    // Обработка ошибки при отправке запроса
     .catch((error) => {
       console.log(error);
       alert('Произошла ошибка при отправке данных');
