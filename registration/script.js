@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       event.currentTarget.classList.add('active');
       job = event.currentTarget.getAttribute('value');
-
-      console.log(job);
     });
   });
 
@@ -30,31 +28,52 @@ document.addEventListener('DOMContentLoaded', () => {
   enterButton.addEventListener('click', () => {
 
     const fioInput = document.getElementById('fio-input');
+    const phoneInput = document.getElementById('phone-input');
+    const emailInput = document.getElementById('email-input');
+    const birthDateInput = document.getElementById('birth-date-input');
     const passwordInput = document.getElementById('password-input');
 
-
-    const login = loginInput.value;
+    const fio = fioInput.value;
+    const phone = phoneInput.value;
+    const email = emailInput.value;
+    const birthDate = birthDateInput.value;
+    const formattedDate = formatDate(birthDate);
     const password = passwordInput.value;
+    const currentDate = new Date();
+    const today = formatDate(currentDate);
 
-    if (loginInput.value === '' || passwordInput.value === '') {
+    if (fioInput.value === '' || phoneInput.value === '' || emailInput.value === '' || birthDateInput.value === '' || passwordInput.value === '' || job === '') {
       alert('Заполните все поля');
     }
     else {
-      sendLoginAndPassword(login, password);
+      sendLoginAndPassword(fio, phone, email, formattedDate, password, job, today);
     }
   });
 });
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `'${year}-${month}-${day}'`;
+}
   
 // Отправка данных на локальный компьютер
-function sendLoginAndPassword(login, password) {
+function sendLoginAndPassword(fio, phone, email, formattedDate, password, job, today) {
   fetch('http://localhost:3000/add-user', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      login: login,
+      fullName: fio,
+      telephone: phone,
+      email: email,
+      birthDate: formattedDate,
       password: password,
+      position: job,
+      workDate: today,
     }),
   })
   .then((response) => response.json())
