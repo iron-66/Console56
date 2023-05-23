@@ -3,10 +3,10 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Переход в окно добавления заказа
-    const newOrd = document.getElementById('new-order');
-    newOrd.addEventListener('click', () => {
-        const redirectUrl = `https://iron-66.github.io/Console56/manager_new/?id=${id}`;
+    // Переход в актуальные заказы
+    const actualOrd = document.getElementById('actual-orders');
+    actualOrd.addEventListener('click', () => {
+        const redirectUrl = `https://iron-66.github.io/Console56/manager_active/?id=${id}`;
         window.location.href = redirectUrl;
     });
 
