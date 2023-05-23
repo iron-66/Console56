@@ -24,16 +24,34 @@
                     <button id="back-btn" class="back-to-page-btn"></button>
                     <p class="reg-title">Добавить нового сотрудника</p>
                 </div>
-                <p class="fio">ФИО</p>
-                <input class="fio-input" type="text">
-                <p class="login">Логин</p>
-                <input id="login-input" class="login-input" type="text">
-                <p class="password">Пароль</p>
-                <input id="password-input" class="password-input" type="password">
+                <ul class="about-new-employee">
+                    <li>
+                        <p class="fio">ФИО</p>
+                        <input class="fio-input" type="text">
+                    </li>
+                    <li>
+                        <p class="phone-num">Телефон</p>
+                        <input class="phone-num-input" type="text">
+                    </li>
+                    <li>
+                        <p class="email">Почта</p>
+                        <input class="email-input" type="text">
+                    </li>
+                    <li>
+                        <p class="birth-date">Дата рождения</p>
+                        <input class="birth-date-input" type="text">
+                    </li>
+                    <li>
+                        <p class="password">Пароль</p>
+                        <input id="password-input" class="password-input" type="password">
+                    </li>
+                </ul>
                 <p class="job-title">Должность</p>
-                <button class="job">Менеджер</button>
-                <button class="job">Повар</button>
-                <button class="job">Курьер</button>
+                <ul class="job-list">
+                    <li><input class="job-item" name="job" type="radio">Менеджер</li>
+                    <li><input class="job-item" name="job" type="radio">Повар</li>
+                    <li><input class="job-item" name="job" type="radio">Курьер</li>
+                </ul>
                 <button class="add-button">Добавить</button>
             </div>
         </main>
