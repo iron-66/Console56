@@ -192,6 +192,10 @@ input[type="tel"] {
     background-position: center;
 }
 
+.order-content-add-btn:hover {
+    background-color: #91898c;
+}
+
 .order-content {
     width: 1245px;
     margin-left: 60px;
