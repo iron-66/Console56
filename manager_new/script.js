@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Открытие попап окна со всеми блюдами
-    
+    const viewBtn = document.getElementById('view-products');
+    viewBtn.addEventListener('click', () => {
+        document.getElementById('popup').hidden = false;
+    });
 });
 
 function formatToday(dateString) {
