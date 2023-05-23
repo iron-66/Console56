@@ -173,8 +173,8 @@ input {
 	user-select: none;
 }
 
-.courier,
-.manager {
+.manager,
+.courier {
     margin-left: 107px;
 }
 
