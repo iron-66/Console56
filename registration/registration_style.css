@@ -145,14 +145,6 @@ input {
     margin-left: 55px;
 }
 
-/* .fio, 
-.password,
-.job-title,
-.fio-input,
-.password-input{
-    margin-left: 74px;
-} */
-
 .job-title,
 .job-list {
     margin-left: 74px;
@@ -160,6 +152,11 @@ input {
 
 .job-list {
     height: 32px;
+}
+
+.job-list li {
+    height: 73px;
+    width: 215px;
 }
 
 .job-list input {
