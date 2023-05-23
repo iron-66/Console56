@@ -55,8 +55,6 @@ a {
 .back-to-page-btn {
     width: 53px;
     height: 53px;
-    margin-left: 41px;
-    margin-top: 35px;
     border-radius: 50px;
     border: 0px solid #C7C0C2;
     background-color: #C7C0C2;
@@ -125,24 +123,10 @@ input {
     margin-left: 55px;
 }
 
-.job-list {
-    height: 165px;
-    width: 498px;
-    list-style: none;
-    padding: 0;
-    margin-left: 70px;
-    margin-top: 5px;
-    margin-bottom: 0;
-    border: 3px solid #5C434D;
-    border-radius: 0 0 15px 20px;
-    border-top: none;
-}
-
-.job-list li,
 .job {
     padding: 0;
     height: 50px;
-    width: 498px;
+    width: 498px
 }
 
 .job {
