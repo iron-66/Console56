@@ -176,6 +176,10 @@ input[type="tel"] {
     background-position: center;
 }
 
+.ok-btn:hover {
+    background-color: #549e49;
+}
+
 /* Содержимое заказа */
 
 .order-content-add-btn {
