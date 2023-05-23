@@ -98,6 +98,15 @@ a {
     margin-left: 211px;
 }
 
+ul {
+    list-style: none;
+}
+
+.about-new-employee {
+    display: inline-block;
+    height: 360px;
+}
+
 input {
     border-top: none;
     border-left: none;
@@ -109,13 +118,13 @@ input {
     width: 905px;
 }
 
-.fio, 
+/* .fio, 
 .password,
 .job-title,
 .fio-input,
 .password-input{
     margin-left: 74px;
-}
+} */
 
 .job {
     padding: 0;
@@ -141,6 +150,11 @@ input {
     border-radius: 58px;
     border: 0px;
     background-color: #43AA72;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
     color: #FFFFFF;
     margin-top: 30px;
     margin-bottom: 30px;
