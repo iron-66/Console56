@@ -162,7 +162,7 @@ input {
     height: 32px;
 }
 
-.job-list label {
+.job-list li {
     display: inline-block;
     height: 73px;
     width: 215px;
