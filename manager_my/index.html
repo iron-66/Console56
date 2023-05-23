@@ -42,7 +42,7 @@
                 <form action="https://iron-66.github.io/Console56/registration"><button class="new-employee-btn">Новый сотрудник</button></form>
             </div>
 
-            <!-- Попа(п) -->
+            <!-- Попап -->
             <div id="popup" class="deep-dark-popup" hidden>
                 <div class="change-password-popup">
                     <div class="popup-header">
@@ -51,15 +51,16 @@
                     </div>
                     <div class="change-pass-info">
                         <p>Введите старый пароль</p>
-                        <input class="old-pass-input">
+                        <input id="old-pass" class="old-pass-input">
                         <p>Введите новый пароль</p>
-                        <input class="new-pass-input">
+                        <input id="new-pass" class="new-pass-input">
                         <p>Повторите новый пароль</p>
-                        <input class="again-new-pass-input">
+                        <input id="new-pass-confirm" class="again-new-pass-input">
                     </div>
-                    <button class="change-btn">Сменить</button>
+                    <button id="change-pass-button" class="change-btn">Сменить</button>
                 </div>
             </div>
+
             <ul class="receipts">
                 <li class="receipts-item">
                     <div class="about-receipt">
@@ -84,16 +85,11 @@
                             <p id="total" class="total"></p>
                         </div>
                     </div>
-                    <div class="buttons">
+                    <!-- <div class="buttons">
                         <button class="more-info-btn"></button>
-                    </div>
+                    </div> -->
                 </li>
             </ul>
         </main>
-
-        <!-- Подвал(А это вообще надо?) -->
-        <!-- <footer class="page-footer">
-            
-        </footer> -->
     </body>
 </html>
