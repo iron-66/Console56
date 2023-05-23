@@ -166,8 +166,8 @@ input {
     display: none;
 }
 
-.cook-job,
-.courier-job {
+.cook-label,
+.courier-label {
     margin-top: 50px;
     margin-left: 40px;
 }
