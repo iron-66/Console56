@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const fio = fioInput.value;
     const phone = phoneInput.value;
     const email = emailInput.value;
-    const birthDate = `'${birthDateInput.value}'`;
+    const birthDate = formatDate(birthDateInput.value);
     const password = passwordInput.value;
-    const today = formatDate(new Date());
+    const today = formatToday(new Date());
 
     if (fioInput.value === '' || phoneInput.value === '' || emailInput.value === '' || birthDateInput.value === '' || passwordInput.value === '' || job === '') {
       alert('Заполните все поля');
@@ -49,11 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function formatDate(dateString) {
+function formatToday(dateString) {
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
+  return `'${year}-${month}-${day}'`;
+}
+
+function formatDate(dateString) {
+  const parts = dateString.split('.');
+  const day = parts[0].padStart(2, '0');
+  const month = parts[1].padStart(2, '0');
+  const year = parts[2];
   return `'${year}-${month}-${day}'`;
 }
   
