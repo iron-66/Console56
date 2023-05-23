@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setNewOrder(name, address, phone, today);
         }
     });
+
+    // Открытие попап окна со всеми блюдами
+    
 });
 
 function formatToday(dateString) {
