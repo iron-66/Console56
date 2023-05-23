@@ -1,6 +1,17 @@
+// Получение значения параметра id из URL
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Возврат в личный кабинет
+    const backBtn = document.getElementById('back-btn');
+    backBtn.addEventListener('click', () => {
+      const redirectUrl = `https://iron-66.github.io/Console56/manager_my/?id=${id}`;
+      window.location.href = redirectUrl;
+    });
+
+    // Отправка данных о новом сотруднике
     const enterButton = document.getElementById('add-button');
-  
     enterButton.addEventListener('click', () => {
   
       const loginInput = document.getElementById('login-input');
@@ -14,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Заполните все поля');
       }
       else {
-        // Отправка данных на локальный компьютер
         sendLoginAndPassword(login, password);
       }
     });
   });
   
+  // Отправка данных на локальный компьютер
   function sendLoginAndPassword(login, password) {
     fetch('http://localhost:3000/add-user', {
       method: 'POST',
