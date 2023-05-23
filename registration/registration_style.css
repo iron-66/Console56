@@ -168,7 +168,7 @@ input {
     width: 215px;
     border-radius: 100px;
     border: none;
-    border-color: #D9D9D9;
+    background-color: #D9D9D9;
 }
 
 .job-list input {
