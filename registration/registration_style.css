@@ -100,13 +100,14 @@ a {
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
 .about-new-employee {
     height: 440px;
     margin-left: 74px;
     margin-top: 0;
-    padding: 0;
+    margin-bottom: 0;
 }
 
 .about-new-employee li {
@@ -151,6 +152,19 @@ input {
 .password-input{
     margin-left: 74px;
 } */
+
+.job-title,
+.job-list {
+    margin-left: 74px;
+}
+
+.job-list {
+    height: 32px;
+}
+
+.job-list li {
+    display: inline-block;
+}
 
 .job {
     padding: 0;
