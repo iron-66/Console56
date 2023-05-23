@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function formatDate(dateString) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `'${year}-${month}-${day}'`;
+  const parts = dateString.split('.');
+  const day = parts[0].padStart(2, '0');
+  const month = parts[1].padStart(2, '0');
+  const year = parts[2];
+  return `${year}-${month}-${day}`;
 }
   
 // Отправка данных на локальный компьютер
