@@ -66,6 +66,7 @@ function setNewOrder(name, address, phone, today) {
         address: address,
         phone: phone,
         date: today,
+        empId: id,
       }),
     })
     .then((response) => response.json())
