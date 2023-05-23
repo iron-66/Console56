@@ -167,6 +167,11 @@ input {
     display: none;
 }
 
+.job-list label {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 .cook,
 .courier {
     margin-left: 130px;
