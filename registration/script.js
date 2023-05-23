@@ -38,14 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = emailInput.value;
     const birthDate = `'${birthDateInput.value}'`;
     const password = passwordInput.value;
-    const currentDate = new Date();
-    const today = formatDate(currentDate);
+    const today = formatDate(new Date());
 
     if (fioInput.value === '' || phoneInput.value === '' || emailInput.value === '' || birthDateInput.value === '' || passwordInput.value === '' || job === '') {
       alert('Заполните все поля');
     }
     else {
-      sendLoginAndPassword(fio, phone, email, formattedDate, password, job, today);
+      sendLoginAndPassword(fio, phone, email, birthDate, password, job, today);
     }
   });
 });
@@ -59,7 +58,7 @@ function formatDate(dateString) {
 }
   
 // Отправка данных на локальный компьютер
-function sendLoginAndPassword(fio, phone, email, formattedDate, password, job, today) {
+function sendLoginAndPassword(fio, phone, email, birthDate, password, job, today) {
   fetch('http://localhost:3000/add-user', {
     method: 'POST',
     headers: {
@@ -69,7 +68,7 @@ function sendLoginAndPassword(fio, phone, email, formattedDate, password, job, t
       fullName: fio,
       telephone: phone,
       email: email,
-      birthDate: formattedDate,
+      birthDate: birthDate,
       password: password,
       position: job,
       workDate: today,
