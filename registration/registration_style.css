@@ -103,8 +103,13 @@ ul {
 }
 
 .about-new-employee {
-    display: inline-block;
     height: 360px;
+    margin-left: 74px;
+    padding: 0;
+}
+
+.about-new-employee li {
+    display: inline-block;
 }
 
 input {
@@ -112,10 +117,23 @@ input {
     border-left: none;
     border-right: none;
     border-color: #000;
+    font-family: Inter;
+    font-style: Regular;
+    font-size: 32px;
+    line-height: 39px;
+    line-height: 100%;
+    color: #5C434D;
 }
 
 .fio-input{
     width: 905px;
+}
+
+.phone-num-input,
+.email-input,
+.birth-date-input,
+.password-input {
+    width: 420px;
 }
 
 /* .fio, 
