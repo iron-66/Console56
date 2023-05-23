@@ -36,8 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fio = fioInput.value;
     const phone = phoneInput.value;
     const email = emailInput.value;
-    const birthDate = birthDateInput.value;
-    const formattedDate = formatDate(birthDate);
+    const birthDate = `'${birthDateInput.value}'`;
     const password = passwordInput.value;
     const currentDate = new Date();
     const today = formatDate(currentDate);
@@ -52,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function formatDate(dateString) {
-  const parts = dateString.split('.');
-  const day = parts[0].padStart(2, '0');
-  const month = parts[1].padStart(2, '0');
-  const year = parts[2];
-  return `${year}-${month}-${day}`;
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `'${year}-${month}-${day}'`;
 }
   
 // Отправка данных на локальный компьютер
