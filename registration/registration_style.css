@@ -166,6 +166,10 @@ input {
     display: inline-block;
 }
 
+/* .job-list input {
+
+} */
+
 .job {
     padding: 0;
     height: 50px;
