@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Повар: личный кабинет</title>
+        <link type="image/x-icon" href="../source/favicon.ico" rel="shortcut icon">
+        <link type="Image/x-icon" href="../source/favicon.ico" rel="icon">
         <link rel="stylesheet" href="Повар_Личный_кабинет_стили.css">
+        <script src="script.js"></script>
     </head>
     <body>
         <!-- Шапка -->
@@ -14,16 +17,22 @@
                         <img class="logo" src="../source/Logo.png" alt="Пять Шестых">
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="actual-orders-button">Актуальные заказы</button>
+                        <form action="../cook_choose/">
+                            <button class="nav-btn actual-orders-button">Актуальные заказы</button>
+                        </form> 
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="accepted-orders-button">Принятые заказы</button>
+                        <form action="../cook_active/">
+                            <button class="nav-btn accepted-orders-button">Принятые заказы</button>
+                        </form>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="LK-button">
-                            <p>Повар</p>
-                            <img src="../source/Avatar.png" alt="icon">
-                        </button>
+                        <form action="../cook_my/">
+                            <button class="nav-btn LK-button" disabled="true" style="background-color: #F5FFFA;">
+                                <p>Повар</p>
+                                <img src="../source/Avatar.png" alt="icon">
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -32,12 +41,14 @@
         <!-- Основной контент(база) -->
         <main class="main-inner">
             <div class="outer-buttons">
-                <button class="change-password-btn">Сменить пароль</button>
+                <button id="change-password-btn" class="change-password-btn">Сменить пароль</button>
             </div>
-            <div class="deep-dark-popup">
+
+            <!-- Попа(п) -->
+            <div id="popup" class="deep-dark-popup" hidden>
                 <div class="change-password-popup">
                     <div class="popup-header">
-                        <button class="back-to-page-btn"></button>
+                        <button id="back_btn" class="back-to-page-btn"></button>
                         <p class="change-password-title">Сменить пароль</p>
                     </div>
                     <div class="change-pass-info">

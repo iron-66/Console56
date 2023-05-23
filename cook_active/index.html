@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Повар: принятые заказы</title>
+        <link type="image/x-icon" href="../source/favicon.ico" rel="shortcut icon">
+        <link type="Image/x-icon" href="../source/favicon.ico" rel="icon">
         <link rel="stylesheet" href="Повар_Принятые_заказы_стили.css">
     </head>
     <body>
@@ -14,16 +16,22 @@
                         <img class="logo" src="../source/Logo.png" alt="Пять Шестых">
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="actual-orders-button">Актуальные заказы</button>
+                        <form action="../cook_choose/">
+                            <button class="actual-orders-button">Актуальные заказы</button>
+                        </form> 
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="accepted-orders-button">Принятые заказы</button>
+                        <form action="../cook_active/">
+                            <button class="accepted-orders-button" disabled="true" style="background-color: #F5FFFA;">Принятые заказы</button>
+                        </form>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button class="LK-button">
-                            <p>Повар</p>
-                            <img src="../source/Avatar.png" alt="icon">
-                        </button>
+                        <form action="../cook_my/">
+                            <button class="LK-button">
+                                <p>Повар</p>
+                                <img src="../source/Avatar.png" alt="icon">
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </nav>

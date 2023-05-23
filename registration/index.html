@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Пять шестых - Новый сотрудник</title>
+        <link type="image/x-icon" href="../source/favicon.ico" rel="shortcut icon">
+        <link type="Image/x-icon" href="../source/favicon.ico" rel="icon">
         <link rel="stylesheet" href="registration_style.css">
+        <script src="script.js"></script>
     </head>
     <body>
         <header class="page-header">
@@ -18,20 +21,22 @@
         <main class="main-page">
             <div class="registration-popup">
                 <div class="registration-header">
-                    <a href="https://iron-66.github.io/Console56/manager_my"><button class="back-to-page-btn"></button></a>
+                    <button id="back-btn" class="back-to-page-btn"></button>
                     <p class="reg-title">Добавить нового сотрудника</p>
                 </div>
                 <p class="fio">ФИО</p>
                 <input class="fio-input" type="text">
+                <p class="login">Логин</p>
+                <input id="login-input" class="login-input" type="text">
                 <p class="password">Пароль</p>
-                <input class="password-input" type="password">
+                <input id="password-input" class="password-input" type="password">
                 <p class="job-title">Должность</p>
                 <ul class="job-list">
                     <li><button class="job">Менеджер</button></li>
                     <li><button class="job">Повар</button></li>
                     <li><button class="job">Курьер</button></li>
                 </ul>
-                <button class="add-button">Добавить</button>
+                <button id="add-button" class="add-button">Добавить</button>
             </div>
         </main>
     </body>

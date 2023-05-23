@@ -213,7 +213,7 @@ main {
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     top: 0px;
 }
 
@@ -232,7 +232,7 @@ main {
     color: #5C434D;
     border: 5px solid #43AA72;
     background-color: #FFFFFF;
-    margin: 8% 0 0 33%;
+    margin: 5% 0 0 33%;
 }
 
 input {

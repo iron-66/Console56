@@ -1,0 +1,14 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "3000",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "IRON_66",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
