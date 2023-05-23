@@ -1,6 +1,7 @@
 // Получение значения параметра id из URL
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
+console.log(id);
 
 // Проверить в базе, какие счета есть для текущего id
 fetch('http://localhost:3000/receipt-for-manger', {
