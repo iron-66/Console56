@@ -103,7 +103,7 @@ ul {
 }
 
 .about-new-employee {
-    height: 400px;
+    height: 440px;
     margin-left: 74px;
     margin-top: 0;
     padding: 0;
@@ -141,7 +141,7 @@ input {
 .email-input,
 .password,
 .password-input {
-    margin-left: 65px;
+    margin-left: 55px;
 }
 
 /* .fio, 
