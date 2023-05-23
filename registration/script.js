@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Выбор должности сотрудника
-  const job = '';
+  let job = '';
   const jobItems = document.querySelectorAll('.job-item');
   jobItems.forEach((item) => {
     item.addEventListener('click', (event) => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const enterButton = document.getElementById('add-button');
   enterButton.addEventListener('click', () => {
 
-    const loginInput = document.getElementById('login-input');
+    const fioInput = document.getElementById('fio-input');
     const passwordInput = document.getElementById('password-input');
 
 
