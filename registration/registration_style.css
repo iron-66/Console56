@@ -105,6 +105,7 @@ ul {
 .about-new-employee {
     height: 360px;
     margin-left: 74px;
+    margin-top: 0;
     padding: 0;
 }
 
@@ -134,6 +135,13 @@ input {
 .birth-date-input,
 .password-input {
     width: 420px;
+}
+
+.email,
+.email-input,
+.password,
+.password-input {
+    margin-left: 68px;
 }
 
 /* .fio, 
