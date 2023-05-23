@@ -173,6 +173,10 @@ input {
 	user-select: none;
 }
 
+.job-item.active + label {
+    background-color: #B9B9B9;
+}
+
 .manager,
 .courier {
     margin-left: 111px;
