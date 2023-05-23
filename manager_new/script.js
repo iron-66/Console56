@@ -55,20 +55,17 @@ function formatToday(dateString) {
 };
 
 // Отправка данных на локальный компьютер
-function sendLoginAndPassword(fio, phone, email, birthDate, password, job, today) {
+function setNewOrder(name, address, phone, today) {
     fetch('http://localhost:3000/new-order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        fullName: fio,
-        telephone: phone,
-        email: email,
-        birthDate: birthDate,
-        password: password,
-        position: job,
-        workDate: today,
+        name: name,
+        address: address,
+        phone: phone,
+        date: today,
       }),
     })
     .then((response) => response.json())
