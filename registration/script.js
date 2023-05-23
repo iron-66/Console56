@@ -10,6 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = redirectUrl;
   });
 
+  // Выбор должности сотрудника
+  const job = '';
+  const jobItems = document.querySelectorAll('.job-item');
+  jobItems.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      jobItems.forEach((item) => {
+        item.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+      job = event.currentTarget.getAttribute('value');
+
+      console.log(job);
+    });
+  });
+
   // Отправка данных о новом сотруднике
   const enterButton = document.getElementById('add-button');
   enterButton.addEventListener('click', () => {
@@ -27,17 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     else {
       sendLoginAndPassword(login, password);
     }
-  });
-
-  // Выбор должности сотрудника
-  const jobItems = document.querySelectorAll('.job-item');
-  jobItems.forEach((item) => {
-    item.addEventListener('click', (event) => {
-      jobItems.forEach((item) => {
-        item.classList.remove('active');
-      });
-      event.currentTarget.classList.add('active');
-    });
   });
 });
   
