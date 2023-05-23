@@ -20,18 +20,16 @@
                         <button class="actual-orders-button" disabled="true" style="background-color: #F5FFFA;">Актуальные заказы</button>
                     </li>
                     <li class="header-nav-arr-item">
-                        <form action="https://iron-66.github.io/Console56/manager_new"><button class="accepted-orders-button">Новый заказ</button></form>
+                        <button id="new-order" class="accepted-orders-button">Новый заказ</button>
                     </li>
                     <li class="header-nav-arr-item">
-                        <form action="https://iron-66.github.io/Console56/manager_archive"><button class="orders-archive-button">Архив заказов</button></form>
+                        <button id="orders-archive" class="orders-archive-button">Архив заказов</button>
                     </li>
-                    <li class="header-nav-arr-item">
-                        <form action="https://iron-66.github.io/Console56/manager_my">
-                            <button class="LK-button">
-                                <p>Менеджер</p>
-                                <img src="../source/Avatar.png" alt="icon">
-                            </button>
-                        </form>
+                    <li class="header-nav-arr-item">  
+                        <button id="lk" class="LK-button">
+                            <p>Менеджер</p>
+                            <img src="../source/Avatar.png" alt="icon">
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -44,15 +42,15 @@
                     <div class="about-order">
                         <div class="order-item-number">
                             <p><b>№ заказа:</b></p>
-                            <p class="order-number">228</p>
+                            <p id="orderid" class="order-number"></p>
                         </div>
                         <div class="order-item-date-and-time">
                             <p><b>Дата и время:</b></p>
-                            <p class="order-date-and-time">29.10.2001 19:15</p>
+                            <p id="preparationdate" class="order-date-and-time"></p> <!-- Формат YYYY-MM-DD HH-MM-SS.fffffff -->
                         </div>
                         <div class="order-item-status">
                             <p><b>Статус заказа:</b></p>
-                            <p class="order-status">Передано в производство</p>
+                            <p id="orderstatus" class="order-status"></p>
                         </div>
                     </div>
                     <div class="about-customer">
@@ -78,7 +76,7 @@
                         <div class="order-content-header">
                             <p class="order-content-header-cntnt">Содержимое заказа:</p>
                             <p class="order-content-header-amount">Кол-во:</p>
-                            <p class="order-content-header-cost">Стоимость:</p>
+                            <p id="cost" class="order-content-header-cost">Стоимость:</p>
                         </div>
                         <ul class="order-content-list">
                             <li class="order-content-list-item">
