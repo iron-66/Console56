@@ -50,6 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     viewBtn.addEventListener('click', () => {
         document.getElementById('popup').hidden = false;
     });
+
+    // Выход из попапа
+    const backBtn = document.getElementById('back-btn');
+    backBtn.addEventListener('click', () => {
+        document.getElementById('popup').hidden = true;
+    });
 });
 
 function formatToday(dateString) {
