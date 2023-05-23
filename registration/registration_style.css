@@ -55,6 +55,8 @@ a {
 .back-to-page-btn {
     width: 53px;
     height: 53px;
+    margin-left: 41px;
+    margin-top: 35px;
     border-radius: 50px;
     border: 0px solid #C7C0C2;
     background-color: #C7C0C2;
@@ -95,11 +97,10 @@ a {
 .reg-title {
     vertical-align: top;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 211px;
 }
 
 input {
-    width: 536px;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -112,37 +113,16 @@ input {
     color: #5C434D;
 }
 
-.icon {
-    margin-left: 286.5px;
+.fio-input{
+    width: 905px;
 }
 
-.login, 
+.fio, 
 .password,
 .job-title,
-.login-input,
-.password-input,
-.choose-button {
+.fio-input,
+.password-input{
     margin-left: 55px;
-}
-
-.choose-button {
-    height: 53px;
-    width: 536px;
-    border-radius: 76px;
-    border-radius: 58px;
-    border: 0px;
-    background-color: #AA9FA3;
-    font-family: Inter;
-    font-style: Regular;
-    font-size: 28px;
-    line-height: 39px;
-    line-height: 100%;
-    color: #FFFFFF;
-    margin-top: -10px;
-}
-
-.choose-button:hover {
-    background-color: #91898c;
 }
 
 .job-list {
