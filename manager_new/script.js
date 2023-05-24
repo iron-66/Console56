@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listItem.innerHTML = `
             <p class="order-content-item-name">${selectedDish.textContent}</p>
             <p class="order-content-item-amount">${dishQuantity} шт.</p>
-            <p class="order-content-item-cost">${selectedDish.value} руб.</p>
+            <p class="order-content-item-cost">${selectedDish.value * dishQuantity} руб.</p>
         `;
 
         orderList.appendChild(listItem);
