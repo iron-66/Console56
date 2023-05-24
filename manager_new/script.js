@@ -54,18 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addToOrderBtn = document.getElementById('add-products');
     addToOrderBtn.addEventListener('click', () => {
-        const orderList = document.getElementById('order-list');
+        const orderTable = document.getElementById('order-table-body');
         const dishQuantityInput = document.getElementById('dish-quanity');
         const dishQuantity = dishQuantityInput.value;
         const listItem = document.createElement('li');
         listItem.classList.add('order-content-list-item');
         listItem.innerHTML = `
-            <p class="order-content-item-name">${selectedDish.textContent}</p>
-            <p class="order-content-item-amount">${dishQuantity} шт.</p>
-            <p class="order-content-item-cost">${selectedDish.value * dishQuantity} руб.</p>
+            <tr>
+                <td>${selectedDish.textContent}</td>
+                <td>${dishQuantity}</td>
+                <td>${selectedDish.value * dishQuantity}</td>
+            </tr>
         `;
 
-        orderList.appendChild(listItem);
+        orderTable.appendChild(listItem);
         document.getElementById('popup').hidden = true;
     });    
 
@@ -91,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const orderItems = [];
             selectedDishes.forEach((dish, index) => {
                 const dishName = dish.textContent;
-                const dishAmount = selectedDishAmounts[index].textContent.replace(' шт.', '');
-                const dishPrice = selectedDishesPrice[index].textContent.replace(' руб.', '');
+                const dishAmount = selectedDishAmounts[index].textContent;
+                const dishPrice = selectedDishesPrice[index].textContent;
                 orderItems.push({ name: dishName, amount: dishAmount, price: dishPrice });
             });
 
