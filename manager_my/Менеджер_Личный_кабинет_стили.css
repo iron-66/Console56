@@ -305,27 +305,3 @@ input {
     margin-top: 71px;
     margin-left: 195px;
 }
-
-.change-btn:hover {
-    background-color: #298653;
-}
-
-.order-table {
-    width: 100%;
-}
-
-.order-table .order-table-head th{
-    align-self: left;
-}
-
-.order-content-header-cntnt {
-    width: 640px;
-}
-
-.order-content-header-amount {
-    width: 112px;
-}
-
-.order-content-header-cost {
-    width: 100%;
-}
