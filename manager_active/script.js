@@ -13,24 +13,26 @@ async function getManagerOrders() {
         console.log(orders);
         
         const list = document.getElementById('act-orders-list');
-
-        for (const order of orders) {
-            const getInfoResponse = await fetch('http://localhost:3000/get-info', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    user: order.userid
-                }),
-            });
+        
+        // const getInfoResponse = await fetch('http://localhost:3000/get-info', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             user: order.userid
+        //         }),
+        //     });
     
-            if (!getInfoResponse.ok) {
-                throw new Error('Request failed');
-            }
+        //     if (!getInfoResponse.ok) {
+        //         throw new Error('Request failed');
+        //     }
             
-            const info = await getInfoResponse.json();
-            console.log(info);
+        //     const info = await getInfoResponse.json();
+        //     console.log(info);
+        
+        for (const order of orders) {
+            
 
             const newLiHTML = `
             <li class="actual-orders-item">
