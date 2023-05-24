@@ -47,18 +47,17 @@ async function getManagerOrders() {
                         <button class="edit-btn"></button>
                     </div>
                     <div class="order-content">
-                        <div class="order-content-header">
-                            <p class="order-content-header-cntnt">Содержимое заказа:</p>
-                            <p class="order-content-header-amount">Кол-во:</p>
-                            <p lass="order-content-header-cost">Стоимость:</p>
-                        </div>
-                        <ul class="order-content-list">
-                            <li class="order-content-list-item">
-                                <p id="products" class="order-content-item-name""</p>
-                                <p id="amounts" class="order-content-item-amount">2</p>
-                                <p id="cost" class="order-content-item-cost"></p>
-                            </li>
-                        </ul>
+                        <table class="order-table" cellpadding="8px">
+                            <thead class="order-table-head">
+                                <tr>
+                                    <th class="order-content-header-cntnt">Содержимое заказа:</th>
+                                    <th class="order-content-header-amount">Кол-во:</th>
+                                    <th class="order-content-header-cost">Стоимость:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-table-body" class="order-table-body">
+                            </tbody>
+                        </table>
                     </div>
                 </li>`;
             list.insertAdjacentHTML("beforeend", newLiHTML);
