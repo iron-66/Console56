@@ -48,25 +48,26 @@ const id = urlParams.get('id');
 
 
 
-// function fetchOrders() {
-//     fetch('http://localhost:3000/check-manager-actual')
-//     .then(response => response.json())
-//     .then(data => {
-//     // Обработка полученных данных
-//     data.forEach(order => {
-//         const orderBlock = createOrderBlock(order);
-//         // Добавление блока в нужный контейнер на странице
-//         const ordersList = document.getElementById('orders-list');
-//         ordersList.appendChild(orderBlock);
-//     });
-//     })
-//     .catch(error => {
-//     console.error('Ошибка при получении данных:', error);
-//     });
-// }
+function fetchOrders() {
+    fetch('http://localhost:3000/check-manager-actual')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    // Обработка полученных данных
+    // data.forEach(order => {
+    //     const orderBlock = createOrderBlock(order);
+    //     // Добавление блока в нужный контейнер на странице
+    //     const ordersList = document.getElementById('orders-list');
+    //     ordersList.appendChild(orderBlock);
+    // });
+    })
+    .catch(error => {
+    console.error('Ошибка при получении данных:', error);
+    });
+}
 
-// // Вызов функции для отправки запроса на сервер
-// fetchOrders();
+// Вызов функции для отправки запроса на сервер
+fetchOrders();
   
   
 
