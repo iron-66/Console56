@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalCostCell = document.createElement("td");
         totalCostCell.textContent = selectedDish.value * dishQuantity;
         console.log(dishNameCell, quantityCell, totalCostCell)
-        orderItems.push({ name: dishNameCell, amount: quantityCell, price: parseInt(totalCostCell) })
+        orderItems.push({ name: dishNameCell.textContent, amount: quantityCell.textContent, price: parseInt(totalCostCell.textContent) })
 
         // Добавляем ячейки в строку
         row.appendChild(dishNameCell);
