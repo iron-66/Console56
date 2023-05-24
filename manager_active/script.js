@@ -10,10 +10,10 @@ async function getManagerOrders() {
             throw new Error('Request failed');
         }
         const orders = await response.json();
-        console.log(orders);
         
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
+            console.log(order.userid);
             const data = getUserData(order.userid);
 
             const newLiHTML = `
@@ -84,8 +84,27 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
-function getUserData() {
-
+function getUserData(user) {
+    fetch('http://localhost:3000/get-info', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+        })
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Request failed');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Обработка полученных данных
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+    });
 }
 
 const originalDateTime = "2023-05-23T19:00:00.000Z";
