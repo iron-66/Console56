@@ -1,5 +1,5 @@
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
     background-image: url("../source/Background.png");
     background-attachment: fixed;
 }
