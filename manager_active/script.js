@@ -57,6 +57,11 @@ async function getManagerOrders() {
                                 </tr>
                             </thead>
                             <tbody id="order-table-body" class="order-table-body">
+                            <tr>
+                                <th class="order-content-header-cntnt">Пицца "Ветчина и грибы"</th>
+                                <th class="order-content-header-amount">2</th>
+                                <th class="order-content-header-cost">1230</th>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
