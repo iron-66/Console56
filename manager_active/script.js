@@ -13,9 +13,9 @@ async function getManagerOrders() {
         console.log(orders);
         
         const list = document.getElementById('act-orders-list');
-        orders.forEach(order => {
+        await orders.forEach(order => {
 
-            const getInfoResponse = await fetch('http://localhost:3000/get-info', {
+            const getInfoResponse = fetch('http://localhost:3000/get-info', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
