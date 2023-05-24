@@ -52,25 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     });
 
+    let orderItems = [];
     const addToOrderBtn = document.getElementById('add-products');
     addToOrderBtn.addEventListener('click', () => {
         const dishQuantityInput = document.getElementById('dish-quanity');
         const dishQuantity = dishQuantityInput.value;
         // Получаем ссылку на tbody элемент таблицы
         const tableBody = document.getElementById("order-table-body");
-
-        // Создаем элемент tr
         const row = document.createElement("tr");
-
-        // Создаем ячейки td и устанавливаем содержимое
         const dishNameCell = document.createElement("td");
         dishNameCell.textContent = selectedDish.textContent;
-
         const quantityCell = document.createElement("td");
         quantityCell.textContent = dishQuantity;
-
         const totalCostCell = document.createElement("td");
         totalCostCell.textContent = selectedDish.value * dishQuantity;
+        orderItems.push({ name: dishNameCell, amount: quantityCell, price: totalCostCell })
 
         // Добавляем ячейки в строку
         row.appendChild(dishNameCell);
@@ -100,17 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Заполните все поля');
         }
         else {
-            const selectedDishes = document.querySelectorAll('.order-content-item-name');
-            const selectedDishAmounts = document.querySelectorAll('.order-content-item-amount');
-            const selectedDishesPrice = document.querySelectorAll('.order-content-item-cost');
-            const orderItems = [];
-            selectedDishes.forEach((dish, index) => {
-                const dishName = dish.textContent;
-                const dishAmount = selectedDishAmounts[index].textContent;
-                const dishPrice = selectedDishesPrice[index].textContent;
-                orderItems.push({ name: dishName, amount: dishAmount, price: dishPrice });
-            });
-
             setNewOrder(name, address, phone, today, orderItems);
         }
     });
