@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listItem.innerHTML = `
             <p class="order-content-item-name">${selectedDish.textContent}</p>
             <p class="order-content-item-amount">${dishQuantity} шт.</p>
-            <p class="order-content-item-cost">${selectedDish.value}</p>
+            <p class="order-content-item-cost">${selectedDish.value} руб.</p>
         `;
 
         orderList.appendChild(listItem);
@@ -81,17 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const phone = phoneInput.value;
         const today = formatToday(new Date());
 
-        if (nameInput.value === '' || addressInput.value === '' || addressInput.value === '') {
+        if (nameInput.value === '' || addressInput.value === '' || addressInput.value === '' || selectedDish === null) {
             alert('Заполните все поля');
         }
         else {
             const selectedDishes = document.querySelectorAll('.order-content-item-name');
             const selectedDishAmounts = document.querySelectorAll('.order-content-item-amount');
+            const selectedDishesPrice = document.querySelectorAll('.order-content-item-cost');
             const orderItems = [];
             selectedDishes.forEach((dish, index) => {
                 const dishName = dish.textContent;
                 const dishAmount = selectedDishAmounts[index].textContent.replace(' шт.', '');
-                orderItems.push({ name: dishName, amount: dishAmount });
+                const dishPrice = selectedDishesPrice[index].textContent.replace(' руб.', '');
+                orderItems.push({ name: dishName, amount: dishAmount, price: dishPrice });
             });
 
             setNewOrder(name, address, phone, today, orderItems);
@@ -108,7 +110,7 @@ function formatToday(dateString) {
 };
 
 // Отправка данных на локальный компьютер
-function setNewOrder(name, address, phone, today) {
+function setNewOrder(name, address, phone, today, orderItems) {
     fetch('http://localhost:3000/new-order', {
       method: 'POST',
       headers: {
