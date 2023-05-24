@@ -25,8 +25,6 @@ orders.forEach(order => {
     const newLiHTML = "<li>Новый элемент</li>";
     ulElement.insertAdjacentHTML("beforeend", newLiHTML);
 });
-
-let block = innerH
   
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в окно добавления заказа
