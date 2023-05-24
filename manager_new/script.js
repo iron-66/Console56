@@ -54,20 +54,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addToOrderBtn = document.getElementById('add-products');
     addToOrderBtn.addEventListener('click', () => {
-        const orderTable = document.getElementById('order-table-body');
         const dishQuantityInput = document.getElementById('dish-quanity');
         const dishQuantity = dishQuantityInput.value;
-        const listItem = document.createElement('li');
-        listItem.classList.add('order-content-list-item');
-        listItem.innerHTML = `
-            <tr>
-                <td>${selectedDish.textContent}</td>
-                <td>${dishQuantity}</td>
-                <td>${selectedDish.value * dishQuantity}</td>
-            </tr>
-        `;
+        // Получаем ссылку на tbody элемент таблицы
+        const tableBody = document.getElementById("order-table-body");
 
-        orderTable.appendChild(listItem);
+        // Создаем элемент tr
+        const row = document.createElement("tr");
+
+        // Создаем ячейки td и устанавливаем содержимое
+        const dishNameCell = document.createElement("td");
+        dishNameCell.textContent = selectedDish.textContent;
+
+        const quantityCell = document.createElement("td");
+        quantityCell.textContent = dishQuantity;
+
+        const totalCostCell = document.createElement("td");
+        totalCostCell.textContent = selectedDish.value * dishQuantity;
+
+        // Добавляем ячейки в строку
+        row.appendChild(dishNameCell);
+        row.appendChild(quantityCell);
+        row.appendChild(totalCostCell);
+
+        // Добавляем строку в tbody таблицы
+        tableBody.appendChild(row);
+
+        orderTable.insertRow(listItem);
         document.getElementById('popup').hidden = true;
     });    
 
