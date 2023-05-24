@@ -19,6 +19,14 @@ async function getManagerOrders() {
 }
 // Вызов функции для получения данных заказов
 getManagerOrders();
+
+const list = document.getElementById('act-orders-list');
+orders.forEach(order => {
+    const newLiHTML = "<li>Новый элемент</li>";
+    ulElement.insertAdjacentHTML("beforeend", newLiHTML);
+});
+
+let block = innerH
   
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в окно добавления заказа

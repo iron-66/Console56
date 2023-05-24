@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let orderItems = [];
     const addToOrderBtn = document.getElementById('add-products');
     addToOrderBtn.addEventListener('click', () => {
+        document.getElementById('popup').hidden = true;
         const dishQuantityInput = document.getElementById('dish-quanity');
         const dishQuantity = dishQuantityInput.value;
         // Получаем ссылку на tbody элемент таблицы
@@ -69,16 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(dishNameCell, quantityCell, totalCostCell)
         orderItems.push({ name: dishNameCell.textContent, amount: quantityCell.textContent, price: parseInt(totalCostCell.textContent) })
 
-        // Добавляем ячейки в строку
         row.appendChild(dishNameCell);
         row.appendChild(quantityCell);
         row.appendChild(totalCostCell);
 
-        // Добавляем строку в tbody таблицы
         tableBody.appendChild(row);
-
         orderTable.insertRow(listItem);
-        document.getElementById('popup').hidden = true;
     });    
 
     // Формирование нового заказа
