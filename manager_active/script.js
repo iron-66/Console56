@@ -8,23 +8,24 @@ async function getManagerOrders() {
     try {
         const response = await fetch('http://localhost:3000/check-manager-actual');
         if (!response.ok) {
-        throw new Error('Request failed');
+            throw new Error('Request failed');
         }
         const orders = await response.json();
         // Здесь вы можете использовать полученные данные для создания блоков на странице
         console.log(orders);
+        
+        const list = document.getElementById('act-orders-list');
+        orders.forEach(order => {
+            const newLiHTML = "<li>Новый элемент</li>";
+            list.insertAdjacentHTML("beforeend", newLiHTML);
+        });
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
 // Вызов функции для получения данных заказов
 getManagerOrders();
-
-const list = document.getElementById('act-orders-list');
-orders.forEach(order => {
-    const newLiHTML = "<li>Новый элемент</li>";
-    ulElement.insertAdjacentHTML("beforeend", newLiHTML);
-});
   
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в окно добавления заказа
