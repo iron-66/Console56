@@ -6,7 +6,6 @@
         <link type="image/x-icon" href="../source/favicon.ico" rel="shortcut icon">
         <link type="Image/x-icon" href="../source/favicon.ico" rel="icon">
         <link rel="stylesheet" href="Менеджер_Новый_заказ_стили.css">
-        <script src="script.js"></script>
     </head>
     <body>
         <!-- Шапка -->
@@ -17,19 +16,21 @@
                         <img class="logo" src="../source/Logo.png" alt="Пять Шестых">
                     </li>
                     <li class="header-nav-arr-item">
-                        <button id="actual-orders" class="actual-orders-button">Актуальные заказы</button>
+                        <form action="https://iron-66.github.io/Console56/manager_active"><button class="actual-orders-button">Актуальные заказы</button></form>
                     </li>
                     <li class="header-nav-arr-item">
                         <button class="accepted-orders-button" disabled="true" style="background-color: #F5FFFA;">Новый заказ</button>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button id="orders-archive" class="orders-archive-button">Архив заказов</button>
+                        <form action="https://iron-66.github.io/Console56/manager_archive"><button class="orders-archive-button">Архив заказов</button></form>
                     </li>
                     <li class="header-nav-arr-item">
-                        <button id="lk" class="LK-button">
-                            <p>Менеджер</p>
-                            <img src="../source/Avatar.png" alt="icon">
-                        </button>
+                        <form action="https://iron-66.github.io/Console56/manager_my">
+                            <button class="LK-button">
+                                <p>Менеджер</p>
+                                <img src="../source/Avatar.png" alt="icon">
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -37,58 +38,90 @@
 
         <!-- Основной контент(база) -->
         <main class="main-inner">
-            <div id="popup" class="deep-dark-popup" hidden>
+            <div class="deep-dark-popup" hidden="true">
                 <div class="pick-dish-popup">
                     <div class="popup-header">
-                        <button id="back-btn" class="back-to-page-btn"></button>
+                        <button class="back-to-page-btn"></button>
                         <p class="pick-dish-title">Блюда</p>
                     </div>
                     <div class="pick-dish-info">
                         <input class="search-input" placeholder="Введите название блюда">
                     </div>
                     <ul class="dishes-list">
-                        <li><button id="ham" class="dish" value="615">Пицца "Ветчина и грибы"</button></li>
-                        <li><button id="carbonara" class="dish" value="490">Пицца "Карбонара"</button></li>
-                        <li><button id="peperoni" class="dish" value="630">Пицца "Пепперони Фреш"</button></li>
-                        <li><button id="cheese" class="dish" value="510">Пицца "Сырная"</button></li> 
-                        <li><button id="seasons" class="dish" value="590">Пицца "Четыре сезона"</button></li>
+                        <li><button class="dish">Пицца "Ветчина и грибы"</button></li>
+                        <li><button class="dish">Пицца "Карбонара"</button></li>
+                        <li><button class="dish">Пицца "Пепперони Фреш"</button></li>
+                        <li><button class="dish">Пицца "Сырная"</button></li> 
+                        <li><button class="dish">Пицца "Четыре сезона"</button></li>
                     </ul>
                     <div class="amount-info">
                         <p>Количество:</p>
-                        <input id="dish-quanity" type="number" value="1" class="amount-input" placeholder="1" min="1">
+                        <input type="number" class="amount-input" placeholder="1">
                     </div>
-                    <button id="add-products" class="add-btn">Добавить</button>
+                    <button class="add-btn">Добавить</button>
                 </div>
             </div>
             <div class="new-order">
                 <div class="about-customer">
                     <div class="order-item-customer">
                         <p>Имя заказчика:</p>
-                        <input id="name" type="text" class="order-customer" placeholder="Иванов Иван Иванович">
+                        <input type="text" class="order-customer" placeholder="Иванов Иван Иванович">
                     </div>
                     <div class="order-item-address">
                         <p>Адрес:</p>
-                        <input id="address" type="text" class="order-address" placeholder="ул. Пушкина, дом 35, кв. 120">
+                        <input type="text" class="order-address" placeholder="ул. Пушкина, дом 35, кв. 120">
                     </div>
                     <div class="order-item-phone-number">
                         <p>Телефон:</p>
-                        <input id="phone" type="tel" class="order-phone-number" placeholder="+7(ХХХ)-ХХХ-ХХ-ХХ" minlength="12" maxlength="12">
+                        <input type="tel" class="order-phone-number" placeholder="+7(ХХХ)-ХХХ-ХХ-ХХ" minlength="12" maxlength="12">
                     </div>
                 </div>
                 <div class="buttons">
-                    <button id="confirm-btn" class="ok-btn"></button>
+                    <button class="ok-btn"></button>
                 </div>
                 <div class="order-content">
-                    <div class="order-content-header">
+                    <table class="order-table">
+                        <thead class="order-table-head">
+                            <tr>
+                                <th class="order-content-header-cntnt">Содержимое заказа:</th>
+                                <th class="order-content-header-amount">Кол-во:</th>
+                                <th class="order-content-header-cost">Стоимость:</th>
+                            </tr>
+                        </thead>
+                        <tbody class="order-table-body">
+                            <tr>
+                                <td>Пицца "Сечире рыра"</td>
+                                <td>10 шт.</td>
+                                <td>5000 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>Пицца "Сечире рыра"</td>
+                                <td>10 шт.</td>
+                                <td>5000 руб.</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    <!-- <div class="order-content-header">
                         <p class="order-content-header-cntnt">Содержимое заказа:</p>
                         <p class="order-content-header-amount">Кол-во:</p>
                         <p class="order-content-header-cost">Стоимость:</p>
                     </div>
-                    <ul id="order-list" class="order-content-list">
-                    </ul>
-                    <button id="view-products" class="order-content-add-btn"></button>
+                    <ul class="order-content-list">
+                        <li class="order-content-list-item">
+                            <p class="order-content-item-name">Пицца "Сечире рыра"</p>
+                            <p class="order-content-item-amount">10 шт.</p>
+                            <p class="order-content-item-cost">5000 руб.</p>
+                        </li>
+                    </ul> -->
+                    <button class="order-content-add-btn" disabled="true"></button>
                 </div>
             </div>
         </main>
+
+        <!-- Подвал(А это вообще надо?) -->
+        <!-- <footer class="page-footer">
+            
+        </footer> -->
     </body>
 </html>
