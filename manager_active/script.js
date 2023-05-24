@@ -6,7 +6,7 @@ const id = urlParams.get('id');
 // Функция для получения данных заказов от сервера
 async function getManagerOrders() {
     try {
-        const response = await fetch('/check-manager-actual');
+        const response = await fetch('http://localhost:3000/check-manager-actual');
         if (!response.ok) {
         throw new Error('Request failed');
         }
