@@ -2,67 +2,67 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
-// Загрузка заказов
-// function createOrderBlock(order) {
-//     const {
-//       orderid,
-//       createdate,
-//       orderstatus,
-//       name,
-//       address,
-//       phone,
-//       products,
-//       amount,
-//       cost
-//     } = order;
+//Загрузка заказов
+function createOrderBlock(order) {
+    const {
+      orderid,
+      createdate,
+      orderstatus,
+      name,
+      address,
+      phone,
+      products,
+      amount,
+      cost
+    } = order;
   
-//     const orderBlock = document.createElement('li');
-//     orderBlock.classList.add('actual-orders-item');
-//     orderBlock.id = orderid;
+    const orderBlock = document.createElement('li');
+    orderBlock.classList.add('actual-orders-item');
+    orderBlock.id = orderid;
   
-//     const aboutOrder = document.createElement('div');
-//     aboutOrder.classList.add('about-order');
+    const aboutOrder = document.createElement('div');
+    aboutOrder.classList.add('about-order');
   
-//     const orderItemNumber = document.createElement('div');
-//     orderItemNumber.classList.add('order-item-number');
-//     const orderItemNumberTitle = document.createElement('p');
-//     orderItemNumberTitle.innerHTML = '<b>Заказ от:</b>';
-//     const orderItemNumberValue = document.createElement('p');
-//     orderItemNumberValue.id = 'createdate';
-//     orderItemNumberValue.classList.add('order-number');
-//     orderItemNumberValue.textContent = createdate;
-//     orderItemNumber.appendChild(orderItemNumberTitle);
-//     orderItemNumber.appendChild(orderItemNumberValue);
+    const orderItemNumber = document.createElement('div');
+    orderItemNumber.classList.add('order-item-number');
+    const orderItemNumberTitle = document.createElement('p');
+    orderItemNumberTitle.innerHTML = '<b>Заказ от:</b>';
+    const orderItemNumberValue = document.createElement('p');
+    orderItemNumberValue.id = 'createdate';
+    orderItemNumberValue.classList.add('order-number');
+    orderItemNumberValue.textContent = createdate;
+    orderItemNumber.appendChild(orderItemNumberTitle);
+    orderItemNumber.appendChild(orderItemNumberValue);
   
-//     const orderItemStatus = document.getElementById('act-orders-list')
-//     const orderItemStatusTitle = document.createElement('p');
-//     orderItemStatusTitle.innerHTML = '<b>Статус заказа:</b>';
-//     const orderItemStatusValue = document.createElement('p');
-//     orderItemStatusValue.id = 'orderstatus';
-//     orderItemStatusValue.classList.add('order-status');
-//     orderItemStatusValue.textContent = orderstatus;
-//     orderItemStatus.appendChild(orderItemStatusTitle);
-// }
+    const orderItemStatus = document.getElementById('act-orders-list')
+    const orderItemStatusTitle = document.createElement('p');
+    orderItemStatusTitle.innerHTML = '<b>Статус заказа:</b>';
+    const orderItemStatusValue = document.createElement('p');
+    orderItemStatusValue.id = 'orderstatus';
+    orderItemStatusValue.classList.add('order-status');
+    orderItemStatusValue.textContent = orderstatus;
+    orderItemStatus.appendChild(orderItemStatusTitle);
+}
 
-// function fetchOrders() {
-//     fetch('/check-manager-actual')
-//     .then(response => response.json())
-//     .then(data => {
-//     // Обработка полученных данных
-//     data.forEach(order => {
-//         const orderBlock = createOrderBlock(order);
-//         // Добавление блока в нужный контейнер на странице
-//         const ordersList = document.getElementById('orders-list');
-//         ordersList.appendChild(orderBlock);
-//     });
-//     })
-//     .catch(error => {
-//     console.error('Ошибка при получении данных:', error);
-//     });
-// }
+function fetchOrders() {
+    fetch('http://localhost:3000/check-manager-actual')
+    .then(response => response.json())
+    .then(data => {
+    // Обработка полученных данных
+    data.forEach(order => {
+        const orderBlock = createOrderBlock(order);
+        // Добавление блока в нужный контейнер на странице
+        const ordersList = document.getElementById('orders-list');
+        ordersList.appendChild(orderBlock);
+    });
+    })
+    .catch(error => {
+    console.error('Ошибка при получении данных:', error);
+    });
+}
 
-// // Вызов функции для отправки запроса на сервер
-// fetchOrders();
+// Вызов функции для отправки запроса на сервер
+fetchOrders();
   
   
 
