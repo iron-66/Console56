@@ -397,17 +397,20 @@ input,
 }
 
 .order-table .order-table-head th{
-    align-self: left;
+    
 }
 
 .order-content-header-cntnt {
-    width: 640px;
+    align-self: left;
+    width: 50%;
 }
 
 .order-content-header-amount {
-    width: 112px;
+    align-self: center;
+    width: 15%;
 }
 
 .order-content-header-cost {
-    width: 100%;
+    align-self: center;
+    width: 35%;
 }
