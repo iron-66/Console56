@@ -2,7 +2,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
-
 // Функция для получения данных заказов от сервера
 async function getManagerOrders() {
     try {
@@ -21,7 +20,7 @@ async function getManagerOrders() {
                     <div class="about-order">
                         <div class="order-item-number">
                             <p><b>Заказ от:</b></p>
-                            <p id="createdate" class="order-number"></p>
+                            <p id="createdate" class="order-number">${formatDateTime(order.createdate)}</p>
                         </div>
                         <div class="order-item-status">
                             <p><b>Статус заказа:</b></p>
@@ -35,7 +34,7 @@ async function getManagerOrders() {
                         </div>
                         <div class="order-item-address">
                             <p>Адрес:</p>
-                            <p id="address" class="order-address"></p>
+                            <p id="address" class="order-address">${order.address}</p>
                         </div>
                         <div class="order-item-phone-number">
                             <p>Телефон:</p>
@@ -71,6 +70,23 @@ async function getManagerOrders() {
 
 // Вызов функции для получения данных заказов
 getManagerOrders();
+
+function formatDateTime(dateTimeString) {
+    const date = new Date(dateTimeString);
+  
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+  
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+  
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+}
+
+const originalDateTime = "2023-05-23T19:00:00.000Z";
+const formattedDateTime = formatDateTime(originalDateTime);
+console.log(formattedDateTime);
   
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в окно добавления заказа
