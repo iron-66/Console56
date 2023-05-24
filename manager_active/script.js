@@ -15,13 +15,15 @@ async function getManagerOrders() {
         const list = document.getElementById('act-orders-list');
 
         for (const order of orders) {
-            console.log(order.userid);
+            
+            const user = `'${order.userid}'`;
+            console.log(user);
             const getInfoResponse = await fetch('http://localhost:3000/get-info', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(order.userid)
+                body: JSON.stringify(user)
             });
     
             if (!getInfoResponse.ok) {
