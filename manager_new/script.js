@@ -37,17 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Добавление блюд в список заказа
-    let selectedDish = ''
+    let selectedDish = null;
     const dishes = document.querySelectorAll('.dish');
-    console.log(dishes)
+
     dishes.forEach((dish) => {
-        dish.addEventListener('click', () => {
-          if (selectedDish !== null) {
-            selectedDish.style.backgroundColor = '#FFFFFF';
-          }
-          selectedDish = dish;
-          selectedDish.style.backgroundColor = '#bbb9ba';
-        });
+    dish.addEventListener('click', () => {
+        if (selectedDish !== null) {
+        selectedDish.style.backgroundColor = '';
+        }
+
+        selectedDish = dish;
+        selectedDish.style.backgroundColor = '#bbb9ba';
+    });
     });
 
     const addToOrderBtn = document.getElementById('add-products');
