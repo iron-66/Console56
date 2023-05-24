@@ -16,6 +16,8 @@ function createOrderBlock(order) {
       cost
     } = order;
   
+    const orderItemStatus = document.getElementById('act-orders-list') // Главный класс
+
     const orderBlock = document.createElement('li');
     orderBlock.classList.add('actual-orders-item');
     orderBlock.id = orderid;
@@ -34,7 +36,7 @@ function createOrderBlock(order) {
     orderItemNumber.appendChild(orderItemNumberTitle);
     orderItemNumber.appendChild(orderItemNumberValue);
   
-    const orderItemStatus = document.getElementById('act-orders-list')
+    
     const orderItemStatusTitle = document.createElement('p');
     orderItemStatusTitle.innerHTML = '<b>Статус заказа:</b>';
     const orderItemStatusValue = document.createElement('p');
@@ -43,6 +45,68 @@ function createOrderBlock(order) {
     orderItemStatusValue.textContent = orderstatus;
     orderItemStatus.appendChild(orderItemStatusTitle);
 }
+
+function insertOrderBlock() {
+    const ulElement = document.getElementById('act-orders-list');
+  
+    // Создание нового элемента списка
+    const liElement = document.createElement('li');
+    liElement.className = 'actual-orders-item';
+  
+    // Вставка содержимого блока
+    liElement.innerHTML = `
+      <div class="about-order">
+        <div class="order-item-number">
+          <p><b>Заказ от:</b></p>
+          <p id="createdate" class="order-number">24.05.2023 14:15</p>
+        </div>
+        <div class="order-item-status">
+          <p><b>Статус заказа:</b></p>
+          <p id="orderstatus" class="order-status">Новый</p>
+        </div>
+      </div>
+      <div class="about-customer">
+        <div class="order-item-customer">
+          <p>Заказчик:</p>
+          <p id="name" class="order-customer">Носков Дмитрий Павлович</p>
+        </div>
+        <div class="order-item-address">
+          <p>Адрес:</p>
+          <p id="address" class="order-address">Армавирская 24А, кв.167</p>
+        </div>
+        <div class="order-item-phone-number">
+          <p>Телефон:</p>
+          <p id="phone" class="order-phone-number">+79527896510</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="more-info-btn"></button>
+        <button class="cancel-btn"></button>
+        <button class="edit-btn"></button>
+      </div>
+      <div class="order-content">
+        <div class="order-content-header">
+          <p class="order-content-header-cntnt">Содержимое заказа:</p>
+          <p class="order-content-header-amount">Кол-во:</p>
+          <p class="order-content-header-cost">Стоимость:</p>
+        </div>
+        <ul class="order-content-list">
+          <li class="order-content-list-item">
+            <p id="products" class="order-content-item-name">Пицца "Ветчина и грибы"</p>
+            <p id="amounts" class="order-content-item-amount">2</p>
+            <p id="cost" class="order-content-item-cost">1230</p>
+          </li>
+        </ul>
+      </div>
+    `;
+  
+    // Вставка элемента в список
+    ulElement.appendChild(liElement);
+  }
+  
+  // Вызов функции для вставки блока
+  insertOrderBlock();
+  
 
 function fetchOrders() {
     fetch('http://localhost:3000/check-manager-actual')
