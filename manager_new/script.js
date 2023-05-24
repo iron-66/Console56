@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selectedDish = dish;
         selectedDish.style.backgroundColor = '#bbb9ba';
+        console.log(selectedDish);
     });
     });
 
