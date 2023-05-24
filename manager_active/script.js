@@ -13,26 +13,8 @@ async function getManagerOrders() {
         console.log(orders);
         
         const list = document.getElementById('act-orders-list');
-        
-        // const getInfoResponse = await fetch('http://localhost:3000/get-info', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify({
-        //             user: order.userid
-        //         }),
-        //     });
-    
-        //     if (!getInfoResponse.ok) {
-        //         throw new Error('Request failed');
-        //     }
-            
-        //     const info = await getInfoResponse.json();
-        //     console.log(info);
-        
         for (const order of orders) {
-            
+            const data = getUserData(order.userid);
 
             const newLiHTML = `
             <li class="actual-orders-item">
@@ -100,6 +82,10 @@ function formatDateTime(dateTimeString) {
     const minutes = date.getMinutes().toString().padStart(2, '0');
   
     return `${day}-${month}-${year} ${hours}:${minutes}`;
+}
+
+function getUserData() {
+
 }
 
 const originalDateTime = "2023-05-23T19:00:00.000Z";
