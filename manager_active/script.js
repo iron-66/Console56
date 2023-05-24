@@ -27,7 +27,7 @@ async function getManagerOrders() {
                 throw new Error('Request failed');
             }
             
-            const info = await getInfoResponse.json();
+            const info = getInfoResponse.json();
             console.log(info);
 
             const newLiHTML = `
