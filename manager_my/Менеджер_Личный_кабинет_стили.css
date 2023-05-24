@@ -139,7 +139,6 @@ main {
 .receipts-item-taxes,
 .receipts-item-fees,
 .receipts-item-prize {
-    width: 482px;
     height: 45px;
     margin-top: 5px;
 }
@@ -148,9 +147,9 @@ main {
     margin: 6px;
 }
 
-.receipts-item-sum {
+/* .receipts-item-sum {
     margin-top: -25px;
-}
+} */
 
 .receipts-item-date-and-time {
     width: 450px;
@@ -186,7 +185,7 @@ main {
     width: 285px;
     margin-left: 120px;
     margin-right: 16px;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .change-password-btn:hover,
