@@ -404,16 +404,24 @@ input,
 }
 
 .order-content-header-cntnt {
-    align-self: left;
+    text-align: left;
     width: 50%;
 }
 
 .order-content-header-amount {
-    align-self: center;
+    text-align: center;
     width: 15%;
 }
 
 .order-content-header-cost {
-    align-self: center;
+    text-align: center;
     width: 35%;
+}
+
+.order-table-body td {
+    text-align: center;
+}
+.order-table-body td:first-child {
+    padding-left: 10px;
+    text-align: left;
 }
