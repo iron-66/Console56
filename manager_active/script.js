@@ -13,6 +13,7 @@ async function getManagerOrders() {
         console.log(orders);
         
         const list = document.getElementById('act-orders-list');
+        
         for (const order of orders) {
             const getInfoResponse = await fetch('http://localhost:3000/get-info', {
                 method: 'POST',
