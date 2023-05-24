@@ -37,12 +37,12 @@
 
         <!-- Основной контент(база) -->
         <main class="main-inner">
-            <ul class="actual-orders">
+            <ul id="act-orders-list" class="actual-orders">
                 <li class="actual-orders-item">
                     <div class="about-order">
                         <div class="order-item-number">
                             <p><b>Заказ от:</b></p>
-                            <p id="orderid" class="order-number"></p>
+                            <p id="createdate" class="order-number"></p>
                         </div>
                         <div class="order-item-status">
                             <p><b>Статус заказа:</b></p>
@@ -52,15 +52,15 @@
                     <div class="about-customer">
                         <div class="order-item-customer">
                             <p>Заказчик:</p>
-                            <p class="order-customer">Мохаммед али Аллах Саил Самуил Джан Де - польто</p>
+                            <p id="name" class="order-customer"></p>
                         </div>
                         <div class="order-item-address">
                             <p>Адрес:</p>
-                            <p class="order-address">г. Екатеринбург, ул. Баумана, дом 3А, кв. 34</p>
+                            <p id="address" class="order-address"></p>
                         </div>
                         <div class="order-item-phone-number">
                             <p>Телефон:</p>
-                            <p class="order-phone-number">88005553535</p>
+                            <p id="phone" class="order-phone-number"></p>
                         </div>
                     </div>
                     <div class="buttons">
@@ -72,13 +72,13 @@
                         <div class="order-content-header">
                             <p class="order-content-header-cntnt">Содержимое заказа:</p>
                             <p class="order-content-header-amount">Кол-во:</p>
-                            <p id="cost" class="order-content-header-cost">Стоимость:</p>
+                            <p lass="order-content-header-cost">Стоимость:</p>
                         </div>
                         <ul class="order-content-list">
                             <li class="order-content-list-item">
-                                <p class="order-content-item-name">Пицца "Сечире рыра"</p>
-                                <p class="order-content-item-amount">10 шт.</p>
-                                <p class="order-content-item-cost">5000 руб.</p>
+                                <p id="products" class="order-content-item-name"></p>
+                                <p id="amounts" class="order-content-item-amount"></p>
+                                <p id="cost" class="order-content-item-cost"></p>
                             </li>
                         </ul>
                     </div>
