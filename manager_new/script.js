@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Формирование нового заказа
     const confirmBtn = document.getElementById('confirm-btn');
     confirmBtn.addEventListener('click', () => {
-
         const nameInput = document.getElementById('name');
         const addressInput = document.getElementById('address');
         const phoneInput = document.getElementById('phone');
@@ -41,7 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Заполните все поля');
         }
         else {
-            setNewOrder(name, address, phone, today);
+            const selectedDishes = document.querySelectorAll('.order-content-item-name');
+            const selectedDishAmounts = document.querySelectorAll('.order-content-item-amount');
+            const orderItems = [];
+            selectedDishes.forEach((dish, index) => {
+                const dishName = dish.textContent;
+                const dishAmount = selectedDishAmounts[index].textContent.replace(' шт.', '');
+                orderItems.push({ name: dishName, amount: dishAmount });
+            });
+
+            setNewOrder(name, address, phone, today, orderItems);
         }
     });
 
@@ -56,6 +64,29 @@ document.addEventListener('DOMContentLoaded', () => {
     backBtn.addEventListener('click', () => {
         document.getElementById('popup').hidden = true;
     });
+
+    // Добавление блюд в список заказа
+    const addToOrderBtn = document.getElementById('add-products');
+    addToOrderBtn.addEventListener('click', () => {
+        const selectedDish = document.querySelector('.dish-button:checked');
+        const orderList = document.getElementById('order-list');
+
+        const dishId = selectedDish.id;
+        const dishName = dish.textContent;
+        const dishQuantityInput = document.getElementById('dish-quanity');
+        const dishQuantity = dishQuantityInput.value;
+
+        const listItem = document.createElement('li');
+        listItem.classList.add('order-content-list-item');
+        listItem.innerHTML = `
+            <p class="order-content-item-name">${dishName}</p>
+            <p class="order-content-item-amount">${dishQuantity} шт.</p>
+        `;
+
+        orderList.appendChild(listItem);
+    });
+
+    document.getElementById('popup').hidden = true;
 });
 
 function formatToday(dateString) {
@@ -79,6 +110,7 @@ function setNewOrder(name, address, phone, today) {
         phone: phone,
         date: today,
         empId: id,
+        items: orderItems,
       }),
     })
     .then((response) => response.json())
