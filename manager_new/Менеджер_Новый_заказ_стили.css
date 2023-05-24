@@ -410,12 +410,12 @@ input,
 
 .order-content-header-amount {
     text-align: center;
-    width: 15%;
+    width: 20%;
 }
 
 .order-content-header-cost {
     text-align: center;
-    width: 35%;
+    width: 30%;
 }
 
 .order-table-body td {
