@@ -249,3 +249,18 @@ main {
 .order-content-item-cost {
     margin-left: 330px;
 }
+
+.order-table {
+    width: 100%;
+    margin-top: 64px;
+    margin-bottom: 32px;   
+}
+
+.order-table-body td {
+    text-align: center;
+}
+
+.order-table-body td:first-child {
+    padding-left: 38px;
+    text-align: left;
+}
