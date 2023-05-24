@@ -24,6 +24,42 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = redirectUrl;
     });
 
+    // Открытие попап окна со всеми блюдами
+    const viewBtn = document.getElementById('view-products');
+    viewBtn.addEventListener('click', () => {
+        document.getElementById('popup').hidden = false;
+    });
+
+    // Выход из попапа
+    const backBtn = document.getElementById('back-btn');
+    backBtn.addEventListener('click', () => {
+        document.getElementById('popup').hidden = true;
+    });
+
+    // Добавление блюд в список заказа
+    let selectedDish = ''
+    const dishes = document.querySelector('dish');
+    dishes.addEventListener('click', () => {
+        selectedDish = dishes.textContent;
+    });
+
+    const addToOrderBtn = document.getElementById('add-products');
+    addToOrderBtn.addEventListener('click', () => {
+        const orderList = document.getElementById('order-list');
+        const dishQuantityInput = document.getElementById('dish-quanity');
+        const dishQuantity = dishQuantityInput.value;
+
+        const listItem = document.createElement('li');
+        listItem.classList.add('order-content-list-item');
+        listItem.innerHTML = `
+            <p class="order-content-item-name">${selectedDish}</p>
+            <p class="order-content-item-amount">${dishQuantity} шт.</p>
+        `;
+
+        orderList.appendChild(listItem);
+        document.getElementById('popup').hidden = true;
+    });    
+
     // Формирование нового заказа
     const confirmBtn = document.getElementById('confirm-btn');
     confirmBtn.addEventListener('click', () => {
@@ -52,41 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setNewOrder(name, address, phone, today, orderItems);
         }
     });
-
-    // Открытие попап окна со всеми блюдами
-    const viewBtn = document.getElementById('view-products');
-    viewBtn.addEventListener('click', () => {
-        document.getElementById('popup').hidden = false;
-    });
-
-    // Выход из попапа
-    const backBtn = document.getElementById('back-btn');
-    backBtn.addEventListener('click', () => {
-        document.getElementById('popup').hidden = true;
-    });
-
-    // Добавление блюд в список заказа
-    const addToOrderBtn = document.getElementById('add-products');
-    addToOrderBtn.addEventListener('click', () => {
-        const selectedDish = document.querySelector('.dish-button:checked');
-        const orderList = document.getElementById('order-list');
-
-        const dishId = selectedDish.id;
-        const dishName = dish.textContent;
-        const dishQuantityInput = document.getElementById('dish-quanity');
-        const dishQuantity = dishQuantityInput.value;
-
-        const listItem = document.createElement('li');
-        listItem.classList.add('order-content-list-item');
-        listItem.innerHTML = `
-            <p class="order-content-item-name">${dishName}</p>
-            <p class="order-content-item-amount">${dishQuantity} шт.</p>
-        `;
-
-        orderList.appendChild(listItem);
-    });
-
-    document.getElementById('popup').hidden = true;
 });
 
 function formatToday(dateString) {
