@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dishes.forEach((dish) => {
         dish.addEventListener('click', () => {
             dishes.forEach((item) => {
-                item.style.backgroundColor = '';
+                item.style.backgroundColor = '#FFFFFF';
             });
             dish.style.backgroundColor = '#bbb9ba';
             selectedDish = dishes.textContent;
