@@ -61,8 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const listItem = document.createElement('li');
         listItem.classList.add('order-content-list-item');
         listItem.innerHTML = `
-            <p class="order-content-item-name">${selectedDish}</p>
+            <p class="order-content-item-name">${selectedDish.innerHTML}</p>
             <p class="order-content-item-amount">${dishQuantity} шт.</p>
+            <p class="order-content-item-cost">${selectedDish.value}</p>
         `;
 
         orderList.appendChild(listItem);
