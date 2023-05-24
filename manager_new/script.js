@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Добавление блюд в список заказа
     let selectedDish = ''
     const dishes = document.querySelectorAll('dish');
+    console.log(dishes);
     dishes.forEach((dish) => {
         dish.addEventListener('click', () => {
+            console.log('Click!')
             dishes.forEach((item) => {
                 item.style.backgroundColor = '#FFFFFF';
             });
