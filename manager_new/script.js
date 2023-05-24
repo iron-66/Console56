@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Добавление блюд в список заказа
     let selectedDish = ''
     const dishes = document.querySelectorAll('dish');
-    dishes.foreach((dish) => {
+    dishes.forEach((dish) => {
         dish.addEventListener('click', () => {
             selectedDish = dishes.textContent;
         }) 
