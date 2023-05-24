@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dishes = document.querySelectorAll('dish');
     dishes.forEach((dish) => {
         dish.addEventListener('click', () => {
+            dishes.forEach((item) => {
+                item.style.backgroundColor = '';
+            });
+            dish.style.backgroundColor = '#bbb9ba';
             selectedDish = dishes.textContent;
         }) 
     });
