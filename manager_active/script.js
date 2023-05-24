@@ -3,7 +3,23 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
 
-
+// Функция для получения данных заказов от сервера
+async function getManagerOrders() {
+    try {
+        const response = await fetch('/check-manager-actual');
+        if (!response.ok) {
+        throw new Error('Request failed');
+        }
+        const orders = await response.json();
+        // Здесь вы можете использовать полученные данные для создания блоков на странице
+        console.log(orders);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+// Вызов функции для получения данных заказов
+getManagerOrders();
+  
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в окно добавления заказа
     const newOrd = document.getElementById('new-order');
