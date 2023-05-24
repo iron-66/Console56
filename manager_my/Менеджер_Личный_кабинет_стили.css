@@ -126,8 +126,11 @@ main {
     src: local("Ubuntu"), url("../fonts/ubuntu.woff2") format("woff2")
 }
 
-.about-receipt div p,
-.about-receipt,
+.receipts-item-date-and-time p,
+.receipts-item-sum p,
+.receipts-item-taxes p,
+.receipts-item-fees p,
+.receipts-item-total p,
 .buttons  {
     display: inline-block;
 }
@@ -178,7 +181,7 @@ main {
 }
 /* Конец правил для списка квитанций */
 
-/* Правила для кнопки "Сменить пароль" */
+/* Правила для внешних кнопок */
 .outer-buttons {
     width: 285px;
     margin-left: 120px;
@@ -187,12 +190,14 @@ main {
 }
 
 .change-password-btn:hover,
-.new-employee-btn:hover {
+.new-employee-btn:hover,
+.create-report-btn:hover {
     background-color: #DBEDE3;
 }
 
 .change-password-btn,
-.new-employee-btn {
+.new-employee-btn,
+.create-report-btn {
     width: 285px;
     height: 103px;
     border-width: 5px;
