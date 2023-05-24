@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Добавление блюд в список заказа
     let selectedDish = ''
-    const dishes = document.querySelector('dish');
-    dishes.addEventListener('click', () => {
-        selectedDish = dishes.textContent;
+    const dishes = document.querySelectorAll('dish');
+    dishes.foreach((dish) => {
+        dish.addEventListener('click', () => {
+            selectedDish = dishes.textContent;
+        }) 
     });
 
     const addToOrderBtn = document.getElementById('add-products');
