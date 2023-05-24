@@ -109,7 +109,7 @@ main {
 }
 
 .about-receipt {
-    width: 580px;
+    /* width: 580px; */
     font-family: Ubuntu;
     font-style: Regular;
     font-size: 32px;
@@ -147,14 +147,10 @@ main {
     margin: 6px;
 }
 
-/* .receipts-item-sum {
-    margin-top: -25px;
-} */
-
 .receipts-item-date-and-time {
     width: 450px;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .receipts-date-and-time {
