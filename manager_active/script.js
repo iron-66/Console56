@@ -10,11 +10,26 @@ async function getManagerOrders() {
             throw new Error('Request failed');
         }
         const orders = await response.json();
-        // Здесь вы можете использовать полученные данные для создания блоков на странице
         console.log(orders);
         
         const list = document.getElementById('act-orders-list');
         orders.forEach(order => {
+
+            const getInfoResponse = await fetch('http://localhost:3000/get-info', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(order.userid)
+            });
+
+            if (!getInfoResponse.ok) {
+                throw new Error('Request failed');
+            }
+            
+            const info = await getInfoResponse.json();
+            console.log(info);
+
             const newLiHTML = `
             <li class="actual-orders-item">
                     <div class="about-order">
