@@ -57,11 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const orderList = document.getElementById('order-list');
         const dishQuantityInput = document.getElementById('dish-quanity');
         const dishQuantity = dishQuantityInput.value;
-
         const listItem = document.createElement('li');
         listItem.classList.add('order-content-list-item');
         listItem.innerHTML = `
-            <p class="order-content-item-name">${selectedDish.innerHTML}</p>
+            <p class="order-content-item-name">${selectedDish.textContent}</p>
             <p class="order-content-item-amount">${dishQuantity} шт.</p>
             <p class="order-content-item-cost">${selectedDish.value}</p>
         `;
