@@ -20,7 +20,7 @@ async function getManagerOrders() {
                 headers: {
                 'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(order.userid)
+                body: JSON.stringify(order)
             });
 
             if (!getInfoResponse.ok) {
