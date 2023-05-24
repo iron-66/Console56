@@ -13,21 +13,20 @@ async function getManagerOrders() {
         console.log(orders);
         
         const list = document.getElementById('act-orders-list');
-        await orders.forEach(order => {
-
-            const getInfoResponse = fetch('http://localhost:3000/get-info', {
+        for (const order of orders) {
+            const getInfoResponse = await fetch('http://localhost:3000/get-info', {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(order)
             });
-
+    
             if (!getInfoResponse.ok) {
                 throw new Error('Request failed');
             }
             
-            const info = getInfoResponse.json();
+            const info = await getInfoResponse.json();
             console.log(info);
 
             const newLiHTML = `
@@ -76,7 +75,7 @@ async function getManagerOrders() {
                     </div>
                 </li>`;
             list.insertAdjacentHTML("beforeend", newLiHTML);
-        });
+        };
     } catch (error) {
         console.error('Error:', error);
     }
