@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.appendChild(totalCostCell);
 
         tableBody.appendChild(row);
-        orderTable.insertRow(listItem);
+        // orderTable.insertRow(listItem);
     });    
 
     // Формирование нового заказа
