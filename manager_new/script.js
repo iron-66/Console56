@@ -119,7 +119,7 @@ function setNewOrder(name, address, phone, today, orderItems) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: name.toString(),
+        name: name,
         address: address,
         phone: phone,
         date: today,
