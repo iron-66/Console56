@@ -106,7 +106,7 @@ function getUserData(user) {
     })
     .catch((error) => {
       console.log(error);
-      alert('Произошла ошибка при отправке данных');
+      //alert('Произошла ошибка при отправке данных');
     });
 }
 
