@@ -15,7 +15,6 @@ async function getManagerOrders() {
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
             const data = getUserData(order.userid);
-
             const newLiHTML = `
             <li class="actual-orders-item">
                     <div class="about-order">
@@ -96,9 +95,7 @@ function getUserData(userid) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        user: `'${userid}'`,
-      }),
+      body: JSON.stringify(`'${userid}'`),
     })
     .then((response) => response.json())
     .then((data) => {
