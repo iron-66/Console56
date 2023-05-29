@@ -10,6 +10,7 @@ async function getManagerOrders() {
             throw new Error('Request failed');
         }
         const orders = await response.json();
+        console.log(orders)
         
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
@@ -91,24 +92,21 @@ function formatDateTime(dateTimeString) {
 
 function getUserData(user) {
     fetch('http://localhost:3000/get-info', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-        })
-        .then(response => {
-            if (!response.ok) {
-            throw new Error('Request failed');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Обработка полученных данных
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: user,
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
     });
 }
 
