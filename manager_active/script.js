@@ -90,14 +90,14 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
-function getUserData(user) {
+function getUserData(userid) {
     fetch('http://localhost:3000/get-info', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user: user,
+        user: userid,
       }),
     })
     .then((response) => response.json())
