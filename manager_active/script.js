@@ -97,7 +97,7 @@ function getUserData(userid) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user: userid,
+        user: `'${userid}'`,
       }),
     })
     .then((response) => response.json())
