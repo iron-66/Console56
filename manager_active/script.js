@@ -97,7 +97,7 @@ function getUserData(user) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user: user.toString(),
+        user: user,
       }),
     })
     .then((response) => response.json())
