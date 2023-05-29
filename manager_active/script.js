@@ -14,7 +14,6 @@ async function getManagerOrders() {
         
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
-            console.log(order.userid);
             const data = getUserData(order.userid);
 
             const newLiHTML = `
@@ -91,6 +90,7 @@ function formatDateTime(dateTimeString) {
 }
 
 function getUserData(userid) {
+    console.log(`'${userid}'`)
     fetch('http://localhost:3000/get-info', {
       method: 'POST',
       headers: {
