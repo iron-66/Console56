@@ -218,10 +218,10 @@ main {
     text-align: center;
 }
 
-.order-table-body {
+/* .order-table-body {
     margin-left: 70px;
-}
+} */
 
 .order-table {
-    margin-left: 70px;
+    margin-left: 50px;
 }
