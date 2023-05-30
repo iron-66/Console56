@@ -15,7 +15,7 @@ async function getManagerOrders() {
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
             const userResponse = getUserData(order.userid);
-            console.log(userResponse.PromiseResult)
+            console.log(userResponse)
             //const userData = userResponse.json();
             const newLiHTML = `
             <li class="actual-orders-item">
@@ -91,7 +91,7 @@ function formatDateTime(dateTimeString) {
 }
 
 function getUserData(userid) {
-    console.log(`'${userid}'`)
+    //console.log(`'${userid}'`)
     return fetch('http://localhost:3000/get-info', {
       method: 'POST',
       headers: {
