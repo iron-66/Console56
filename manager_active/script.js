@@ -68,20 +68,20 @@ async function getManagerOrders() {
 
             if (tableBody) {
                 tableBody.innerHTML = ''; // Очищаем содержимое tbody перед вставкой новых данных
+                
+                for (let i = 0; i < len(orderResponse); i++) {
+                    const { products, amounts } = orderResponse[i];
+
+                    const newTableRow = `
+                        <tr>
+                        <td class="order-content-header-cntnt">${products}</td>
+                        <td class="order-content-header-amount">${amounts}</td>
+                        <td class="order-content-header-cost">1750</td>
+                        </tr>
+                    `;
             
-                orderResponse.forEach((item, index) => {
-                  const { products, amounts } = item;
-            
-                  const newTableRow = `
-                    <tr>
-                      <td class="order-content-header-cntnt">${products}</td>
-                      <td class="order-content-header-amount">${amounts}</td>
-                      <td class="order-content-header-cost">1750</td>
-                    </tr>
-                  `;
-            
-                  tableBody.insertAdjacentHTML('beforeend', newTableRow);
-                });
+                    tableBody.insertAdjacentHTML('beforeend', newTableRow);
+                }
             }
         };
     } catch (error) {
