@@ -46,8 +46,8 @@ async function getCookActiveOrders() {
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
 
-            const applyBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
-            applyBtn.addEventListener("click", () => {
+            const doneBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
+            doneBtn.addEventListener("click", () => {
                 completeCookOrder(order.orderid);
             });
 
