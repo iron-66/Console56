@@ -39,12 +39,17 @@ async function getCookActiveOrders() {
                     </table>
                 </div>
                 <div class="buttons">
-                    <button class="done-btn"></button>
+                    <button class="done-btn" data-orderid="${order.orderid}></button>
                     <button class="cancel-btn"></button>
                     <button class="more-info-btn"></button>
                 </div>
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
+
+            const applyBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
+            applyBtn.addEventListener("click", () => {
+                selectCookOrder(order.orderid);
+            });
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
