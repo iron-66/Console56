@@ -10,14 +10,11 @@ async function getManagerOrders() {
             throw new Error('Request failed');
         }
         const orders = await response.json();
-        console.log(orders)
-        
+                
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
-            const userRata = await userResponse;
-            console.log(userRata.name)
-            //const userData = userResponse.json();
+            const orderResponse = await getOrderData(order.orderid);
             const newLiHTML = `
             <li class="actual-orders-item">
                     <div class="about-order">
@@ -92,13 +89,31 @@ function formatDateTime(dateTimeString) {
 }
 
 function getUserData(userid) {
-    //console.log(`'${userid}'`)
-    return fetch('http://localhost:3000/get-info', {
+    return fetch('http://localhost:3000/get-user-data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id: userid}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
+    });
+}
+
+function getOrderData(orderid) {
+    return fetch('http://localhost:3000/get-order-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderid}),
     })
     .then((response) => response.json())
     .then((data) => {
