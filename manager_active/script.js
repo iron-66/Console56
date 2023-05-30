@@ -14,7 +14,8 @@ async function getManagerOrders() {
         
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
-            const data = getUserData(order.userid);
+            const userResponse = await getUserData(order.userid);
+            const userData = await userResponse.json();
             const newLiHTML = `
             <li class="actual-orders-item">
                     <div class="about-order">
@@ -30,7 +31,7 @@ async function getManagerOrders() {
                     <div class="about-customer">
                         <div class="order-item-customer">
                             <p>Заказчик:</p>
-                            <p id="name" class="order-customer">${data.name}</p>
+                            <p id="name" class="order-customer">${userData.name}</p>
                         </div>
                         <div class="order-item-address">
                             <p>Адрес:</p>
@@ -38,7 +39,7 @@ async function getManagerOrders() {
                         </div>
                         <div class="order-item-phone-number">
                             <p>Телефон:</p>
-                            <p id="phone" class="order-phone-number">${data.phone}</p>
+                            <p id="phone" class="order-phone-number">${userData.phone}</p>
                         </div>
                     </div>
                     <div class="buttons">
