@@ -46,6 +46,11 @@ async function getCookToChooseOrders() {
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
 
+            const applyBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
+            applyBtn.addEventListener("click", () => {
+                selectOrder(order.orderid);
+            });
+
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
 
