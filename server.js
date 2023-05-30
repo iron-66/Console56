@@ -25,19 +25,26 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // Добавление пользователя в базу данных
 app.post('/add-user', (req, res) => {
   const employeeid = generateGUID();
-  const telephone = req.body.login;
-  const fullName = 'Admin';
-  const birthDate = '01-01-2000';
-  const address = 'test';
-  const email = '1@test.ru';
+  const telephone = req.body.telephone;
+  const fullName = req.body.fullName;
+  const birthDate = req.body.birthDate;
+  const address = 'Web console';
+  const email = req.body.email;
   const password = req.body.password;
-  const position = 'manager';
-  const employeeStatus = 'fired';
-  const firstWorkDate = `'2023-05-20'`
-  const lastWorkDate = `'2023-05-22'`
+  const position = req.body.position;
+  const employeeStatus = 'work';
+  const firstWorkDate = req.body.workDate
+  const lastWorkDate = req.body.workDate
 
   pool.connect((err, client, release) => {
     if (err) {
@@ -60,7 +67,7 @@ app.post('/add-user', (req, res) => {
 
 // Проверка логина и пароля на сервере
 app.post('/check-login', (req, res) => {
-  const fullName = req.body.login;
+  const login = req.body.login;
   const password = req.body.password;
 
   pool.connect((err, client, release) => {
@@ -68,8 +75,8 @@ app.post('/check-login', (req, res) => {
       return console.error('Ошибка при подключении к базе данных:', err);
     }
   
-    const query = 'SELECT * FROM Employees WHERE fullName = $1 AND password = $2';
-    const values = [fullName, password];
+    const query = 'SELECT * FROM Employees WHERE (telephone = $1 OR email = $1) AND password = $2';
+    const values = [login, password];
   
     client.query(query, values, (err, result) => {
       release();
@@ -87,8 +94,11 @@ app.post('/check-login', (req, res) => {
   });
 });
 
+// Смена пароля
 app.post('/change-password', (req, res) => {
-  const { id, oldPass, newPass } = req.body;
+  const id = req.body.id;
+  const oldPass = req.body.oldPass;
+  const newPass = req.body.newPass;
 
   // Проверка наличия пользователя с указанным id и старым паролем в базе данных
   pool.query('SELECT * FROM employees WHERE employeeid = $1 AND password = $2', [id, oldPass], (error, result) => {
@@ -115,22 +125,191 @@ app.post('/change-password', (req, res) => {
   });
 });
 
-app.post('/receipt-for-manger', (req, res) => {
-  const salary = req.body.login;
-  let orders = 180 // взять из базы
+// Добавление заказа
+app.post('/new-order', (req, res) => {
+  //users
+  const userid = generateGUID();
+  const name = req.body.name;
+  const address = req.body.address;
+  const phone = req.body.phone;
+  const birth = req.body.date;
+  const email = req.body.phone;
+  const gamepoints = 0;
 
-  if (login === '1' && password === '1') {
-    res.json({ valid: true, id: 1,  type: 'manager' });
+  //employee-order
+  const id = generateGUID();
+  const employeeid = req.body.empId;
+  const orderid = generateGUID();
+
+  //order
+  const items = req.body.items;
+  let products = '';
+  let amounts = '';
+  let currentPrice = '';
+  let total = 0;
+ 
+  items.forEach((item) => {
+    products += item.name + ';';
+    amounts += item.amount + ';';
+    total += item.price;
+    currentPrice += String(item.price) + ';';
+  });
+
+  products = products.slice(0, -1);
+  amounts = amounts.slice(0, -1);
+  currentPrice = currentPrice.slice(0, -1);
+
+  const cost = `$${total.toString()}.00`;
+  const extradition = 'delivery';
+  let orderstatus = 'new';
+  const promocode = null;
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+  
+    const query = `
+      WITH inserted_user AS (
+        INSERT INTO users (userid, name, address, phone, birth, email, gamepoints)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        RETURNING *
+      ), inserted_items AS (
+        INSERT INTO orders (orderID, cost, extradition, address, createdate, preparationdate, completingdate, orderstatus, promocode, userid)
+        VALUES ($10, $11, $12, $3, $5, $5, $5, $13, $14, $1)
+        RETURNING *
+      ), inserted_employee_order AS (
+        INSERT INTO employees_orders (id, employeeid, orderid)
+        VALUES ($8, $9, $10)
+        RETURNING *
+      ), inserted_amounts AS (
+        INSERT INTO product_counts (orderID, products, amounts, prices)
+        VALUES ($10, $15, $16, $17)
+        RETURNING *
+      )
+      SELECT * FROM inserted_user, inserted_items, inserted_employee_order, inserted_amounts;
+    `;
+    const values = [userid, name, address, phone, birth, email, gamepoints, id, employeeid, orderid, cost, extradition, orderstatus, promocode, products, amounts, currentPrice];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      const [insertedUser, inserted_items, insertedEmployeeOrder, inserted_amounts] = result.rows;
+
+      res.json({
+        success: true,
+        insertedUser,
+        inserted_items,
+        insertedEmployeeOrder,
+        inserted_amounts
+      });
+    });
+  });
+});
+
+// Проверка актуальных заказов менеджера
+app.get('/check-manager-actual', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
+                   FROM orders
+                   WHERE orderstatus IN ('new', 'accepted', 'in_work', 'in_delivery', 'paid')`;
+    const result = await client.query(query);
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
-  else if (login === '2' && password === '2') {
-    res.json({ valid: true, id: 1,  type: 'cook' });
+});
+
+// Проверка заказов, доступных повару на выбор
+app.get('/check-cook-choose', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
+                   FROM orders
+                   WHERE orderstatus IN ('new', 'paid')`;
+    const result = await client.query(query);
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
-  else if (login === '3' && password === '3') {
-    res.json({ valid: true, id: 1,  type: 'courier' });
+});
+
+// Проверка актуальных заказов повара
+app.get('/check-cook-current', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
+                   FROM orders
+                   WHERE orderstatus IN ('accepted')`;
+    const result = await client.query(query);
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
-  else {
-    res.json({ valid: false });
-  }
+});
+
+// Получение данных о заказчике по UserID
+app.post('/get-user-data', (req, res) => {
+  const userid = `${req.body.id}`;
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'SELECT name, phone FROM users WHERE userid = $1';
+    const values = [userid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      if (result.rows.length === 0) {
+        res.json({ error: 'User not found' });
+      } else {
+        res.json(result.rows[0]);
+      }
+    });
+  });
+});
+
+// Получение данных о заказе по OrderID
+app.post('/get-order-data', (req, res) => {
+  const orderid = `${req.body.id}`;
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'SELECT products, amounts, prices FROM product_counts WHERE orderid = $1';
+    const values = [orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      if (result.rows.length === 0) {
+        res.json({ error: 'User not found' });
+      } else {
+        res.json(result.rows[0]);
+      }
+    });
+  });
 });
 
 app.listen(port, () => {
