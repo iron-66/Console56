@@ -73,7 +73,7 @@ async function getManagerOrders() {
                 
                 for (let i = 0; i < orderResponse.length; i++) {
                     const { products, amounts } = orderResponse[i];
-                    // let total = ''
+                    let total = ''
                     
                     // if (i = orderResponse.length - 1) {
                     //     total = order.cost;
@@ -83,7 +83,7 @@ async function getManagerOrders() {
                         <tr>
                         <td class="order-content-header-cntnt">${products}</td>
                         <td class="order-content-header-amount">${amounts}</td>
-                        <td class="order-content-header-cost"></td>
+                        <td class="order-content-header-cost">${total}</td>
                         </tr>
                     `;
             
