@@ -212,3 +212,8 @@ main {
     background-color: #BDB4B4;
     background-image: url("../source/dots.png");
 }
+
+.order-content-header-cntnt,
+.order-content-header-amount {
+    margin-left: 90px;
+}
