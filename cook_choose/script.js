@@ -128,7 +128,7 @@ function getOrderData(orderid) {
 window.addEventListener("DOMContentLoaded", (event) => {
 
     // Переход в активные заказы
-    const archiveOrd = document.getElementById('actual-orders-button');
+    const archiveOrd = document.getElementById('accepted-orders-button');
     archiveOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/cook_active/?id=${id}`;
         window.location.href = redirectUrl;
