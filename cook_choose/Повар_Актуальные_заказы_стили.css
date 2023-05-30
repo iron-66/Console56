@@ -107,6 +107,8 @@ main {
     background-color: #FFFFFF;
 }
 
+.order-content-header-cntnt,
+.order-content-header-amount,
 .about-order,
 .about-order-content,
 .order-content-list {
