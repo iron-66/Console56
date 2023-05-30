@@ -222,7 +222,8 @@ main {
     background-image: url("../source/dots.png");
 }
 
-.about-order {
+.order-content-header-cntnt,
+.order-content-header-amount {
     font-family: Ubuntu;
     font-style: Regular;
     font-size: 32px;
