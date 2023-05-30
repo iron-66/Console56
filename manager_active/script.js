@@ -55,11 +55,11 @@ async function getManagerOrders() {
                             <tr>
                                 <th class="order-content-header-cntnt">Содержимое заказа:</th>
                                 <th class="order-content-header-amount">Кол-во:</th>
+                                <th class="order-content-header-cost">Итоговая стоимость:</th>
                             </tr>
                         </thead>
                         <tbody id="order-table-${order.orderid}" class="order-table-body">
                         </tbody>
-                        <div>Итоговая стоимость: ${order.cost}</div>
                     </table>
                 </div>
             </li>`;
@@ -73,11 +73,16 @@ async function getManagerOrders() {
                 
                 for (let i = 0; i < orderResponse.length; i++) {
                     const { products, amounts } = orderResponse[i];
+                    let total = ''
+                    if (i = orderResponse.length - 1) {
+                        total = order.cost;
+                    }
 
                     const newTableRow = `
                         <tr>
                         <td class="order-content-header-cntnt">${products}</td>
                         <td class="order-content-header-amount">${amounts}</td>
+                        <td class="order-content-header-cost">${total}</td>
                         </tr>
                     `;
             
