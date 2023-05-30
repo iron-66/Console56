@@ -73,17 +73,12 @@ async function getManagerOrders() {
                 
                 for (let i = 0; i < orderResponse.length; i++) {
                     const { products, amounts } = orderResponse[i];
-                    let total = null
-                    
-                    // if (i = orderResponse.length - 1) {
-                    //     total = order.cost;
-                    // }
 
                     const newTableRow = `
                         <tr>
                         <td class="order-content-header-cntnt">${products}</td>
                         <td class="order-content-header-amount">${amounts}</td>
-                        <td class="order-content-header-cost">${total}</td>
+                        <td class="order-content-header-cost">${order.cost}</td>
                         </tr>
                     `;
             
