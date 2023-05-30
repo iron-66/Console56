@@ -75,9 +75,9 @@ async function getManagerOrders() {
                     const { products, amounts } = orderResponse[i];
                     let total = null
                     
-                    if (i = orderResponse.length - 1) {
-                        total = order.cost;
-                    }
+                    // if (i = orderResponse.length - 1) {
+                    //     total = order.cost;
+                    // }
 
                     const newTableRow = `
                         <tr>
