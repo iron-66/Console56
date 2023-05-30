@@ -14,59 +14,74 @@ async function getManagerOrders() {
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
-            const orderResponse = await getOrderData(order.orderid);
-            console.log(orderResponse);
+            const orderResponse = await getOrderData(order.orderid);            
             const newLiHTML = `
             <li class="actual-orders-item">
-                    <div class="about-order">
-                        <div class="order-item-number">
-                            <p><b>Заказ от:</b></p>
-                            <p id="createdate" class="order-number">${formatDateTime(order.createdate)}</p>
-                        </div>
-                        <div class="order-item-status">
-                            <p><b>Статус заказа:</b></p>
-                            <p id="orderstatus" class="">Новый</p>
-                        </div>
+                <div class="about-order">
+                    <div class="order-item-number">
+                        <p><b>Заказ от:</b></p>
+                        <p id="createdate" class="order-number">${formatDateTime(order.createdate)}</p>
                     </div>
-                    <div class="about-customer">
-                        <div class="order-item-customer">
-                            <p>Заказчик:</p>
-                            <p id="name" class="order-customer">${userResponse.name}</p>
-                        </div>
-                        <div class="order-item-address">
-                            <p>Адрес:</p>
-                            <p id="address" class="order-address">${order.address}</p>
-                        </div>
-                        <div class="order-item-phone-number">
-                            <p>Телефон:</p>
-                            <p id="phone" class="order-phone-number">${userResponse.phone}</p>
-                        </div>
+                    <div class="order-item-status">
+                        <p><b>Статус заказа:</b></p>
+                        <p id="orderstatus" class="">Новый</p>
                     </div>
-                    <div class="buttons">
-                        <button class="more-info-btn"></button>
-                        <button class="cancel-btn"></button>
-                        <button class="edit-btn"></button>
+                </div>
+                <div class="about-customer">
+                    <div class="order-item-customer">
+                        <p>Заказчик:</p>
+                        <p id="name" class="order-customer">${userResponse.name}</p>
                     </div>
-                    <div class="order-content">
-                        <table class="order-table" cellpadding="8px">
-                            <thead class="order-table-head">
-                                <tr>
-                                    <th class="order-content-header-cntnt">Содержимое заказа:</th>
-                                    <th class="order-content-header-amount">Кол-во:</th>
-                                    <th class="order-content-header-cost">Стоимость:</th>
-                                </tr>
-                            </thead>
-                            <tbody id="order-table-body" class="order-table-body">
+                    <div class="order-item-address">
+                        <p>Адрес:</p>
+                        <p id="address" class="order-address">${order.address}</p>
+                    </div>
+                    <div class="order-item-phone-number">
+                        <p>Телефон:</p>
+                        <p id="phone" class="order-phone-number">${userResponse.phone}</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="more-info-btn"></button>
+                    <button class="cancel-btn"></button>
+                    <button class="edit-btn"></button>
+                </div>
+                <div class="order-content">
+                    <table class="order-table" cellpadding="8px">
+                        <thead class="order-table-head">
                             <tr>
-                                <th class="order-content-header-cntnt">Пицца "Ветчина и грибы"</th>
-                                <th class="order-content-header-amount">2</th>
-                                <th class="order-content-header-cost">1230</th>
+                                <th class="order-content-header-cntnt">Содержимое заказа:</th>
+                                <th class="order-content-header-amount">Кол-во:</th>
+                                <th class="order-content-header-cost">Стоимость:</th>
                             </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>`;
+                        </thead>
+                        <tbody id="order-table-${order.orderid}" class="order-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </li>`;
             list.insertAdjacentHTML("beforeend", newLiHTML);
+
+            const tableId = `order-table-${order.orderid}`;
+            const tableBody = document.getElementById(tableId);
+
+            if (tableBody) {
+                tableBody.innerHTML = ''; // Очищаем содержимое tbody перед вставкой новых данных
+            
+                orderResponse.forEach((item, index) => {
+                  const { products, amounts } = item;
+            
+                  const newTableRow = `
+                    <tr>
+                      <td class="order-content-header-cntnt">${products}</td>
+                      <td class="order-content-header-amount">${amounts}</td>
+                      <td class="order-content-header-cost">${order.amounts[index]}</td>
+                    </tr>
+                  `;
+            
+                  tableBody.insertAdjacentHTML('beforeend', newTableRow);
+                });
+            }
         };
     } catch (error) {
         console.error('Error:', error);
@@ -99,7 +114,6 @@ function getUserData(userid) {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
         return data;
     })
     .catch((error) => {
@@ -118,7 +132,6 @@ function getOrderData(orderid) {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
         return data;
     })
     .catch((error) => {
