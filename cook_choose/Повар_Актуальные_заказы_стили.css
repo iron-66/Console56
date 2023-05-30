@@ -216,10 +216,9 @@ main {
 .order-content-header-cntnt,
 .order-content-header-amount {
     text-align: center;
-    margin: 100px;
 }
 
 .order-table {
     margin-left: 50px;
-    border-spacing: 80px 40px;
+    border-spacing: 80px 30px;
 }
