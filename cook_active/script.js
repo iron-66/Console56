@@ -44,21 +44,23 @@ async function getManagerOrders() {
                     <button class="more-info-btn"></button>
                 </div>
             </li>`;
-            list.insertAdjacentHTML("beforeend", newLiHTML);
+            list.insertAdjacentHTML("afterbegin", newLiHTML);
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
 
             if (tableBody) {
-                tableBody.innerHTML = ''; // Очищаем содержимое tbody перед вставкой новых данных
-                
-                for (let i = 0; i < orderResponse.length; i++) {
-                    const { products, amounts } = orderResponse[i];
+                tableBody.innerHTML = '';
+                let productsArray = String(orderResponse.products);
+                let amountsArray = String(orderResponse.amounts);
+                let products = productsArray.split(';');
+                let amounts = amountsArray.split(';');
 
+                for (let i = 0; i < products.length; i++) {
                     const newTableRow = `
                         <tr>
-                        <td class="order-content-header-cntnt">${products}</td>
-                        <td class="order-content-header-amount">${amounts}</td>
+                        <td class="order-content-header-cntnt">${products[i]}</td>
+                        <td class="order-content-header-amount">${amounts[i]}</td>
                         </tr>
                     `;
             
