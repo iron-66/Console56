@@ -216,5 +216,9 @@ main {
 .order-content-header-cntnt,
 .order-content-header-amount {
     text-align: center;
-    margin-left: 200px;
+    margin-left: 2000px;
+}
+
+.order-table-head {
+    margin-left: 700px;
 }
