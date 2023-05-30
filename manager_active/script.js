@@ -15,7 +15,9 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
-            console.log(orderResponse);         
+            console.log(orderResponse); 
+            console.log(typeof(orderResponse)); 
+
             const newLiHTML = `
             <li class="actual-orders-item">
                 <div class="about-order">
@@ -69,7 +71,7 @@ async function getManagerOrders() {
             if (tableBody) {
                 tableBody.innerHTML = ''; // Очищаем содержимое tbody перед вставкой новых данных
                 
-                for (let i = 0; i < len(orderResponse); i++) {
+                for (let i = 0; i < orderResponse.length; i++) {
                     const { products, amounts } = orderResponse[i];
 
                     const newTableRow = `
