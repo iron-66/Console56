@@ -15,6 +15,7 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
+            console.log(orderResponse);
 
             const newLiHTML = `
             <li class="actual-orders-item">
@@ -53,7 +54,7 @@ async function getManagerOrders() {
                             <tr>
                                 <th class="order-content-header-cntnt">Содержимое заказа:</th>
                                 <th class="order-content-header-amount">Кол-во:</th>
-                                <th class="order-content-header-cost">Итоговая стоимость:</th>
+                                <th class="order-content-header-cost">Cтоимость:</th>
                             </tr>
                         </thead>
                         <tbody id="order-table-${order.orderid}" class="order-table-body">
