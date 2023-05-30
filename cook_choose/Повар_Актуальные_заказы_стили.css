@@ -220,5 +220,6 @@ main {
 }
 
 .order-table {
+    justify-content: space-between;
     margin-left: 50px;
 }
