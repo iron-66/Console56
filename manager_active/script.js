@@ -63,14 +63,14 @@ async function getManagerOrders() {
                     </table>
                 </div>
             </li>`;
-            list.insertAdjacentHTML("beforeend", newLiHTML);
+            list.insertAdjacentHTML("beforeend", newLiHTML); // afterbegin 
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
 
             if (tableBody) {
-                tableBody.innerHTML = ''; // Очищаем содержимое tbody перед вставкой новых данных
-                
+                tableBody.innerHTML = '';
+                console.log(orderResponse);
                 for (let i = 0; i < orderResponse.length; i++) {
                     const { products, amounts } = orderResponse[i];
 
