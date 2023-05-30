@@ -221,3 +221,9 @@ main {
     background-color: #BDB4B4;
     background-image: url("../source/dots.png");
 }
+
+.about-order {
+    font-family: Ubuntu;
+    font-style: Regular;
+    font-size: 32px;
+}
