@@ -15,8 +15,6 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
-            console.log(orderResponse);
-
             const newLiHTML = `
             <li class="actual-orders-item">
                 <div class="about-order">
@@ -62,7 +60,7 @@ async function getManagerOrders() {
                     </table>
                 </div>
             </li>`;
-            list.insertAdjacentHTML("beforeend", newLiHTML); // afterbegin 
+            list.insertAdjacentHTML("afterbegin", newLiHTML); // afterbegin 
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
