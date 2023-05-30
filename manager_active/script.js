@@ -72,8 +72,8 @@ async function getManagerOrders() {
                 const { productsArray, amountsArray } = orderResponse;
                 products = (String(productsArray)).split(';')
                 amounts = (String(amountsArray)).split(';')
-                console.log(products);
-                console.log(amounts);
+                console.log(productsArray);
+                console.log(amountsArray);
 
 
                 for (let i = 0; i < products.length; i++) {
