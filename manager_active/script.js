@@ -76,7 +76,7 @@ async function getManagerOrders() {
                     <tr>
                       <td class="order-content-header-cntnt">${products}</td>
                       <td class="order-content-header-amount">${amounts}</td>
-                      <td class="order-content-header-cost">${order.amounts[index]}</td>
+                      <td class="order-content-header-cost">1750</td>
                     </tr>
                   `;
             
