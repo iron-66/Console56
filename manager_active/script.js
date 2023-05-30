@@ -15,6 +15,7 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
+            console.log(orderResponse);
             const newLiHTML = `
             <li class="actual-orders-item">
                     <div class="about-order">
