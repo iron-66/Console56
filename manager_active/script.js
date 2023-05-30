@@ -15,8 +15,6 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
-            console.log(orderResponse); 
-            console.log(typeof(orderResponse)); 
 
             const newLiHTML = `
             <li class="actual-orders-item">
@@ -71,13 +69,17 @@ async function getManagerOrders() {
             if (tableBody) {
                 tableBody.innerHTML = '';
                 console.log(orderResponse);
-                for (let i = 0; i < orderResponse.length; i++) {
+                const { productsArray, amountsArray } = orderResponse;
+                products = String(productsArray).split(';')
+                amounts = String(amountsArray).split(';')
+
+                for (let i = 0; i < products.length; i++) {
                     const { products, amounts } = orderResponse[i];
 
                     const newTableRow = `
                         <tr>
-                        <td class="order-content-header-cntnt">${products}</td>
-                        <td class="order-content-header-amount">${amounts}</td>
+                        <td class="order-content-header-cntnt">${products[i]}</td>
+                        <td class="order-content-header-amount">${amounts[i]}</td>
                         <td class="order-content-header-cost">${order.cost}</td>
                         </tr>
                     `;
