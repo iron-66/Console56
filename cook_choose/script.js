@@ -138,10 +138,7 @@ function selectCookOrder(orderid) {
       },
       body: JSON.stringify({ id: orderid}),
     })
-    .then((response) => response.json())
-    .then((data) => {
-        return data;
-    })
+    .then(location.reload())
     .catch((error) => {
       console.log(error);
       alert('Произошла ошибка при отправке данных');
