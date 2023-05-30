@@ -46,10 +46,10 @@ async function getCookActiveOrders() {
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
 
-            const doneBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
-            doneBtn.addEventListener("click", () => {
-                completeCookOrder(order.orderid);
-            });
+            // const doneBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
+            // doneBtn.addEventListener("click", () => {
+            //     completeCookOrder(order.orderid);
+            // });
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
