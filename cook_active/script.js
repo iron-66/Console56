@@ -22,8 +22,8 @@ async function getManagerOrders() {
             <li class="accepted-orders-item">
                 <div class="about-order">
                     <div class="order-item-number">
-                        <p><b>№ заказа:</b></p>
-                        <p class="order-number">001</p>
+                        <p><b>Заказ от:</b></p>
+                        <p class="order-number">${formatDateTime(order.createdate)}</p>
                     </div>
                     <div class="order-item-date-and-time">
                         <p><b>Дата и время:</b></p>
@@ -133,24 +133,18 @@ const formattedDateTime = formatDateTime(originalDateTime);
 console.log(formattedDateTime);
   
 window.addEventListener("DOMContentLoaded", (event) => {
-    // Переход в окно добавления заказа
-    const newOrd = document.getElementById('new-order');
-    newOrd.addEventListener('click', () => {
-        const redirectUrl = `https://iron-66.github.io/Console56/manager_new/?id=${id}`;
-        window.location.href = redirectUrl;
-    });
 
     // Переход в архив заказов
-    const archiveOrd = document.getElementById('orders-archive');
+    const archiveOrd = document.getElementById('actual-orders-button');
     archiveOrd.addEventListener('click', () => {
-        const redirectUrl = `https://iron-66.github.io/Console56/manager_archive/?id=${id}`;
+        const redirectUrl = `https://iron-66.github.io/Console56/cook_choose/?id=${id}`;
         window.location.href = redirectUrl;
     });
 
     // Переход в личный кабинет
     const lk = document.getElementById('lk');
     lk.addEventListener('click', () => {
-        const redirectUrl = `https://iron-66.github.io/Console56/manager_my/?id=${id}`;
+        const redirectUrl = `https://iron-66.github.io/Console56/cook_my/?id=${id}`;
         window.location.href = redirectUrl;
     });
 });
