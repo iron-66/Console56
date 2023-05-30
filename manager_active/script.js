@@ -30,7 +30,7 @@ async function getManagerOrders() {
                     <div class="about-customer">
                         <div class="order-item-customer">
                             <p>Заказчик:</p>
-                            <p id="name" class="order-customer">Михаил Федянин</p>
+                            <p id="name" class="order-customer">${data.name}</p>
                         </div>
                         <div class="order-item-address">
                             <p>Адрес:</p>
@@ -38,7 +38,7 @@ async function getManagerOrders() {
                         </div>
                         <div class="order-item-phone-number">
                             <p>Телефон:</p>
-                            <p id="phone" class="order-phone-number">+79623155115</p>
+                            <p id="phone" class="order-phone-number">${data.phone}</p>
                         </div>
                     </div>
                     <div class="buttons">
