@@ -20,7 +20,7 @@ async function getCookToChooseOrders() {
             console.log(typeof(orderResponse)); 
 
             const newLiHTML = `
-            <li class="accepted-orders-item">
+            <li class="actual-orders-item">
                 <div class="about-order">
                     <div class="order-item-number">
                         <p><b>Заказ от:</b></p>
