@@ -18,15 +18,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
 
     // Переход в выбор заказов
-    const archiveOrd = document.getElementById('actual-orders-button');
-    archiveOrd.addEventListener('click', () => {
+    const chooseOrd = document.getElementById('actual-orders-button');
+    chooseOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/cook_choose/?id=${id}`;
         window.location.href = redirectUrl;
     });
 
     // Переход в активные заказы
-    const archiveOrd = document.getElementById('accepted-orders-button');
-    archiveOrd.addEventListener('click', () => {
+    const activeOrd = document.getElementById('accepted-orders-button');
+    activeOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/cook_active/?id=${id}`;
         window.location.href = redirectUrl;
     });
