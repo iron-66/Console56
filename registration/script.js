@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Заполните все поля');
     }
     else {
-      sendLoginAndPassword(fio, phone, email, birthDate, password, job, today);
+      regUser(fio, phone, email, birthDate, password, job, today);
     }
   });
 });
@@ -66,7 +66,7 @@ function formatDate(dateString) {
 };
   
 // Отправка данных на локальный компьютер
-function sendLoginAndPassword(fio, phone, email, birthDate, password, job, today) {
+function regUser(fio, phone, email, birthDate, password, job, today) {
   fetch('http://localhost:3000/add-user', {
     method: 'POST',
     headers: {

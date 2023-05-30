@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     // Сформировать XML отчёт
     const report = document.getElementById('create-report-btn');
     report.addEventListener('click', () => {
-        window.alert('Запрос на формирование XML отчёта отправлен на сервер')
+        window.alert('Сформировать XML отчёт за текущий день?')
     });
 
     // Переход в окно добавления нового сотрудника
