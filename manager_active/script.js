@@ -55,7 +55,7 @@ async function getManagerOrders() {
                             <tr>
                                 <th class="order-content-header-cntnt">Содержимое заказа:</th>
                                 <th class="order-content-header-amount">Кол-во:</th>
-                                <th class="order-content-header-cost">Стоимость:</th>
+                                <th class="order-content-header-cost">Итоговая стоимость: ${order.cost}</th>
                             </tr>
                         </thead>
                         <tbody id="order-table-${order.orderid}" class="order-table-body">
@@ -78,7 +78,6 @@ async function getManagerOrders() {
                         <tr>
                         <td class="order-content-header-cntnt">${products}</td>
                         <td class="order-content-header-amount">${amounts}</td>
-                        <td class="order-content-header-cost">1750</td>
                         </tr>
                     `;
             
