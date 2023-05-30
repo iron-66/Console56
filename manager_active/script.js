@@ -70,8 +70,11 @@ async function getManagerOrders() {
                 tableBody.innerHTML = '';
                 console.log(orderResponse);
                 const { productsArray, amountsArray } = orderResponse;
-                products = String(productsArray).split(';')
-                amounts = String(amountsArray).split(';')
+                products = (String(productsArray)).split(';')
+                amounts = (String(amountsArray)).split(';')
+                console.log(products);
+                console.log(amounts);
+
 
                 for (let i = 0; i < products.length; i++) {
                     const newTableRow = `
