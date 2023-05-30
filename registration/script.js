@@ -62,6 +62,7 @@ function formatDate(dateString) {
   const day = parts[0].padStart(2, '0');
   const month = parts[1].padStart(2, '0');
   const year = parts[2];
+  console.log(`'${year}-${month}-${day}'`);
   return `'${year}-${month}-${day}'`;
 };
   
