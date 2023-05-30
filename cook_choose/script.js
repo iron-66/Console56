@@ -40,7 +40,7 @@ async function getCookToChooseOrders() {
                     </table>
                 </div>
                 <div class="buttons">
-                    <button class="apply-btn"></button>
+                    <button class="apply-btn" data-orderid="${order.orderid}"></button>
                     <button class="more-info-btn"></button>
                 </div>
             </li>`;
