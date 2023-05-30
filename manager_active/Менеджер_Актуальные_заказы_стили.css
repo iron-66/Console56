@@ -226,9 +226,12 @@ main {
     display: inline-block;
 }
 
-.order-content-header-amount,
-.order-content-header-cost {
+.order-content-header-amount {
     margin-left: 350px;
+}
+
+.order-content-header-cost {
+    margin-left: 400px;
 }
 
 .order-content-list {
