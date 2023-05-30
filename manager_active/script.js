@@ -74,14 +74,14 @@ async function getManagerOrders() {
                 let priceArray = String(orderResponse.prices);
                 let products = productsArray.split(';');
                 let amounts = amountsArray.split(';');
-
+                let prices = priceArray.split(';');
 
                 for (let i = 0; i < products.length; i++) {
                     const newTableRow = `
                         <tr>
                         <td class="order-content-header-cntnt">${products[i]}</td>
                         <td class="order-content-header-amount">${amounts[i]}</td>
-                        <td class="order-content-header-cost">${priceArray[i]}</td>
+                        <td class="order-content-header-cost">${prices[i]}</td>
                         </tr>
                     `;
             
