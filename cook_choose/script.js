@@ -48,7 +48,7 @@ async function getCookToChooseOrders() {
 
             const applyBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
             applyBtn.addEventListener("click", () => {
-                selectOrder(order.orderid);
+                selectCookOrder(order.orderid);
             });
 
             const tableId = `order-table-${order.orderid}`;
@@ -114,6 +114,24 @@ function getUserData(userid) {
 
 function getOrderData(orderid) {
     return fetch('http://localhost:3000/get-order-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderid}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
+    });
+}
+
+function selectCookOrder(orderid) {
+    return fetch('http://localhost:3000/select-order-cook', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
