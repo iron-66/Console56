@@ -48,7 +48,7 @@ async function getCookActiveOrders() {
 
             const applyBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
             applyBtn.addEventListener("click", () => {
-                selectCookOrder(order.orderid);
+                completeCookOrder(order.orderid);
             });
 
             const tableId = `order-table-${order.orderid}`;
@@ -124,6 +124,21 @@ function getOrderData(orderid) {
     .then((data) => {
         return data;
     })
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
+    });
+}
+
+function completeCookOrder(orderid) {
+    return fetch('http://localhost:3000/complete-order-cook', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderid}),
+    })
+    .then(location.reload())
     .catch((error) => {
       console.log(error);
       alert('Произошла ошибка при отправке данных');
