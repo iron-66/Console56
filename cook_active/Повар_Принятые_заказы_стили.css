@@ -191,7 +191,7 @@ main {
     border-radius: 30px;
 }
 
-.delivered-btn {
+.ready-btn {
     width: 378px;
     height: 146px;
     background-color: #94E387;
@@ -205,7 +205,7 @@ main {
     height: 138px;
 }
 
-.delivered-btn,
+.ready-btn,
 .cancel-btn,
 .more-info-btn {
     background-repeat: no-repeat;

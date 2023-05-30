@@ -39,7 +39,7 @@ async function getCookActiveOrders() {
                     </table>
                 </div>
                 <div class="buttons">
-                    <button class="delivered-btn"></button>
+                    <button class="done-btn"></button>
                     <button class="cancel-btn"></button>
                     <button class="more-info-btn"></button>
                 </div>
