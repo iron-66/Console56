@@ -25,22 +25,18 @@ async function getManagerOrders() {
                         <p><b>Заказ от:</b></p>
                         <p class="order-number">${formatDateTime(order.createdate)}</p>
                     </div>
-                    <div class="order-item-date-and-time">
-                        <p><b>Дата и время:</b></p>
-                        <p class="order-date-and-time">20.05.2023 19:20</p>
-                    </div>
                 </div>
                 <div class="order-content">
-                    <div class="about-order-content">
-                        <p class="order-content-header-cntnt">Содержимое заказа:</p>
-                        <p class="order-content-header-amount">Кол-во:</p>
-                    </div>
-                    <ul class="order-content-list">
-                        <li class="order-content-list-item">
-                            <p class="order-content-item-name">Пицца "Четыре сыра"</p>
-                            <p class="order-content-item-amount">10 шт.</p>
-                        </li>
-                    </ul>
+                    <table class="order-table" cellpadding="8px">
+                        <thead class="order-table-head">
+                            <tr>
+                                <th class="order-content-header-cntnt">Содержимое заказа:</th>
+                                <th class="order-content-header-amount">Кол-во:</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-table-${order.orderid}" class="order-table-body">
+                        </tbody>
+                    </table>
                 </div>
                 <div class="buttons">
                     <button class="delivered-btn"></button>
@@ -63,7 +59,6 @@ async function getManagerOrders() {
                         <tr>
                         <td class="order-content-header-cntnt">${products}</td>
                         <td class="order-content-header-amount">${amounts}</td>
-                        <td class="order-content-header-cost">${order.cost}</td>
                         </tr>
                     `;
             
