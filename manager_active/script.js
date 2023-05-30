@@ -74,8 +74,6 @@ async function getManagerOrders() {
                 amounts = String(amountsArray).split(';')
 
                 for (let i = 0; i < products.length; i++) {
-                    const { products, amounts } = orderResponse[i];
-
                     const newTableRow = `
                         <tr>
                         <td class="order-content-header-cntnt">${products[i]}</td>
