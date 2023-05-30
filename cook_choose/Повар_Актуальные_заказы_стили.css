@@ -221,5 +221,5 @@ main {
 
 .order-table {
     margin-left: 50px;
-    border-spacing: 80px;
+    border-spacing: 80px 40px;
 }
