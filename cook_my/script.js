@@ -1,3 +1,7 @@
+//Получение значения параметра id из URL
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+
 window.addEventListener("DOMContentLoaded", (event) => {
     const add_btn = document.getElementById('change-password-btn');
     if (add_btn) {
@@ -12,4 +16,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
             document.getElementById('popup').hidden = true;
         });
     }
+
+    // Переход в выбор заказов
+    const archiveOrd = document.getElementById('actual-orders-button');
+    archiveOrd.addEventListener('click', () => {
+        const redirectUrl = `https://iron-66.github.io/Console56/cook_choose/?id=${id}`;
+        window.location.href = redirectUrl;
+    });
+
+    // Переход в активные заказы
+    const archiveOrd = document.getElementById('actual-orders-button');
+    archiveOrd.addEventListener('click', () => {
+        const redirectUrl = `https://iron-66.github.io/Console56/cook_active/?id=${id}`;
+        window.location.href = redirectUrl;
+    });
 });

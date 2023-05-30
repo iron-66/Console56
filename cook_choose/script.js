@@ -3,15 +3,15 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
 // Функция для получения данных заказов от сервера
-async function getCookActiveOrders() {
+async function getCookToChooseOrders() {
     try {
-        const response = await fetch('http://localhost:3000/check-cook-current');
+        const response = await fetch('http://localhost:3000/check-cook-choose');
         if (!response.ok) {
             throw new Error('Request failed');
         }
         const orders = await response.json();
                 
-        const list = document.getElementById('act-orders-list');
+        const list = document.getElementById('choose-orders-list');
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
@@ -39,8 +39,7 @@ async function getCookActiveOrders() {
                     </table>
                 </div>
                 <div class="buttons">
-                    <button class="delivered-btn"></button>
-                    <button class="cancel-btn"></button>
+                    <button class="apply-btn"></button>
                     <button class="more-info-btn"></button>
                 </div>
             </li>`;
@@ -74,7 +73,7 @@ async function getCookActiveOrders() {
 }
 
 // Вызов функции для получения данных заказов
-getCookActiveOrders();
+getCookToChooseOrders();
 
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
@@ -127,10 +126,10 @@ function getOrderData(orderid) {
   
 window.addEventListener("DOMContentLoaded", (event) => {
 
-    // Переход в выбор заказов
+    // Переход в активные заказы
     const archiveOrd = document.getElementById('actual-orders-button');
     archiveOrd.addEventListener('click', () => {
-        const redirectUrl = `https://iron-66.github.io/Console56/cook_choose/?id=${id}`;
+        const redirectUrl = `https://iron-66.github.io/Console56/cook_active/?id=${id}`;
         window.location.href = redirectUrl;
     });
 
