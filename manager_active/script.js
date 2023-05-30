@@ -14,8 +14,8 @@ async function getManagerOrders() {
         
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
-            const userResponse = await getUserData(order.userid);
-            const userData = await userResponse.json();
+            const userResponse = getUserData(order.userid);
+            const userData = userResponse.json();
             const newLiHTML = `
             <li class="actual-orders-item">
                     <div class="about-order">
