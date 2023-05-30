@@ -68,14 +68,11 @@ async function getManagerOrders() {
 
             if (tableBody) {
                 tableBody.innerHTML = '';
-                console.log(orderResponse);
                 let productsArray = String(orderResponse.products);
                 let amountsArray = String(orderResponse.amounts);
+                let priceArray = String(orderResponse.prices);
                 let products = productsArray.split(';');
                 let amounts = amountsArray.split(';');
-
-                console.log(products);
-                console.log(amounts);
 
 
                 for (let i = 0; i < products.length; i++) {
@@ -83,7 +80,7 @@ async function getManagerOrders() {
                         <tr>
                         <td class="order-content-header-cntnt">${products[i]}</td>
                         <td class="order-content-header-amount">${amounts[i]}</td>
-                        <td class="order-content-header-cost">${order.cost}</td>
+                        <td class="order-content-header-cost">${priceArray[i]}</td>
                         </tr>
                     `;
             
