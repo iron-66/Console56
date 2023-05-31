@@ -70,8 +70,10 @@ async function getCourierToChooseOrders() {
                 tableBody.innerHTML = '';
                 let productsArray = String(orderResponse.products);
                 let amountsArray = String(orderResponse.amounts);
+                let priceArray = String(orderResponse.prices);
                 let products = productsArray.split(';');
                 let amounts = amountsArray.split(';');
+                let prices = priceArray.split(';');
 
                 for (let i = 0; i < products.length; i++) {
                     const newTableRow = `
