@@ -107,7 +107,7 @@ function formatToday(date) {
     const [dateString, timeString] = dateTimeString.split(', ');
     const [time, ] = timeString.split(' ');
 
-    return `${year}-${month}-${day} ${time}:00.000000`;
+    return `${year}-${month}-${day} ${time}.000000`;
 }
 
 // Отправка данных на локальный компьютер
