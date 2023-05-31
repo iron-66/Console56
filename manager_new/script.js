@@ -104,8 +104,8 @@ function formatToday(date) {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
-    console.log(`${year}-${month}-${day} ${hours}:${minutes}`);
-    return `${year}-${month}-${day} ${hours}:${minutes}:00`;
+    console.log(`${year}-${month}-${day} ${hours}:${minutes}:00.000000`);
+    return `${year}-${month}-${day} ${hours}:${minutes}:00.000000`;
 }
 
 // Отправка данных на локальный компьютер
