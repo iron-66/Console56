@@ -40,7 +40,7 @@ async function getCookActiveOrders() {
                 </div>
                 <div class="buttons">
                     <button class="done-btn" data-orderid="${order.orderid}"></button>
-                    <button class="cancel-btn"></button>
+                    <button class="cancel-btn" cancel-orderid="${order.orderid}"></button>
                     <button class="more-info-btn"></button>
                 </div>
             </li>`;
@@ -49,6 +49,11 @@ async function getCookActiveOrders() {
             const doneBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
             doneBtn.addEventListener("click", () => {
                 completeCookOrder(order.orderid);
+            });
+
+            const cancelBtn = document.querySelector(`[cancel-orderid="${order.orderid}"]`);
+            cancelBtn.addEventListener("click", () => {
+                cancelCookOrder(order.orderid);
             });
 
             const tableId = `order-table-${order.orderid}`;
@@ -132,6 +137,21 @@ function getOrderData(orderid) {
 
 function completeCookOrder(orderid) {
     return fetch('http://localhost:3000/complete-order-cook', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderid}),
+    })
+    .then(location.reload())
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
+    });
+}
+
+function cancelCookOrder(orderid) {
+    return fetch('http://localhost:3000/change-status-to-new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
