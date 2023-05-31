@@ -176,13 +176,13 @@ main {
     border-radius: 30px;
 }
 
-.delivered-btn,
+.select-btn,
 .more-info-btn {
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.delivered-btn {
+.select-btn {
     width: 378px;
     height: 146px;
     background-color: #94E387;

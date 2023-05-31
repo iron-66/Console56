@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
 // Функция для получения данных заказов от сервера
-async function getCookToChooseOrders() {
+async function getCourierToChooseOrders() {
     try {
         const response = await fetch('http://localhost:3000/check-courier-choose');
         if (!response.ok) {
@@ -40,8 +40,7 @@ async function getCookToChooseOrders() {
                     </div>
                 </div>
                 <div class="buttons">
-                    <button class="delivered-btn"></button>
-                    <button class="more-info-btn"></button>
+                    <button class="select-btn" data-orderid="${order.orderid}"></button>
                 </div>
                 <div class="order-content">
                     <table class="order-table" cellpadding="8px">
@@ -59,9 +58,9 @@ async function getCookToChooseOrders() {
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
 
-            const applyBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
-            applyBtn.addEventListener("click", () => {
-                selectCookOrder(order.orderid);
+            const selectBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
+            selectBtn.addEventListener("click", () => {
+                selectCourierOrder(order.orderid);
             });
 
             const tableId = `order-table-${order.orderid}`;
@@ -92,7 +91,7 @@ async function getCookToChooseOrders() {
 }
 
 // Вызов функции для получения данных заказов
-getCookToChooseOrders();
+getCourierToChooseOrders();
 
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);

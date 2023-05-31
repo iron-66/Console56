@@ -41,7 +41,6 @@ async function getCookToChooseOrders() {
                 </div>
                 <div class="buttons">
                     <button class="apply-btn" data-orderid="${order.orderid}"></button>
-                    <button class="more-info-btn"></button>
                 </div>
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
