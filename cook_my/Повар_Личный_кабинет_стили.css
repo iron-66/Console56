@@ -286,7 +286,7 @@ input {
     width: 500px;
 }
 
-.change-btn {
+.change-pass-button {
     width: 260px;
     height: 90px;
     border-radius: 58px;
@@ -302,6 +302,6 @@ input {
     margin-left: 195px;
 }
 
-.change-btn:hover {
+.change-pass-button:hover {
     background-color: #298653;
 }
