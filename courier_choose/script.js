@@ -78,6 +78,7 @@ async function getCourierToChooseOrders() {
                         <tr>
                         <td class="order-content-header-cntnt">${products[i]}</td>
                         <td class="order-content-header-amount">${amounts[i]}</td>
+                        <td class="order-content-header-cost">${prices[i]}</td>
                         </tr>
                     `;
             
