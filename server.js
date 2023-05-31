@@ -258,6 +258,54 @@ app.get('/check-cook-current', async (req, res) => {
   }
 });
 
+// Проверка заказов, доступных курьеру на выбор
+app.get('/check-courier-choose', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
+                   FROM orders
+                   WHERE orderstatus IN ('in_work')`;
+    const result = await client.query(query);
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Проверка актуальных заказов курьера
+app.get('/check-courier-current', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
+                   FROM orders
+                   WHERE orderstatus IN ('in_delivery')`;
+    const result = await client.query(query);
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Проверка актуальных заказов курьера
+app.get('/check-archive', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
+                   FROM orders
+                   WHERE orderstatus IN ('done')`;
+    const result = await client.query(query);
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Получение данных о заказчике по UserID
 app.post('/get-user-data', (req, res) => {
   const userid = `${req.body.id}`;
@@ -308,6 +356,126 @@ app.post('/get-order-data', (req, res) => {
       } else {
         res.json(result.rows[0]);
       }
+    });
+  });
+});
+
+// Изменение статуса заказа на 'new'
+app.post('/change-status-to-new', (req, res) => {
+  const orderid = `${req.body.id}`;
+  const newStatus = 'new';
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'UPDATE orders SET orderstatus = $1 WHERE orderid = $2';
+    const values = [newStatus, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
+    });
+  });
+});
+
+// Изменение статуса заказа на 'accepted'
+app.post('/select-order-cook', (req, res) => {
+  const orderid = `${req.body.id}`;
+  const newStatus = 'accepted';
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'UPDATE orders SET orderstatus = $1 WHERE orderid = $2';
+    const values = [newStatus, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
+    });
+  });
+});
+
+// Изменение статуса заказа на 'in_work'
+app.post('/change-status-to-in_work', (req, res) => {
+  const orderid = `${req.body.id}`;
+  const newStatus = 'in_work';
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'UPDATE orders SET orderstatus = $1 WHERE orderid = $2';
+    const values = [newStatus, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
+    });
+  });
+});
+
+// Изменение статуса заказа на 'in_delivery'
+app.post('/select-order-courier', (req, res) => {
+  const orderid = `${req.body.id}`;
+  const newStatus = 'in_delivery';
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'UPDATE orders SET orderstatus = $1 WHERE orderid = $2';
+    const values = [newStatus, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
+    });
+  });
+});
+
+// Изменение статуса заказа на 'done'
+app.post('/complete-order', (req, res) => {
+  const orderid = `${req.body.id}`;
+  const newStatus = 'done';
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'UPDATE orders SET orderstatus = $1 WHERE orderid = $2';
+    const values = [newStatus, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
     });
   });
 });
