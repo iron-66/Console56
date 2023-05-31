@@ -10,7 +10,6 @@ async function getCourierActiveOrders() {
             throw new Error('Request failed');
         }
         const orders = await response.json();
-        console.log(orders);
                 
         const list = document.getElementById('choose-orders-list');
         for (const order of orders) {
