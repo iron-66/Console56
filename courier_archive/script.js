@@ -12,13 +12,13 @@ async function getCourierArchiveOrders() {
         const orders = await response.json();
         console.log(orders);
                 
-        const list = document.getElementById('choose-orders-list');
+        const list = document.getElementById('archived-orders');
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
 
             const newLiHTML = `
-            <li class="accepted-orders-item">
+            <li class="archived-orders-item">
                 <div class="about-order">
                     <div class="order-item-number">
                         <p><b>Заказ от:</b></p>
@@ -39,11 +39,6 @@ async function getCourierArchiveOrders() {
                         <p class="order-phone-number">${userResponse.phone}</p>
                     </div>
                 </div>
-                <div class="buttons">
-                    <button class="delivered-btn" data-orderid="${order.orderid}"></button>
-                    <button class="cancel-btn"></button>
-                    <button class="more-info-btn"></button>
-                </div>
                 <div class="order-content">
                     <table class="order-table" cellpadding="8px">
                         <thead class="order-table-head">
@@ -59,11 +54,6 @@ async function getCourierArchiveOrders() {
                 </div>
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
-
-            const selectBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
-            selectBtn.addEventListener("click", () => {
-                completeCourierOrder(order.orderid);
-            });
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
