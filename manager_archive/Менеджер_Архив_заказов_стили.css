@@ -201,9 +201,14 @@ main {
     display: inline-block;
 }
 
-.order-content-header-amount,
+.order-content-header-amount {
+    text-align: center;
+    margin-left: 350px;
+}
+
 .order-content-header-cost {
-    margin-left: 300px;
+    text-align: center;
+    margin-left: 400px;
 }
 
 .order-content-list {
@@ -221,5 +226,20 @@ main {
 }
 
 .order-content-item-cost {
-    margin-left: 330px;
+    margin-left: 630px;
+}
+
+.order-table {
+    width: 100%;
+    margin-top: 64px;
+    margin-bottom: 32px;   
+}
+
+.order-table-body td {
+    text-align: center;
+}
+
+.order-table-body td:first-child {
+    padding-left: 38px;
+    text-align: left;
 }
