@@ -100,7 +100,6 @@ main {
     margin-right: 15px;
     margin-bottom: 30px;
     padding: 0;
-    height: 474px;
     width: 1430px;
     border-radius: 55px;
     color: #5C434D;
@@ -154,7 +153,6 @@ main {
 .about-customer {
     width: 836px;
     margin-top: -40px;
-    /* padding-right: 50%; */
 }
 
 .order-customer,
