@@ -99,13 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function formatToday(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    console.log(`${year}-${month}-${day} ${hours}:${minutes}:00.000000`);
-    return `${year}-${month}-${day} ${hours}:${minutes}:00.000000`;
+    const dateTimeString = date.toLocaleString();
+    const [dateString, timeString] = dateTimeString.split(', ');
+    const [time, ] = timeString.split(' ');
+  
+    return `${dateString} ${time}:00.000000`;
 }
 
 // Отправка данных на локальный компьютер
