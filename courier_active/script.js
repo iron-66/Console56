@@ -41,7 +41,7 @@ async function getCourierActiveOrders() {
                 </div>
                 <div class="buttons">
                     <button class="delivered-btn" data-orderid="${order.orderid}"></button>
-                    <button class="cancel-btn"></button>
+                    <button class="cancel-btn" cancel-orderid="${order.orderid}"></button>
                     <button class="more-info-btn"></button>
                 </div>
                 <div class="order-content">
@@ -63,6 +63,11 @@ async function getCourierActiveOrders() {
             const selectBtn = document.querySelector(`[data-orderid="${order.orderid}"]`);
             selectBtn.addEventListener("click", () => {
                 completeCourierOrder(order.orderid);
+            });
+
+            const cancelBtn = document.querySelector(`[cancel-orderid="${order.orderid}"]`);
+            cancelBtn.addEventListener("click", () => {
+                cancelCourierOrder(order.orderid);
             });
 
             const tableId = `order-table-${order.orderid}`;
@@ -149,6 +154,21 @@ function getOrderData(orderid) {
 
 function completeCourierOrder(orderid) {
     return fetch('http://localhost:3000/complete-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderid}),
+    })
+    .then(location.reload())
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
+    });
+}
+
+function cancelCourierOrder(orderid) {
+    return fetch('http://localhost:3000/change-status-to-in_work', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

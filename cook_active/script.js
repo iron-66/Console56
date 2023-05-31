@@ -136,7 +136,7 @@ function getOrderData(orderid) {
 }
 
 function completeCookOrder(orderid) {
-    return fetch('http://localhost:3000/complete-order-cook', {
+    return fetch('http://localhost:3000/change-status-to-in_work', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
