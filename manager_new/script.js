@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         row.appendChild(totalCostCell);
 
         tableBody.appendChild(row);
-        // orderTable.insertRow(listItem);
     });    
 
     // Формирование нового заказа
@@ -106,7 +105,7 @@ function formatToday(date) {
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     console.log(`${year}-${month}-${day} ${hours}:${minutes}`);
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
+    return `${year}-${month}-${day} ${hours}:${minutes}:00`;
 }
 
 // Отправка данных на локальный компьютер
