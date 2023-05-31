@@ -43,6 +43,19 @@ async function getCookToChooseOrders() {
                     <button class="delivered-btn"></button>
                     <button class="more-info-btn"></button>
                 </div>
+                <div class="order-content">
+                    <table class="order-table" cellpadding="8px">
+                        <thead class="order-table-head">
+                            <tr>
+                                <th class="order-content-header-cntnt">Содержимое заказа:</th>
+                                <th class="order-content-header-amount">Кол-во:</th>
+                                <th class="order-content-header-cost">Cтоимость:</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-table-${order.orderid}" class="order-table-body">
+                        </tbody>
+                    </table>
+                </div>
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
 
