@@ -12,7 +12,7 @@ async function getCourierToChooseOrders() {
         const orders = await response.json();
         console.log(orders);
                 
-        const list = document.getElementById('actual-orders');
+        const list = document.getElementById('choose-orders-list');
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
