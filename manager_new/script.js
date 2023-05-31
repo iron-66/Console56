@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Корректное форматирование даты и времени
 function formatToday(date) {
     const dateTimeString = date.toLocaleString();
     const [dateString, timeString] = dateTimeString.split(', ');
