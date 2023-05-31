@@ -146,7 +146,7 @@ function getOrderData(orderid) {
 }
 
 function selectCourierOrder(orderid) {
-    return fetch('http://localhost:3000/select-courier-cook', {
+    return fetch('http://localhost:3000/select-order-courier', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
