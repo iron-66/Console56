@@ -43,7 +43,7 @@ async function getManagerOrders() {
                 </div>
                 <div class="buttons">
                     <button class="more-info-btn"></button>
-                    <button class="cancel-btn"></button>
+                    <button class="cancel-btn" cancel-orderid="${order.orderid}"></button>
                     <button class="edit-btn"></button>
                 </div>
                 <div class="order-content">
@@ -60,7 +60,12 @@ async function getManagerOrders() {
                     </table>
                 </div>
             </li>`;
-            list.insertAdjacentHTML("afterbegin", newLiHTML); // afterbegin 
+            list.insertAdjacentHTML("afterbegin", newLiHTML);
+
+            const cancelBtn = document.querySelector(`[cancel-orderid="${order.orderid}"]`);
+            cancelBtn.addEventListener("click", () => {
+                cancelOrder(order.orderid);
+            });
 
             const tableId = `order-table-${order.orderid}`;
             const tableBody = document.getElementById(tableId);
@@ -144,9 +149,20 @@ function getOrderData(orderid) {
     });
 }
 
-const originalDateTime = "2023-05-23T19:00:00.000Z";
-const formattedDateTime = formatDateTime(originalDateTime);
-console.log(formattedDateTime);
+function cancelOrder(orderid) {
+    return fetch('http://localhost:3000/complete-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: orderid}),
+    })
+    .then(location.reload())
+    .catch((error) => {
+      console.log(error);
+      alert('Произошла ошибка при отправке данных');
+    });
+}
   
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в окно добавления заказа
