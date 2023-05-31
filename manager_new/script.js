@@ -100,11 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Корректное форматирование даты и времени
 function formatToday(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     const dateTimeString = date.toLocaleString();
     const [dateString, timeString] = dateTimeString.split(', ');
     const [time, ] = timeString.split(' ');
-  
-    return `${dateString} ${time}:00.000000`;
+
+    return `${year}-${month}-${day} ${time}:00.000000`;
 }
 
 // Отправка данных на локальный компьютер
