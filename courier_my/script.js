@@ -21,15 +21,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     // Переход в принятые заказы
-    const newOrd = document.getElementById('accepted-orders-button');
-    newOrd.addEventListener('click', () => {
+    const acceptedOrd = document.getElementById('accepted-orders-button');
+    acceptedOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/courier_active/?id=${id}`;
         window.location.href = redirectUrl;
     });
 
     // Переход в архив заказов
-    const newOrd = document.getElementById('orders-archive-button');
-    newOrd.addEventListener('click', () => {
+    const archiveOrd = document.getElementById('orders-archive-button');
+    archiveOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/courier_archive/?id=${id}`;
         window.location.href = redirectUrl;
     });
