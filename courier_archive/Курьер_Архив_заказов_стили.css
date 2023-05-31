@@ -109,7 +109,8 @@ main {
 }
 
 .about-order,
-.about-customer {
+.about-customer,
+.order-content {
     font-family: Ubuntu;
     font-style: Regular;
     font-size: 32px;
