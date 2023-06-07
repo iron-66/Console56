@@ -156,7 +156,7 @@ function selectCookOrder(orderid) {
     .then(() => location.reload())
     .catch((error) => {
         console.log(error);
-        alert('Произошла ошибка при отправке данных');
+        //alert('Произошла ошибка при отправке данных');
     });
 }
   
