@@ -10,13 +10,16 @@ async function getManagerOrders() {
             throw new Error('Request failed');
         }
         const orders = await response.json();
-                
         const list = document.getElementById('act-orders-list');
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
             let status = ''
-            console.log(order.orderstatus);
+            
+            if (order.orderstatus === 'new') {
+                console.log('yjdsq');
+            }
+                
             switch (order.orderstatus) {
                 case 'new':
                     status = 'Новый';
