@@ -5,7 +5,13 @@ const id = urlParams.get('id');
 // Функция для получения данных заказов от сервера
 async function getCourierActiveOrders() {
     try {
-        const response = await fetch('http://localhost:3000/check-courier-current');
+        const response = await fetch('http://localhost:3000/check-courier-current', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: orderid}),
+        });
         if (!response.ok) {
             throw new Error('Request failed');
         }
