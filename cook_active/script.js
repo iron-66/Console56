@@ -5,7 +5,7 @@ const id = urlParams.get('id');
 // Функция для получения данных заказов от сервера
 async function getCookActiveOrders() {
     try {
-        const response = await fetch('http://localhost:3000/check-cook-current');
+        const response = await fetch(`http://localhost:3000/check-cook-current?employeeid=${id}`);
         if (!response.ok) {
             throw new Error('Request failed');
         }
