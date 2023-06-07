@@ -102,6 +102,7 @@ async function getCourierActiveOrders() {
 // Получение списка активных заказов
 getCourierActiveOrders();
 
+// Корректное отображение даты и времени
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
   

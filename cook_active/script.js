@@ -86,6 +86,7 @@ async function getCookActiveOrders() {
 // Вызов функции для получения данных заказов
 getCookActiveOrders();
 
+// Корректное отображение даты и времени
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
   
@@ -99,6 +100,7 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
+// Получение данных о заказчике
 function getUserData(userid) {
     return fetch('http://localhost:3000/get-user-data', {
       method: 'POST',
@@ -117,6 +119,7 @@ function getUserData(userid) {
     });
 }
 
+// Получение данных о заказе
 function getOrderData(orderid) {
     return fetch('http://localhost:3000/get-order-data', {
       method: 'POST',
@@ -135,6 +138,7 @@ function getOrderData(orderid) {
     });
 }
 
+// Успешное выполнение заказа
 function completeCookOrder(orderid) {
     return fetch('http://localhost:3000/change-status-to-in_work', {
       method: 'POST',
@@ -150,6 +154,7 @@ function completeCookOrder(orderid) {
     });
 }
 
+// Отмена заказа
 function cancelCookOrder(orderid) {
     return fetch('http://localhost:3000/change-status-to-new', {
       method: 'POST',
