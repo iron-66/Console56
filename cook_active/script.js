@@ -156,17 +156,30 @@ function completeCookOrder(orderid) {
 
 // Отмена заказа
 function cancelCookOrder(orderid) {
-    return fetch('http://localhost:3000/change-status-to-new', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: orderid}),
-    })
-    .then(location.reload())
+    const selectOrderPromise = fetch('http://localhost:3000/change-status-to-new', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: orderid }),
+    });
+
+    const linkEmployeePromise = fetch('http://localhost:3000/unlink-employee', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            orderid: orderid,
+            employeeid: id
+        }),
+    });
+
+    return Promise.all([selectOrderPromise, linkEmployeePromise])
+    .then(() => location.reload())
     .catch((error) => {
-      console.log(error);
-      alert('Произошла ошибка при отправке данных');
+        console.log(error);
+        //alert('Произошла ошибка при отправке данных');
     });
 }
   
