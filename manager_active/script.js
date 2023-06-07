@@ -16,6 +16,7 @@ async function getManagerOrders() {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
             let status = ''
+            console.log(order.orderstatus);
             switch (order.orderstatus) {
                 case 'new':
                     status = 'Новый';
