@@ -2,7 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
-// Функция для получения данных заказов от сервера
+// Получение доступных заказов
 async function getCourierToChooseOrders() {
     try {
         const response = await fetch('http://localhost:3000/check-courier-choose');
@@ -93,9 +93,9 @@ async function getCourierToChooseOrders() {
     }
 }
 
-// Вызов функции для получения данных заказов
 getCourierToChooseOrders();
 
+// Корректное отображение даты и времени
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
   
@@ -109,13 +109,14 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
+// Получение данных о пользователе
 function getUserData(userid) {
     return fetch('http://localhost:3000/get-user-data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id: userid}),
+      body: JSON.stringify({ id: userid }),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -127,6 +128,7 @@ function getUserData(userid) {
     });
 }
 
+// Получение данных о заказе
 function getOrderData(orderid) {
     return fetch('http://localhost:3000/get-order-data', {
       method: 'POST',
@@ -145,20 +147,35 @@ function getOrderData(orderid) {
     });
 }
 
+// Выбор заказа
 function selectCourierOrder(orderid) {
-    return fetch('http://localhost:3000/select-order-courier', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: orderid}),
-    })
-    .then(location.reload())
+    const selectOrderPromise = fetch('http://localhost:3000/select-order-courier', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: orderid }),
+    });
+
+    const linkEmployeePromise = fetch('http://localhost:3000/link-employee', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            orderid: orderid,
+            employeeid: id
+        }),
+    });
+
+    return Promise.all([selectOrderPromise, linkEmployeePromise])
+    .then(() => location.reload())
     .catch((error) => {
-      console.log(error);
-      alert('Произошла ошибка при отправке данных');
+        console.log(error);
+        alert('Произошла ошибка при отправке данных');
     });
 }
+
 
 window.addEventListener("DOMContentLoaded", (event) => {
     // Переход в принятые заказы

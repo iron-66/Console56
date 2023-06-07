@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('popup').hidden = true;
         const dishQuantityInput = document.getElementById('dish-quanity');
         const dishQuantity = dishQuantityInput.value;
-        // Получаем ссылку на tbody элемент таблицы
         const tableBody = document.getElementById("order-table-body");
         const row = document.createElement("tr");
         const dishNameCell = document.createElement("td");
@@ -110,7 +109,7 @@ function formatToday(date) {
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-// Отправка данных на локальный компьютер
+// Отправка данных о новом заказе
 function setNewOrder(name, address, phone, today, orderItems) {
     fetch('http://localhost:3000/new-order', {
       method: 'POST',

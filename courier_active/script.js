@@ -99,7 +99,7 @@ async function getCourierActiveOrders() {
     }
 }
 
-// Вызов функции для получения данных заказов
+// Получение списка активных заказов
 getCourierActiveOrders();
 
 function formatDateTime(dateTimeString) {
@@ -115,6 +115,7 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
+// Получение данных о заказчике
 function getUserData(userid) {
     return fetch('http://localhost:3000/get-user-data', {
       method: 'POST',
@@ -133,6 +134,7 @@ function getUserData(userid) {
     });
 }
 
+// Получение данных о заказе
 function getOrderData(orderid) {
     return fetch('http://localhost:3000/get-order-data', {
       method: 'POST',
@@ -151,6 +153,7 @@ function getOrderData(orderid) {
     });
 }
 
+// Успешное выполнение заказа
 function completeCourierOrder(orderid) {
     return fetch('http://localhost:3000/complete-order', {
       method: 'POST',
@@ -166,6 +169,7 @@ function completeCourierOrder(orderid) {
     });
 }
 
+// Отмена заказа
 function cancelCourierOrder(orderid) {
     return fetch('http://localhost:3000/change-status-to-in_work', {
       method: 'POST',
