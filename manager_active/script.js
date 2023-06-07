@@ -17,23 +17,18 @@ async function getManagerOrders() {
             let status = ''                
             switch (order.orderstatus) {
                 case 'new':
-                    console.log('Новый');
                     status = 'Новый';
                     break
                 case 'accepted':
-                    console.log('Принят в работу');
                     status = 'Принят в работу';
                     break
                 case 'in_work':
-                    console.log('Ожидает доставки');
                     status = 'Ожидает доставки';
                     break
                 case 'in_delivery':
-                    console.log('Доставляется');
                     status = 'Доставляется';
                     break
                 case 'paid':
-                    console.log('Оплачен');
                     status = 'Оплачен';
                     break
             }
