@@ -89,7 +89,7 @@ async function getCourierToChooseOrders() {
             }
         };
     } catch (error) {
-        console.error('Error:', error);
+        // console.error('Error:', error);
     }
 }
 
@@ -124,7 +124,7 @@ function getUserData(userid) {
     })
     .catch((error) => {
       console.log(error);
-      alert('Произошла ошибка при отправке данных');
+      // alert('Произошла ошибка при отправке данных');
     });
 }
 
@@ -143,7 +143,7 @@ function getOrderData(orderid) {
     })
     .catch((error) => {
       console.log(error);
-      alert('Произошла ошибка при отправке данных');
+      // alert('Произошла ошибка при отправке данных');
     });
 }
 
