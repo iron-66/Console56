@@ -93,6 +93,7 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
+// Получение данных о пользователе
 function getUserData(userid) {
     return fetch('http://localhost:3000/get-user-data', {
       method: 'POST',
@@ -107,10 +108,11 @@ function getUserData(userid) {
     })
     .catch((error) => {
       console.log(error);
-      alert('Произошла ошибка при отправке данных');
+      //alert('Произошла ошибка при отправке данных');
     });
 }
 
+// Получение данных о заказе
 function getOrderData(orderid) {
     return fetch('http://localhost:3000/get-order-data', {
       method: 'POST',
@@ -125,22 +127,36 @@ function getOrderData(orderid) {
     })
     .catch((error) => {
       console.log(error);
-      alert('Произошла ошибка при отправке данных');
+      //alert('Произошла ошибка при отправке данных');
     });
 }
 
+// Выбор заказа
 function selectCookOrder(orderid) {
-    return fetch('http://localhost:3000/select-order-cook', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: orderid}),
-    })
-    .then(location.reload())
+    const selectOrderPromise = fetch('http://localhost:3000/select-order-cook', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: orderid }),
+    });
+
+    const linkEmployeePromise = fetch('http://localhost:3000/link-employee', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            orderid: orderid,
+            employeeid: id
+        }),
+    });
+
+    return Promise.all([selectOrderPromise, linkEmployeePromise])
+    .then(() => location.reload())
     .catch((error) => {
-      console.log(error);
-      alert('Произошла ошибка при отправке данных');
+        console.log(error);
+        alert('Произошла ошибка при отправке данных');
     });
 }
   
