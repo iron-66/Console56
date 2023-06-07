@@ -14,14 +14,10 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
-            let status = ''
-            
-            if (order.orderstatus === 'new') {
-                console.log('yjdsq');
-            }
-                
+            let status = ''                
             switch (order.orderstatus) {
                 case 'new':
+                    console.log('Новый');
                     status = 'Новый';
                 case 'accepted':
                     status = 'Принят в работу';
