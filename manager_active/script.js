@@ -24,7 +24,7 @@ async function getManagerOrders() {
                     </div>
                     <div class="order-item-status">
                         <p><b>Статус заказа:</b></p>
-                        <p id="orderstatus" class="">Новый</p>
+                        <p id="orderstatus" class="">${order.orderstatus}</p>
                     </div>
                 </div>
                 <div class="about-customer">
