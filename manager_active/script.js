@@ -15,6 +15,19 @@ async function getManagerOrders() {
         for (const order of orders) {
             const userResponse = await getUserData(order.userid);
             const orderResponse = await getOrderData(order.orderid);
+            let status = ''
+            switch (order.orderstatus) {
+                case 'new':
+                    status = 'Новый';
+                case 'accepted':
+                    status = 'Принят в работу';
+                case 'in_work':
+                    status = 'Ожидает доставки';
+                case 'in_delivery':
+                    status = 'Доставляется';
+                case 'paid':
+                    status = 'Оплачен';
+            }
             const newLiHTML = `
             <li class="actual-orders-item">
                 <div class="about-order">
@@ -24,7 +37,7 @@ async function getManagerOrders() {
                     </div>
                     <div class="order-item-status">
                         <p><b>Статус заказа:</b></p>
-                        <p id="orderstatus" class="">${order.orderstatus}</p>
+                        <p id="orderstatus" class="">${status}</p>
                     </div>
                 </div>
                 <div class="about-customer">
