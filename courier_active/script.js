@@ -179,7 +179,7 @@ function completeCourierOrder(orderid) {
 // Отмена заказа
 function cancelCourierOrder(orderid) {
     const selectOrderPromise = fetch('http://localhost:3000/change-status-to-in_work', {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
