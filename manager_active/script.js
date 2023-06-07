@@ -25,8 +25,8 @@ async function getManagerOrders() {
                     status = 'Ожидает доставки';
                 case 'in_delivery':
                     status = 'Доставляется';
-                case 'paid':
-                    status = 'Оплачен';
+                // case 'paid':
+                //     status = 'Оплачен';
             }
             const newLiHTML = `
             <li class="actual-orders-item">
