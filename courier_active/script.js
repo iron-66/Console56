@@ -6,7 +6,7 @@ const id = urlParams.get('id');
 async function getCourierActiveOrders() {
     try {
         const response = await fetch('http://localhost:3000/check-courier-current', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -179,7 +179,7 @@ function completeCourierOrder(orderid) {
 // Отмена заказа
 function cancelCourierOrder(orderid) {
     const selectOrderPromise = fetch('http://localhost:3000/change-status-to-in_work', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
