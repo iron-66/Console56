@@ -20,13 +20,17 @@ async function getManagerOrders() {
                     console.log('Новый');
                     status = 'Новый';
                 case 'accepted':
+                    console.log('Принят в работу');
                     status = 'Принят в работу';
                 case 'in_work':
+                    console.log('Ожидает доставки');
                     status = 'Ожидает доставки';
                 case 'in_delivery':
+                    console.log('Доставляется');
                     status = 'Доставляется';
-                // case 'paid':
-                //     status = 'Оплачен';
+                case 'paid':
+                    console.log('Оплачен');
+                    status = 'Оплачен';
             }
             const newLiHTML = `
             <li class="actual-orders-item">
