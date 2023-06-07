@@ -228,3 +228,7 @@ main {
     font-style: Regular;
     font-size: 32px;
 }
+
+.order-table {
+    margin-left: 40px;
+}
