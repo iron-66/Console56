@@ -67,10 +67,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     // Сформировать XML отчёт
-    const report = document.getElementById('create-report-btn');
-    report.addEventListener('click', () => {
-        window.alert('Сформировать XML отчёт за текущий день?')
-    });
+    // const report = document.getElementById('create-report-btn');
+    // report.addEventListener('click', () => {
+    //     window.alert('Сформировать XML отчёт за текущий день?')
+    // });
 
     // Переход в окно добавления нового сотрудника
     const newEmp = document.getElementById('new-employee');
