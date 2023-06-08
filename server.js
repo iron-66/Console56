@@ -132,9 +132,11 @@ app.post('/new-order', (req, res) => {
   const name = req.body.name;
   const address = req.body.address;
   const phone = req.body.phone;
-  const birth = req.body.date;
   const email = req.body.phone;
   const gamepoints = 0;
+  const datetime = new Date();
+  datetime.setUTCHours(datetime.getUTCHours() + 5);
+  const timestamp = datetime.getTime() / 1000.0;
 
   //employee-order
   const id = generateGUID();
@@ -172,24 +174,24 @@ app.post('/new-order', (req, res) => {
     const query = `
       WITH inserted_user AS (
         INSERT INTO users (userid, name, address, phone, birth, email, gamepoints)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        VALUES ($1, $2, $3, $4, to_timestamp(${timestamp}), $5, $6)
         RETURNING *
       ), inserted_items AS (
         INSERT INTO orders (orderID, cost, extradition, address, createdate, preparationdate, completingdate, orderstatus, promocode, userid)
-        VALUES ($10, $11, $12, $3, $5, $5, $5, $13, $14, $1)
+        VALUES ($9, $10, $11, $3, to_timestamp(${timestamp}), to_timestamp(${timestamp}), to_timestamp(${timestamp}), $12, $13, $1)
         RETURNING *
       ), inserted_employee_order AS (
         INSERT INTO employees_orders (id, employeeid, orderid)
-        VALUES ($8, $9, $10)
+        VALUES ($7, $8, $9)
         RETURNING *
       ), inserted_amounts AS (
         INSERT INTO product_counts (orderID, products, amounts, prices)
-        VALUES ($10, $15, $16, $17)
+        VALUES ($9, $14, $15, $16)
         RETURNING *
       )
       SELECT * FROM inserted_user, inserted_items, inserted_employee_order, inserted_amounts;
     `;
-    const values = [userid, name, address, phone, birth, email, gamepoints, id, employeeid, orderid, cost, extradition, orderstatus, promocode, products, amounts, currentPrice];
+    const values = [userid, name, address, phone, email, gamepoints, id, employeeid, orderid, cost, extradition, orderstatus, promocode, products, amounts, currentPrice];
 
     client.query(query, values, (err, result) => {
       release();
@@ -221,7 +223,7 @@ app.get('/check-manager-actual', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (error) {
-    console.error('Error retrieving orders:', error);
+    console.error('Ошибка при выполнении запроса:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -237,7 +239,7 @@ app.get('/check-cook-choose', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (error) {
-    console.error('Error retrieving orders:', error);
+    console.error('Ошибка при выполнении запроса:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -245,15 +247,24 @@ app.get('/check-cook-choose', async (req, res) => {
 // Проверка актуальных заказов повара
 app.get('/check-cook-current', async (req, res) => {
   try {
+    const employeeid = `${req.query.employeeid}`;
     const client = await pool.connect();
-    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
-                   FROM orders
-                   WHERE orderstatus IN ('accepted')`;
-    const result = await client.query(query);
+
+    const employeeOrdersQuery = 'SELECT orderid FROM employees_orders WHERE employeeid = $1';
+    const employeeOrdersValues = [employeeid];
+    const employeeOrdersResult = await client.query(employeeOrdersQuery, employeeOrdersValues);
+    const orderIds = employeeOrdersResult.rows.map(row => row.orderid);
+
+    const ordersQuery = `SELECT orderid, cost, address, createdate, userid, orderstatus
+                          FROM orders
+                          WHERE orderid = ANY($1::uuid[]) AND orderstatus = 'accepted'`;
+    const ordersValues = [orderIds];
+    const ordersResult = await client.query(ordersQuery, ordersValues);
+
     client.release();
-    res.json(result.rows);
+    res.json(ordersResult.rows);
   } catch (error) {
-    console.error('Error retrieving orders:', error);
+    console.error('Ошибка при выполнении запроса:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -269,7 +280,7 @@ app.get('/check-courier-choose', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (error) {
-    console.error('Error retrieving orders:', error);
+    console.error('Ошибка при выполнении запроса:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -277,20 +288,29 @@ app.get('/check-courier-choose', async (req, res) => {
 // Проверка актуальных заказов курьера
 app.get('/check-courier-current', async (req, res) => {
   try {
+    const employeeid = `${req.query.employeeid}`;
     const client = await pool.connect();
-    const query = `SELECT orderid, cost, address, createdate, orderid, userid, orderstatus
-                   FROM orders
-                   WHERE orderstatus IN ('in_delivery')`;
-    const result = await client.query(query);
+
+    const employeeOrdersQuery = 'SELECT orderid FROM employees_orders WHERE employeeid = $1';
+    const employeeOrdersValues = [employeeid];
+    const employeeOrdersResult = await client.query(employeeOrdersQuery, employeeOrdersValues);
+    const orderIds = employeeOrdersResult.rows.map(row => row.orderid);
+
+    const ordersQuery = `SELECT orderid, cost, address, createdate, userid, orderstatus
+                          FROM orders
+                          WHERE orderid = ANY($1::uuid[]) AND orderstatus = 'in_delivery'`;
+    const ordersValues = [orderIds];
+    const ordersResult = await client.query(ordersQuery, ordersValues);
+
     client.release();
-    res.json(result.rows);
+    res.json(ordersResult.rows);
   } catch (error) {
-    console.error('Error retrieving orders:', error);
+    console.error('Ошибка при выполнении запроса:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// Проверка актуальных заказов курьера
+// Получение всех выполненных заказов
 app.get('/check-archive', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -301,7 +321,32 @@ app.get('/check-archive', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (error) {
-    console.error('Error retrieving orders:', error);
+    console.error('Ошибка при выполнении запроса:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Получение выполненных заказов для конкретного пользователя
+app.get('/check-employee-archive', async (req, res) => {
+  try {
+    const employeeid = `${req.query.employeeid}`;
+    const client = await pool.connect();
+
+    const employeeOrdersQuery = 'SELECT orderid FROM employees_orders WHERE employeeid = $1';
+    const employeeOrdersValues = [employeeid];
+    const employeeOrdersResult = await client.query(employeeOrdersQuery, employeeOrdersValues);
+    const orderIds = employeeOrdersResult.rows.map(row => row.orderid);
+
+    const ordersQuery = `SELECT orderid, cost, address, createdate, userid, orderstatus
+                          FROM orders
+                          WHERE orderid = ANY($1::uuid[]) AND orderstatus = 'done'`;
+    const ordersValues = [orderIds];
+    const ordersResult = await client.query(ordersQuery, ordersValues);
+
+    client.release();
+    res.json(ordersResult.rows);
+  } catch (error) {
+    console.error('Ошибка при выполнении запроса:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -479,6 +524,57 @@ app.post('/complete-order', (req, res) => {
     });
   });
 });
+
+// Привязка сотрудника к выбранному заказу
+app.post('/link-employee', (req, res) => {
+  const id = generateGUID();
+  const employeeid = `${req.body.employeeid}`;
+  const orderid = `${req.body.orderid}`;
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = `INSERT INTO employees_orders (id, employeeid, orderid)
+    VALUES ($1, $2, $3)`;
+    const values = [id, employeeid, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
+    });
+  });
+});
+
+// Отвязка сотрудника от выбранного заказа
+app.post('/unlink-employee', (req, res) => {
+  const employeeid = `${req.body.employeeid}`;
+  const orderid = `${req.body.orderid}`;
+
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Ошибка при подключении к базе данных:', err);
+    }
+
+    const query = 'DELETE FROM employees_orders WHERE employeeid = $1 AND orderid = $2';
+    const values = [employeeid, orderid];
+
+    client.query(query, values, (err, result) => {
+      release();
+      if (err) {
+        return console.error('Ошибка при выполнении запроса:', err);
+      }
+
+      res.json({ success: true });
+    });
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
