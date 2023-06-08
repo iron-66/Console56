@@ -90,32 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = nameInput.value;
         const address = addressInput.value;
         const phone = phoneInput.value;
-        const today = new Date().toISOString(); // formatToday(new Date());
+        const today = new Date().toISOString();
 
         if (nameInput.value === '' || addressInput.value === '' || addressInput.value === '' || selectedDish === null) {
             alert('Заполните все поля');
         }
         else {
-            setNewOrder(name, address, phone, today, orderItems);
+            setNewOrder(name, address, phone, orderItems);
         }
     });
 });
 
-// Корректное форматирование даты и времени
-function formatToday() {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const seconds = String(date.getSeconds()).padStart(2, '0');
-  
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.000000`;
-}
-
 // Отправка данных о новом заказе
-function setNewOrder(name, address, phone, today, orderItems) {
+function setNewOrder(name, address, phone, orderItems) {
     fetch('http://localhost:3000/new-order', {
       method: 'POST',
       headers: {
@@ -125,7 +112,6 @@ function setNewOrder(name, address, phone, today, orderItems) {
         name: name,
         address: address,
         phone: phone,
-        date: today,
         empId: id,
         items: orderItems,
       }),
