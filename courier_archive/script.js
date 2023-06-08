@@ -9,7 +9,7 @@ if (id === null) {
 // Функция для получения данных заказов от сервера
 async function getCourierArchiveOrders() {
     try {
-        const response = await fetch('http://localhost:3000/check-employee-archive?employeeid=${id}');
+        const response = await fetch(`http://localhost:3000/check-employee-archive?employeeid=${id}`);
         if (!response.ok) {
             throw new Error('Request failed');
         }
