@@ -2,10 +2,14 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+if (id === null) {
+    console.log('User not login');
+}
+
 // Функция для получения данных заказов от сервера
 async function getCourierArchiveOrders() {
     try {
-        const response = await fetch('http://localhost:3000/check-archive');
+        const response = await fetch('http://localhost:3000/check-employee-archive?employeeid=${id}');
         if (!response.ok) {
             throw new Error('Request failed');
         }
