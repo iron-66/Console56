@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = nameInput.value;
         const address = addressInput.value;
         const phone = phoneInput.value;
-        const today = formatToday(new Date());
+        const today = new Date(); // formatToday(new Date());
 
         if (nameInput.value === '' || addressInput.value === '' || addressInput.value === '' || selectedDish === null) {
             alert('Заполните все поля');
@@ -110,7 +110,7 @@ function formatToday(date) {
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
   
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.138274`;
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.000000`;
 }
 
 // Отправка данных о новом заказе
