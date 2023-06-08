@@ -2,6 +2,11 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+if (id === null) {
+    const redirectUrl = `https://iron-66.github.io/Console56/`;
+        window.location.href = redirectUrl;
+}
+
 window.addEventListener("DOMContentLoaded", (event) => {
     // Открытие попапа смены пароля
     const addBtn = document.getElementById('change-password-btn');

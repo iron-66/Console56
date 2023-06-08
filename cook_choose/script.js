@@ -2,6 +2,11 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+if (id === null) {
+    const redirectUrl = `https://iron-66.github.io/Console56/`;
+        window.location.href = redirectUrl;
+}
+
 // Функция для получения данных заказов от сервера
 async function getCookToChooseOrders() {
     try {

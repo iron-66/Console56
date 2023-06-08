@@ -2,6 +2,11 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+if (id === null) {
+    const redirectUrl = `https://iron-66.github.io/Console56/`;
+        window.location.href = redirectUrl;
+}
+
 // Проверить в базе, какие счета есть для текущего id
 fetch('http://localhost:3000/receipt-for-manger', {
     method: 'POST',
