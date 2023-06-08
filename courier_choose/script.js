@@ -4,7 +4,7 @@ const id = urlParams.get('id');
 
 if (id === null) {
     const redirectUrl = `https://iron-66.github.io/Console56/`;
-        window.location.href = redirectUrl;
+    window.location.href = redirectUrl;
 }
 
 // Получение доступных заказов
