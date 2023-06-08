@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = nameInput.value;
         const address = addressInput.value;
         const phone = phoneInput.value;
-        const today = new Date(); // formatToday(new Date());
+        const today = new Date().toISOString(); // formatToday(new Date());
 
         if (nameInput.value === '' || addressInput.value === '' || addressInput.value === '' || selectedDish === null) {
             alert('Заполните все поля');
@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Корректное форматирование даты и времени
-function formatToday(date) {
+function formatToday() {
+    const date = new Date();
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
