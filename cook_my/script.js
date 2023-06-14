@@ -17,6 +17,7 @@ async function getCookReceipts() {
       const receipts = await response.json();
       const fullname = receipts.fullname;
       const monthlyShifts = receipts.monthlyShifts;
+      console.log(fullname, monthlyShifts);
   
       const list = document.getElementById('receipts');
       for (const [monthYear, shifts] of Object.entries(monthlyShifts)) {
