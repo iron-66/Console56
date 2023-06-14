@@ -136,7 +136,7 @@ main {
 .receipts-item-sum,
 .receipts-item-taxes,
 .receipts-item-fees,
-.receipts-item-prize {
+.receipts-item-total {
     width: 482px;
     height: 45px;
     margin-top: 5px;
@@ -144,10 +144,6 @@ main {
 
 .receipts-item p {
     margin: 6px;
-}
-
-.receipts-item-sum {
-    margin-top: -25px;
 }
 
 .receipts-item-date-and-time {
@@ -159,10 +155,6 @@ main {
 .receipts-date-and-time {
     margin-top: 50px;
     margin-bottom: 10px;
-}
-
-.receipts-item-total {
-    margin-top: 35px;
 }
 
 .more-info-btn {
