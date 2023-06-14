@@ -27,7 +27,7 @@ async function getCookReceipts() {
             <div class="about-receipt">
                 <div class="receipts-item-date-and-time">
                     <p><b>Квитанция за:</b></p>
-                    <p id="date" class="receipts-date-and-time">${toString(monthYear)}</p>
+                    <p id="date" class="receipts-date-and-time">${monthYear}</p>
                 </div>
                 <div class="receipts-item-employee">
                     <p>Сотрудник:</p>
@@ -43,11 +43,11 @@ async function getCookReceipts() {
                 </div>
                 <div class="receipts-item-fees">
                     <p>Без учёта налогового вычета:</p>
-                    <p id="taxless" class="taxless">${shifts * 2000}</p>
+                    <p id="taxless" class="taxless">${shifts * 2000} руб.</p>
                 </div>
                 <div class="receipts-item-total">
                     <p><b>Итого:</b></p>
-                    <p id="total" class="total">${shifts * 2000 * 0.87}</p>
+                    <p id="total" class="total">${shifts * 2000 * 0.87} руб.</p>
                 </div>
             </div>
         </li>`;
