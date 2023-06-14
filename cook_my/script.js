@@ -8,7 +8,7 @@ if (id === null) {
 }
 
 // Функция для получения квитанций от сервера
-async function getCookReceipts() {
+async function getReceipts() {
     try {
       const response = await fetch(`http://localhost:3000/check-employee-receipts?employeeid=${id}`);
       if (!response.ok) {
@@ -59,7 +59,7 @@ async function getCookReceipts() {
 } 
 
 // Вызов функции для получения квитанций
-getCookReceipts();
+getReceipts();
 
 window.addEventListener("DOMContentLoaded", (event) => {
     // Открытие попапа смены пароля
