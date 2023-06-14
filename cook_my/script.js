@@ -46,7 +46,7 @@ async function getCookReceipts() {
                     <p id="taxless" class="taxless">${shifts * 2000} руб.</p>
                 </div>
                 <div class="receipts-item-total">
-                    <p><b>Итого:</b></p>
+                    <p><b>Итого 123456789:</b></p>
                     <p id="total" class="total">${shifts * 2000 * 0.87} руб.</p>
                 </div>
             </div>
