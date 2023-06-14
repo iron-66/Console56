@@ -132,6 +132,7 @@ main {
     display: inline-block;
 }
 
+.receipts-item-employee,
 .receipts-item-sum,
 .receipts-item-taxes,
 .receipts-item-fees,
