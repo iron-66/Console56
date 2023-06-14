@@ -100,7 +100,7 @@ main {
     margin-right: 15px;
     margin-bottom: 30px;
     padding: 0;
-    height: 435px;
+    height: 400px;
     width: 1007px;
     border-radius: 55px;
     color: #5C434D;
@@ -109,7 +109,6 @@ main {
 }
 
 .about-receipt {
-    width: 580px;
     font-family: Ubuntu;
     font-style: Regular;
     font-size: 32px;
@@ -132,21 +131,18 @@ main {
     display: inline-block;
 }
 
+.receipts-item-employee,
 .receipts-item-sum,
 .receipts-item-taxes,
 .receipts-item-fees,
-.receipts-item-prize {
-    width: 482px;
+.receipts-item-total {
+    width: 100%;
     height: 45px;
     margin-top: 5px;
 }
 
 .receipts-item p {
     margin: 6px;
-}
-
-.receipts-item-sum {
-    margin-top: -25px;
 }
 
 .receipts-item-date-and-time {
@@ -158,23 +154,6 @@ main {
 .receipts-date-and-time {
     margin-top: 50px;
     margin-bottom: 10px;
-}
-
-.receipts-item-total {
-    margin-top: 35px;
-}
-
-.more-info-btn {
-    margin-top: 20px;
-    padding: 0;
-    width: 313px;
-    height: 102px;
-    border: none;
-    border-radius: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #BDB4B4;
-    background-image: url("../source/corner_mark.png");
 }
 /* Конец правил для списка квитанций */
 
