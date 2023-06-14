@@ -49,9 +49,10 @@ header button:hover {
 }
 
 .actual-orders-button,
-.accepted-orders-button {
+.accepted-orders-button,
+.archive-orders-button {
     height: 103px;
-    width: 438px;
+    width: 285px;
     left: 368px;
     top: 58px;
     border-radius: 46px;
