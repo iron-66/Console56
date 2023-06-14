@@ -93,6 +93,7 @@ async function getCourierArchiveOrders() {
 // Вызов функции для получения данных заказов
 getCourierArchiveOrders();
 
+// Корректное отображение даты и времени
 function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
   
@@ -106,6 +107,7 @@ function formatDateTime(dateTimeString) {
     return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
+// Получение информации о заказчике
 function getUserData(userid) {
     return fetch('http://localhost:3000/get-user-data', {
       method: 'POST',
@@ -124,6 +126,7 @@ function getUserData(userid) {
     });
 }
 
+// Получение информации о заказе
 function getOrderData(orderid) {
     return fetch('http://localhost:3000/get-order-data', {
       method: 'POST',
