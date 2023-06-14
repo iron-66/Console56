@@ -27,7 +27,7 @@ async function getCookReceipts() {
             <div class="about-receipt">
                 <div class="receipts-item-date-and-time">
                     <p><b>Квитанция за:</b></p>
-                    <p id="date" class="receipts-date-and-time">${formatDateTime(monthYear)}</p>
+                    <p id="date" class="receipts-date-and-time">${toString(monthYear)}</p>
                 </div>
                 <div class="receipts-item-employee">
                     <p>Сотрудник:</p>
