@@ -168,15 +168,15 @@ function selectCookOrder(orderid) {
 window.addEventListener("DOMContentLoaded", (event) => {
 
     // Переход в активные заказы
-    const archiveOrd = document.getElementById('accepted-orders-button');
-    archiveOrd.addEventListener('click', () => {
+    const activeOrd = document.getElementById('accepted-orders-button');
+    activeOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/cook_active/?id=${id}`;
         window.location.href = redirectUrl;
     });
 
     // Переход в архив заказов
-    const lk = document.getElementById('archive-orders-button');
-    lk.addEventListener('click', () => {
+    const archiveOrd = document.getElementById('archive-orders-button');
+    archiveOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/cook_archive/?id=${id}`;
         window.location.href = redirectUrl;
     });

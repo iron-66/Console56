@@ -68,8 +68,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     // Переход в архив заказов
-    const lk = document.getElementById('archive-orders-button');
-    lk.addEventListener('click', () => {
+    const archiveOrd = document.getElementById('archive-orders-button');
+    archiveOrd.addEventListener('click', () => {
         const redirectUrl = `https://iron-66.github.io/Console56/cook_archive/?id=${id}`;
         window.location.href = redirectUrl;
     });
