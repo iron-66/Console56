@@ -101,7 +101,7 @@ main {
     margin-bottom: 30px;
     padding: 0;
     height: 435px;
-    width: 1007px;
+    /* width: 1007px; */
     border-radius: 55px;
     color: #5C434D;
     border: 5px solid #43AA72;
@@ -109,7 +109,7 @@ main {
 }
 
 .about-receipt {
-    width: 580px;
+    /* width: 580px; */
     font-family: Ubuntu;
     font-style: Regular;
     font-size: 32px;
