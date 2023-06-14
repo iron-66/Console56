@@ -137,7 +137,7 @@ main {
 .receipts-item-taxes,
 .receipts-item-fees,
 .receipts-item-total {
-    width: 482px;
+    /* width: 482px; */
     height: 45px;
     margin-top: 5px;
 }
@@ -155,19 +155,6 @@ main {
 .receipts-date-and-time {
     margin-top: 50px;
     margin-bottom: 10px;
-}
-
-.more-info-btn {
-    margin-top: 20px;
-    padding: 0;
-    width: 313px;
-    height: 102px;
-    border: none;
-    border-radius: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #BDB4B4;
-    background-image: url("../source/corner_mark.png");
 }
 /* Конец правил для списка квитанций */
 
