@@ -16,7 +16,7 @@ async function getReceipts() {
         }
         const receipts = await response.json();
         const fullname = receipts.fullname;
-        const monthlyShifts = receipts.monthlyShifts;
+        const monthlyCounts = receipts.monthlyCounts;
         console.log(fullname, monthlyShifts);
     
         const list = document.getElementById('receipts');
