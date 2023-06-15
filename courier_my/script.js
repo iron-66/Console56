@@ -38,15 +38,15 @@ async function getReceipts() {
                     </div>
                     <div class="receipts-item-taxes">
                         <p>Размер ставки:</p>
-                        <p id="bid" class="bid">2000 руб.</p>
+                        <p id="bid" class="bid">300 руб.</p>
                     </div>
                     <div class="receipts-item-fees">
                         <p>Без учёта налогового вычета:</p>
-                        <p id="taxless" class="taxless">${count * 2000} руб.</p>
+                        <p id="taxless" class="taxless">${count * 300} руб.</p>
                     </div>
                     <div class="receipts-item-total">
                         <p><b>Итого:</b></p>
-                        <p id="total" class="total">${count * 2000 * 0.87} руб.</p>
+                        <p id="total" class="total">${count * 300 * 0.87} руб.</p>
                     </div>
                 </div>
             </li>`;
