@@ -199,16 +199,14 @@ main {
     background-image: url("../source/baked.png");
 }
 
-.cancel-btn,
 .more-info-btn {
     margin-top: 5px;
-    width: 187px;
-    height: 138px;
+    width: 378px;
+    height: 146px;
 }
 
 .done-btn,
-.cancel-btn,
-.more-info-btn {
+.cancel-btn {
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -216,11 +214,6 @@ main {
 .cancel-btn {
     background-color: #FA9292;
     background-image: url("../source/canceled.png");
-}
-
-.more-info-btn {
-    background-color: #BDB4B4;
-    background-image: url("../source/dots.png");
 }
 
 .order-content-header-cntnt,

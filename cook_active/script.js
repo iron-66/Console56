@@ -46,7 +46,6 @@ async function getCookActiveOrders() {
                 <div class="buttons">
                     <button class="done-btn" data-orderid="${order.orderid}"></button>
                     <button class="cancel-btn" cancel-orderid="${order.orderid}"></button>
-                    <button class="more-info-btn"></button>
                 </div>
             </li>`;
             list.insertAdjacentHTML("afterbegin", newLiHTML);
