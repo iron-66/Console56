@@ -182,16 +182,14 @@ main {
     background-image: url("../source/delivered.png");
 }
 
-.cancel-btn,
-.more-info-btn {
+.cancel-btn {
     margin-top: 5px;
-    width: 187px;
+    width: 378px;
     height: 138px;
 }
 
 .delivered-btn,
-.cancel-btn,
-.more-info-btn {
+.cancel-btn {
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -199,11 +197,6 @@ main {
 .cancel-btn {
     background-color: #FA9292;
     background-image: url("../source/canceled.png");
-}
-
-.more-info-btn {
-    background-color: #BDB4B4;
-    background-image: url("../source/dots.png");
 }
 
 /* Содержимое заказа */

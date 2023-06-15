@@ -46,7 +46,6 @@ async function getCourierActiveOrders() {
                 <div class="buttons">
                     <button class="delivered-btn" data-orderid="${order.orderid}"></button>
                     <button class="cancel-btn" cancel-orderid="${order.orderid}"></button>
-                    <button class="more-info-btn"></button>
                 </div>
                 <div class="order-content">
                     <table class="order-table" cellpadding="8px">
