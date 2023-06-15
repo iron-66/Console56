@@ -20,7 +20,8 @@ async function getReceipts() {
       console.log(fullname, monthlyShifts);
   
       const list = document.getElementById('receipts');
-      for (const [monthYear, shifts] of Object.entries(monthlyShifts)) {
+      for (const [monthYear, dates] of Object.entries(monthlyShifts)) {
+        const shifts = dates.length;
   
         const newLiHTML = `
         <li class="receipts-item">

@@ -10,7 +10,7 @@ if (id === null) {
 // Функция для получения квитанций от сервера
 async function getReceipts() {
     try {
-      const response = await fetch(`http://localhost:3000/check-employee-receipts?employeeid=${id}`);
+      const response = await fetch(`http://localhost:3000/check-courier-receipts?employeeid=${id}`);
       if (!response.ok) {
         throw new Error('Request failed');
       }
