@@ -64,7 +64,6 @@ async function getManagerOrders() {
                     </div>
                 </div>
                 <div class="buttons">
-                    <button class="more-info-btn"></button>
                     <button class="cancel-btn" cancel-orderid="${order.orderid}"></button>
                     <button class="edit-btn"></button>
                 </div>
@@ -87,6 +86,12 @@ async function getManagerOrders() {
             const cancelBtn = document.querySelector(`[cancel-orderid="${order.orderid}"]`);
             cancelBtn.addEventListener("click", () => {
                 cancelOrder(order.orderid);
+            });
+
+            const editBtn = document.querySelector(`[edit-btn]`);
+            editBtn.addEventListener("click", () => {
+                const redirectUrl = `https://iron-66.github.io/Console56/manager_new/?id=${id}`;
+                window.location.href = redirectUrl;
             });
 
             const tableId = `order-table-${order.orderid}`;
