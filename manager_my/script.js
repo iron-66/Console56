@@ -22,7 +22,6 @@ async function getReceipts() {
       const list = document.getElementById('receipts');
       for (const [monthYear, dates] of Object.entries(monthlyShifts)) {
         const shifts = dates.length;
-  
         const newLiHTML = `
         <li class="receipts-item">
             <div class="about-receipt">
