@@ -30,20 +30,6 @@ async function getCookArchiveOrders() {
                         <p class="order-number">${formatDateTime(order.createdate)}</p>
                     </div>
                 </div>
-                <div class="about-customer">
-                    <div class="order-item-customer">
-                        <p>Заказчик:</p>
-                        <p class="order-customer">${userResponse.name}</p>
-                    </div>
-                    <div class="order-item-address">
-                        <p>Адрес:</p>
-                        <p class="order-address">${order.address}</p>
-                    </div>
-                    <div class="order-item-phone-number">
-                        <p>Телефон:</p>
-                        <p class="order-phone-number">${userResponse.phone}</p>
-                    </div>
-                </div>
                 <div class="order-content">
                     <table class="order-table" cellpadding="8px">
                         <thead class="order-table-head">
