@@ -23,11 +23,25 @@ async function getCourierArchiveOrders() {
             const orderResponse = await getOrderData(order.orderid);
 
             const newLiHTML = `
-            <li class="actual-orders-item">
+            <li class="archived-orders-item">
                 <div class="about-order">
                     <div class="order-item-number">
                         <p><b>Заказ от:</b></p>
                         <p class="order-number">${formatDateTime(order.createdate)}</p>
+                    </div>
+                </div>
+                <div class="about-customer">
+                    <div class="order-item-customer">
+                        <p>Заказчик:</p>
+                        <p class="order-customer">${userResponse.name}</p>
+                    </div>
+                    <div class="order-item-address">
+                        <p>Адрес:</p>
+                        <p class="order-address">${order.address}</p>
+                    </div>
+                    <div class="order-item-phone-number">
+                        <p>Телефон:</p>
+                        <p class="order-phone-number">${userResponse.phone}</p>
                     </div>
                 </div>
                 <div class="order-content">
@@ -36,6 +50,7 @@ async function getCourierArchiveOrders() {
                             <tr>
                                 <th class="order-content-header-cntnt">Содержимое заказа:</th>
                                 <th class="order-content-header-amount">Кол-во:</th>
+                                <th class="order-content-header-cost">Cтоимость:</th>
                             </tr>
                         </thead>
                         <tbody id="order-table-${order.orderid}" class="order-table-body">
